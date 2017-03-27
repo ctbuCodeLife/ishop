@@ -1,4 +1,12 @@
 
 doc/~\$目需求说明书\.docx
 
+<<<<<<< HEAD
 front/\.project
+=======
+doc/~\$要设计说明书\.doc
+
+*.tmp
+
+doc/~\$\$ishopUml\.~vsdx
+>>>>>>> master
