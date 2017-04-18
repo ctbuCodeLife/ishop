@@ -112,4 +112,50 @@ public class User implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+
+        User user = (User) o;
+
+        if (getId() != null ? !getId().equals(user.getId()) : user.getId() != null) return false;
+        if (getName() != null ? !getName().equals(user.getName()) : user.getName() != null) return false;
+        if (getPassword() != null ? !getPassword().equals(user.getPassword()) : user.getPassword() != null)
+            return false;
+        if (getRealName() != null ? !getRealName().equals(user.getRealName()) : user.getRealName() != null)
+            return false;
+        if (getEmail() != null ? !getEmail().equals(user.getEmail()) : user.getEmail() != null) return false;
+        if (getPhone() != null ? !getPhone().equals(user.getPhone()) : user.getPhone() != null) return false;
+        if (getCreated() != null ? !getCreated().equals(user.getCreated()) : user.getCreated() != null) return false;
+        return getUpdated() != null ? getUpdated().equals(user.getUpdated()) : user.getUpdated() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
+        result = 31 * result + (getRealName() != null ? getRealName().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
+        result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
+        result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", realName='" + realName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
 }

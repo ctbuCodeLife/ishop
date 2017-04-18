@@ -126,4 +126,54 @@ public class Order implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+
+        Order order = (Order) o;
+
+        if (getId() != null ? !getId().equals(order.getId()) : order.getId() != null) return false;
+        if (getUserId() != null ? !getUserId().equals(order.getUserId()) : order.getUserId() != null) return false;
+        if (getAdminId() != null ? !getAdminId().equals(order.getAdminId()) : order.getAdminId() != null) return false;
+        if (getProductPrice() != null ? !getProductPrice().equals(order.getProductPrice()) : order.getProductPrice() != null)
+            return false;
+        if (getTrafficPrice() != null ? !getTrafficPrice().equals(order.getTrafficPrice()) : order.getTrafficPrice() != null)
+            return false;
+        if (getTotalPrice() != null ? !getTotalPrice().equals(order.getTotalPrice()) : order.getTotalPrice() != null)
+            return false;
+        if (getStatus() != null ? !getStatus().equals(order.getStatus()) : order.getStatus() != null) return false;
+        if (getCreated() != null ? !getCreated().equals(order.getCreated()) : order.getCreated() != null) return false;
+        return getUpdated() != null ? getUpdated().equals(order.getUpdated()) : order.getUpdated() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getUserId() != null ? getUserId().hashCode() : 0);
+        result = 31 * result + (getAdminId() != null ? getAdminId().hashCode() : 0);
+        result = 31 * result + (getProductPrice() != null ? getProductPrice().hashCode() : 0);
+        result = 31 * result + (getTrafficPrice() != null ? getTrafficPrice().hashCode() : 0);
+        result = 31 * result + (getTotalPrice() != null ? getTotalPrice().hashCode() : 0);
+        result = 31 * result + (getStatus() != null ? getStatus().hashCode() : 0);
+        result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
+        result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", adminId=" + adminId +
+                ", productPrice=" + productPrice +
+                ", trafficPrice=" + trafficPrice +
+                ", totalPrice=" + totalPrice +
+                ", status='" + status + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
 }

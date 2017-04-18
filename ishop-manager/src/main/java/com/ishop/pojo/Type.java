@@ -99,4 +99,47 @@ public class Type implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Type)) return false;
+
+        Type type = (Type) o;
+
+        if (getId() != null ? !getId().equals(type.getId()) : type.getId() != null) return false;
+        if (getParentId() != null ? !getParentId().equals(type.getParentId()) : type.getParentId() != null)
+            return false;
+        if (getName() != null ? !getName().equals(type.getName()) : type.getName() != null) return false;
+        if (getDescribe() != null ? !getDescribe().equals(type.getDescribe()) : type.getDescribe() != null)
+            return false;
+        if (getGrade() != null ? !getGrade().equals(type.getGrade()) : type.getGrade() != null) return false;
+        if (getCreated() != null ? !getCreated().equals(type.getCreated()) : type.getCreated() != null) return false;
+        return getUpdated() != null ? getUpdated().equals(type.getUpdated()) : type.getUpdated() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getParentId() != null ? getParentId().hashCode() : 0);
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getDescribe() != null ? getDescribe().hashCode() : 0);
+        result = 31 * result + (getGrade() != null ? getGrade().hashCode() : 0);
+        result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
+        result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Type{" +
+                "id=" + id +
+                ", parentId=" + parentId +
+                ", name='" + name + '\'' +
+                ", describe='" + describe + '\'' +
+                ", grade=" + grade +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
 }

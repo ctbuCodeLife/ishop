@@ -99,4 +99,50 @@ public class Logist implements Serializable {
     public void setLogistContent(String logistContent) {
         this.logistContent = logistContent;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Logist)) return false;
+
+        Logist logist = (Logist) o;
+
+        if (getId() != null ? !getId().equals(logist.getId()) : logist.getId() != null) return false;
+        if (getOrderId() != null ? !getOrderId().equals(logist.getOrderId()) : logist.getOrderId() != null)
+            return false;
+        if (getLogistName() != null ? !getLogistName().equals(logist.getLogistName()) : logist.getLogistName() != null)
+            return false;
+        if (getLogistPhone() != null ? !getLogistPhone().equals(logist.getLogistPhone()) : logist.getLogistPhone() != null)
+            return false;
+        if (getCreated() != null ? !getCreated().equals(logist.getCreated()) : logist.getCreated() != null)
+            return false;
+        if (getUpdated() != null ? !getUpdated().equals(logist.getUpdated()) : logist.getUpdated() != null)
+            return false;
+        return getLogistContent() != null ? getLogistContent().equals(logist.getLogistContent()) : logist.getLogistContent() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getOrderId() != null ? getOrderId().hashCode() : 0);
+        result = 31 * result + (getLogistName() != null ? getLogistName().hashCode() : 0);
+        result = 31 * result + (getLogistPhone() != null ? getLogistPhone().hashCode() : 0);
+        result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
+        result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
+        result = 31 * result + (getLogistContent() != null ? getLogistContent().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Logist{" +
+                "id=" + id +
+                ", orderId=" + orderId +
+                ", logistName='" + logistName + '\'' +
+                ", logistPhone='" + logistPhone + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                ", logistContent='" + logistContent + '\'' +
+                '}';
+    }
 }

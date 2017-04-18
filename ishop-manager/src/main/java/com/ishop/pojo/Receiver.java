@@ -125,4 +125,55 @@ public class Receiver implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Receiver)) return false;
+
+        Receiver receiver = (Receiver) o;
+
+        if (getId() != null ? !getId().equals(receiver.getId()) : receiver.getId() != null) return false;
+        if (getUserId() != null ? !getUserId().equals(receiver.getUserId()) : receiver.getUserId() != null)
+            return false;
+        if (getName() != null ? !getName().equals(receiver.getName()) : receiver.getName() != null) return false;
+        if (getPhone() != null ? !getPhone().equals(receiver.getPhone()) : receiver.getPhone() != null) return false;
+        if (getAddress() != null ? !getAddress().equals(receiver.getAddress()) : receiver.getAddress() != null)
+            return false;
+        if (getEmail() != null ? !getEmail().equals(receiver.getEmail()) : receiver.getEmail() != null) return false;
+        if (getZipcode() != null ? !getZipcode().equals(receiver.getZipcode()) : receiver.getZipcode() != null)
+            return false;
+        if (getCreated() != null ? !getCreated().equals(receiver.getCreated()) : receiver.getCreated() != null)
+            return false;
+        return getUpdated() != null ? getUpdated().equals(receiver.getUpdated()) : receiver.getUpdated() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getUserId() != null ? getUserId().hashCode() : 0);
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
+        result = 31 * result + (getAddress() != null ? getAddress().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (getZipcode() != null ? getZipcode().hashCode() : 0);
+        result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
+        result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Receiver{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", zipcode='" + zipcode + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
 }

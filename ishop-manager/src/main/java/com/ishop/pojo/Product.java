@@ -178,4 +178,72 @@ public class Product implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+
+        Product product = (Product) o;
+
+        if (getId() != null ? !getId().equals(product.getId()) : product.getId() != null) return false;
+        if (getTypeId() != null ? !getTypeId().equals(product.getTypeId()) : product.getTypeId() != null) return false;
+        if (getName() != null ? !getName().equals(product.getName()) : product.getName() != null) return false;
+        if (getSubTitle() != null ? !getSubTitle().equals(product.getSubTitle()) : product.getSubTitle() != null)
+            return false;
+        if (getImageSrc() != null ? !getImageSrc().equals(product.getImageSrc()) : product.getImageSrc() != null)
+            return false;
+        if (getInventNumber() != null ? !getInventNumber().equals(product.getInventNumber()) : product.getInventNumber() != null)
+            return false;
+        if (getMothSellNumber() != null ? !getMothSellNumber().equals(product.getMothSellNumber()) : product.getMothSellNumber() != null)
+            return false;
+        if (getOrderLink() != null ? !getOrderLink().equals(product.getOrderLink()) : product.getOrderLink() != null)
+            return false;
+        if (getRealPrice() != null ? !getRealPrice().equals(product.getRealPrice()) : product.getRealPrice() != null)
+            return false;
+        if (getSellPrice() != null ? !getSellPrice().equals(product.getSellPrice()) : product.getSellPrice() != null)
+            return false;
+        if (getIsRecommmend() != null ? !getIsRecommmend().equals(product.getIsRecommmend()) : product.getIsRecommmend() != null)
+            return false;
+        if (getCreated() != null ? !getCreated().equals(product.getCreated()) : product.getCreated() != null)
+            return false;
+        return getUpdated() != null ? getUpdated().equals(product.getUpdated()) : product.getUpdated() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getTypeId() != null ? getTypeId().hashCode() : 0);
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getSubTitle() != null ? getSubTitle().hashCode() : 0);
+        result = 31 * result + (getImageSrc() != null ? getImageSrc().hashCode() : 0);
+        result = 31 * result + (getInventNumber() != null ? getInventNumber().hashCode() : 0);
+        result = 31 * result + (getMothSellNumber() != null ? getMothSellNumber().hashCode() : 0);
+        result = 31 * result + (getOrderLink() != null ? getOrderLink().hashCode() : 0);
+        result = 31 * result + (getRealPrice() != null ? getRealPrice().hashCode() : 0);
+        result = 31 * result + (getSellPrice() != null ? getSellPrice().hashCode() : 0);
+        result = 31 * result + (getIsRecommmend() != null ? getIsRecommmend().hashCode() : 0);
+        result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
+        result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", typeId=" + typeId +
+                ", name='" + name + '\'' +
+                ", subTitle='" + subTitle + '\'' +
+                ", imageSrc='" + imageSrc + '\'' +
+                ", inventNumber=" + inventNumber +
+                ", mothSellNumber=" + mothSellNumber +
+                ", orderLink='" + orderLink + '\'' +
+                ", realPrice=" + realPrice +
+                ", sellPrice=" + sellPrice +
+                ", isRecommmend=" + isRecommmend +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
 }

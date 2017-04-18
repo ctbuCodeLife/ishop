@@ -72,4 +72,42 @@ public class ProductImage implements Serializable {
     public void setImageLink(String imageLink) {
         this.imageLink = imageLink;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ProductImage)) return false;
+
+        ProductImage that = (ProductImage) o;
+
+        if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
+        if (getProductId() != null ? !getProductId().equals(that.getProductId()) : that.getProductId() != null)
+            return false;
+        if (getImageType() != null ? !getImageType().equals(that.getImageType()) : that.getImageType() != null)
+            return false;
+        if (getImageName() != null ? !getImageName().equals(that.getImageName()) : that.getImageName() != null)
+            return false;
+        return getImageLink() != null ? getImageLink().equals(that.getImageLink()) : that.getImageLink() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getProductId() != null ? getProductId().hashCode() : 0);
+        result = 31 * result + (getImageType() != null ? getImageType().hashCode() : 0);
+        result = 31 * result + (getImageName() != null ? getImageName().hashCode() : 0);
+        result = 31 * result + (getImageLink() != null ? getImageLink().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductImage{" +
+                "id=" + id +
+                ", productId=" + productId +
+                ", imageType='" + imageType + '\'' +
+                ", imageName='" + imageName + '\'' +
+                ", imageLink='" + imageLink + '\'' +
+                '}';
+    }
 }

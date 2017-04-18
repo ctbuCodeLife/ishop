@@ -73,4 +73,41 @@ public class Property implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Property)) return false;
+
+        Property property = (Property) o;
+
+        if (getId() != null ? !getId().equals(property.getId()) : property.getId() != null) return false;
+        if (getTypeId() != null ? !getTypeId().equals(property.getTypeId()) : property.getTypeId() != null)
+            return false;
+        if (getName() != null ? !getName().equals(property.getName()) : property.getName() != null) return false;
+        if (getCreated() != null ? !getCreated().equals(property.getCreated()) : property.getCreated() != null)
+            return false;
+        return getUpdated() != null ? getUpdated().equals(property.getUpdated()) : property.getUpdated() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getTypeId() != null ? getTypeId().hashCode() : 0);
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
+        result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Property{" +
+                "id=" + id +
+                ", typeId=" + typeId +
+                ", name='" + name + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
 }

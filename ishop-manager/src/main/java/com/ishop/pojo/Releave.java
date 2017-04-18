@@ -112,4 +112,53 @@ public class Releave implements Serializable {
     public void setContent(String content) {
         this.content = content;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Releave)) return false;
+
+        Releave releave = (Releave) o;
+
+        if (getId() != null ? !getId().equals(releave.getId()) : releave.getId() != null) return false;
+        if (getAdminId() != null ? !getAdminId().equals(releave.getAdminId()) : releave.getAdminId() != null)
+            return false;
+        if (getLeaveId() != null ? !getLeaveId().equals(releave.getLeaveId()) : releave.getLeaveId() != null)
+            return false;
+        if (getSubject() != null ? !getSubject().equals(releave.getSubject()) : releave.getSubject() != null)
+            return false;
+        if (getIp() != null ? !getIp().equals(releave.getIp()) : releave.getIp() != null) return false;
+        if (getCreated() != null ? !getCreated().equals(releave.getCreated()) : releave.getCreated() != null)
+            return false;
+        if (getUpdated() != null ? !getUpdated().equals(releave.getUpdated()) : releave.getUpdated() != null)
+            return false;
+        return getContent() != null ? getContent().equals(releave.getContent()) : releave.getContent() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getAdminId() != null ? getAdminId().hashCode() : 0);
+        result = 31 * result + (getLeaveId() != null ? getLeaveId().hashCode() : 0);
+        result = 31 * result + (getSubject() != null ? getSubject().hashCode() : 0);
+        result = 31 * result + (getIp() != null ? getIp().hashCode() : 0);
+        result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
+        result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
+        result = 31 * result + (getContent() != null ? getContent().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Releave{" +
+                "id=" + id +
+                ", adminId=" + adminId +
+                ", leaveId=" + leaveId +
+                ", subject='" + subject + '\'' +
+                ", ip='" + ip + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }

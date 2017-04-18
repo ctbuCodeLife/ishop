@@ -125,4 +125,53 @@ public class Admin implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Admin)) return false;
+
+        Admin admin = (Admin) o;
+
+        if (getId() != null ? !getId().equals(admin.getId()) : admin.getId() != null) return false;
+        if (getRoleId() != null ? !getRoleId().equals(admin.getRoleId()) : admin.getRoleId() != null) return false;
+        if (getName() != null ? !getName().equals(admin.getName()) : admin.getName() != null) return false;
+        if (getPassword() != null ? !getPassword().equals(admin.getPassword()) : admin.getPassword() != null)
+            return false;
+        if (getRealName() != null ? !getRealName().equals(admin.getRealName()) : admin.getRealName() != null)
+            return false;
+        if (getEmail() != null ? !getEmail().equals(admin.getEmail()) : admin.getEmail() != null) return false;
+        if (getPhone() != null ? !getPhone().equals(admin.getPhone()) : admin.getPhone() != null) return false;
+        if (getCreated() != null ? !getCreated().equals(admin.getCreated()) : admin.getCreated() != null) return false;
+        return getUpdated() != null ? getUpdated().equals(admin.getUpdated()) : admin.getUpdated() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getRoleId() != null ? getRoleId().hashCode() : 0);
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
+        result = 31 * result + (getRealName() != null ? getRealName().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
+        result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
+        result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "id=" + id +
+                ", roleId=" + roleId +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", realName='" + realName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
 }
