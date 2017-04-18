@@ -12,3 +12,7 @@ doc/~\$\$ishopUml\.~vsdx
 >>>>>>> master
 
 \.idea/
+
+*.class
+
+*.iml
