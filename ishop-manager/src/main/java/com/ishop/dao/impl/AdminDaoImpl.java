@@ -89,8 +89,8 @@ public class AdminDaoImpl implements AdminDao{
                admin.setRealName(rs.getString(4));
                admin.setEmail(rs.getString(5));
                admin.setPhone(rs.getString(6));
-               admin.setCreated(rs.getDate(7));
-               admin.setUpdated(rs.getDate(8));
+               admin.setCreated(rs.getTimestamp(7));
+               admin.setUpdated(rs.getTimestamp(8));
                admin.setId(id);
             }
         }catch (Exception e){
@@ -138,8 +138,8 @@ public class AdminDaoImpl implements AdminDao{
                 admin.setRealName(rs.getString(5));
                 admin.setEmail(rs.getString(6));
                 admin.setPhone(rs.getString(7));
-                admin.setCreated(rs.getDate(8));
-                admin.setUpdated(rs.getDate(9));
+                admin.setCreated(rs.getTimestamp(8));
+                admin.setUpdated(rs.getTimestamp(9));
                 list.add(admin);
             }
         }catch (Exception e){
@@ -193,8 +193,8 @@ public class AdminDaoImpl implements AdminDao{
                 admin.setRealName(rs.getString(3));
                 admin.setEmail(rs.getString(4));
                 admin.setPhone(rs.getString(5));
-                admin.setCreated(rs.getDate(6));
-                admin.setUpdated(rs.getDate(7));
+                admin.setCreated(rs.getTimestamp(6));
+                admin.setUpdated(rs.getTimestamp(7));
             }
         }catch (Exception e){
             e.printStackTrace();
