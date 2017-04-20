@@ -16,3 +16,7 @@ doc/~\$\$ishopUml\.~vsdx
 *.class
 
 *.iml
+
+ishop-manager/target/test-classes/dbconfig\.properties
+
+ishop-manager/target/test-classes/resources/dbconfig\.properties
