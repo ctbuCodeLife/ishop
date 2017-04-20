@@ -1,7 +1,7 @@
 package com.ishop.pojo;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * @author 
@@ -40,12 +40,12 @@ public class User implements Serializable {
     /**
      * 创建时间
      */
-    private Date created;
+    private Timestamp created;
 
     /**
      * 更新时间
      */
-    private Date updated;
+    private Timestamp updated;
 
     private static final long serialVersionUID = 1L;
 
@@ -97,19 +97,19 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public Date getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(Timestamp created) {
         this.created = created;
     }
 
-    public Date getUpdated() {
+    public Timestamp getUpdated() {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    public void setUpdated(Timestamp updated) {
         this.updated = updated;
     }
 

@@ -1,6 +1,6 @@
 package com.ishop.pojo;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * @author
@@ -44,12 +44,12 @@ public class Admin  {
     /**
      * 管理员创建时间
      */
-    private Date created;
+    private Timestamp created;
 
     /**
      * 管理员更新时间
      */
-    private Date updated;
+    private Timestamp updated;
 
 
     public Integer getId() {
@@ -108,19 +108,19 @@ public class Admin  {
         this.phone = phone;
     }
 
-    public Date getCreated() {
+    public Timestamp getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(Timestamp created) {
         this.created = created;
     }
 
-    public Date getUpdated() {
+    public Timestamp getUpdated() {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    public void setUpdated(Timestamp updated) {
         this.updated = updated;
     }
 

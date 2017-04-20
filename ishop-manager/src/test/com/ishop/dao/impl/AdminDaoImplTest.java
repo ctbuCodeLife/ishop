@@ -23,19 +23,24 @@ public class AdminDaoImplTest {
     public void testUpdate(){
         Admin admin = new Admin();
         admin.setPhone("18787381223");
-        admin.setId(2);//此id为root用户id,
+        admin.setId(4);//此id为testAdmin用户id,
         AdminDao ad = new AdminDaoImpl();
         assertTrue(ad.update(admin));
     }
     @Test
     public void testDelete(){
-
+       // 白盒测试,可以删除,测试过程不可逆
+//        AdminDao ad = new AdminDaoImpl();
+//        int id = 8;
+//        assertTrue(ad.delete(id));
     }
     @Test
     public void testGetById(){
         int id = 2;//此id为root的id;
         AdminDao ad  = new AdminDaoImpl();
-        assertNotNull(ad.get(id));
+        Admin admin = ad.get(id);
+        System.out.println(admin);
+        assertNotNull(admin);
     }
     @Test
     public void testCountAll(){
