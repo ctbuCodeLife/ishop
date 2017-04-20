@@ -45,7 +45,7 @@ public class AdminDaoImpl implements AdminDao{
                 admin.getPassword(),
                 admin.getRealName(),
                 admin.getEmail(),
-                admin.getPassword(),
+                admin.getPhone(),
                 admin.getUpdated(),
                 admin.getId()
         };
