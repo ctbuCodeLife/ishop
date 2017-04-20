@@ -1,4 +1,4 @@
-﻿package com.ishop.pojo;
+package com.ishop.pojo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

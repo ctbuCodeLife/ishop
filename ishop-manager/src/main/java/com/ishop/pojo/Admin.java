@@ -1,12 +1,11 @@
-﻿package com.ishop.pojo;
+package com.ishop.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author 
+ * @author
  */
-public class Admin implements Serializable {
+public class Admin  {
     /**
      * 管理员表id,自增
      */
@@ -52,7 +51,6 @@ public class Admin implements Serializable {
      */
     private Date updated;
 
-    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
