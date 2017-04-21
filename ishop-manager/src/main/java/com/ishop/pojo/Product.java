@@ -61,7 +61,7 @@ public class Product implements Serializable {
     /**
      * 是否推荐到首页,0表示不推荐,1表示推荐,默认为0
      */
-    private Integer isRecommmend;
+    private Integer isRecommend;
 
     /**
      * 创建时间
@@ -155,12 +155,12 @@ public class Product implements Serializable {
         this.sellPrice = sellPrice;
     }
 
-    public Integer getIsRecommmend() {
-        return isRecommmend;
+    public Integer getIsRecommend() {
+        return isRecommend;
     }
 
     public void setIsRecommmend(Integer isRecommmend) {
-        this.isRecommmend = isRecommmend;
+        this.isRecommend = isRecommmend;
     }
 
     public Timestamp getCreated() {
@@ -203,7 +203,7 @@ public class Product implements Serializable {
             return false;
         if (getSellPrice() != null ? !getSellPrice().equals(product.getSellPrice()) : product.getSellPrice() != null)
             return false;
-        if (getIsRecommmend() != null ? !getIsRecommmend().equals(product.getIsRecommmend()) : product.getIsRecommmend() != null)
+        if (getIsRecommend() != null ? !getIsRecommend().equals(product.getIsRecommend()) : product.getIsRecommend() != null)
             return false;
         if (getCreated() != null ? !getCreated().equals(product.getCreated()) : product.getCreated() != null)
             return false;
@@ -222,7 +222,7 @@ public class Product implements Serializable {
         result = 31 * result + (getOrderLink() != null ? getOrderLink().hashCode() : 0);
         result = 31 * result + (getRealPrice() != null ? getRealPrice().hashCode() : 0);
         result = 31 * result + (getSellPrice() != null ? getSellPrice().hashCode() : 0);
-        result = 31 * result + (getIsRecommmend() != null ? getIsRecommmend().hashCode() : 0);
+        result = 31 * result + (getIsRecommend() != null ? getIsRecommend().hashCode() : 0);
         result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
         result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
         return result;
@@ -241,7 +241,7 @@ public class Product implements Serializable {
                 ", orderLink='" + orderLink + '\'' +
                 ", realPrice=" + realPrice +
                 ", sellPrice=" + sellPrice +
-                ", isRecommmend=" + isRecommmend +
+                ", isRecommmend=" + isRecommend +
                 ", created=" + created +
                 ", updated=" + updated +
                 '}';
