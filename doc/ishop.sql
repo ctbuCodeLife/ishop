@@ -101,7 +101,7 @@ create table `product`(
     `order_link` varchar(200) default null comment '定购链接',
     `real_price` decimal(10,2) default 0.00 comment '商品原价',
     `sell_price` decimal(10,2) default 0.00 comment '商品实际价格',
-    `is_recommmend` int(1) default 0 comment '是否推荐到首页,0表示不推荐,1表示推荐,默认为0',
+    `is_recommend` int(1) default 0 comment '是否推荐到首页,0表示不推荐,1表示推荐,默认为0',
     `created` datetime default null comment '创建时间',
     `updated` datetime default null comment '更新时间',
     primary key(`id`),
