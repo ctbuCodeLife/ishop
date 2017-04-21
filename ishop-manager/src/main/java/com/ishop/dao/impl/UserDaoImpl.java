@@ -165,7 +165,7 @@ public class UserDaoImpl implements UserDao {
         //sql statement
         String sql = "select id,real_name,email,phone,created,updated from user where `name`=? and `password`=?";
         //sql 的参数
-        Object[] params = {name};
+        Object[] params = {name,password};
         //rs表示查询结果集,执行SQL
         ResultSet rs = db.doQuery(sql,params);
         //查询返回的对象
