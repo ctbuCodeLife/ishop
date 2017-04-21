@@ -41,7 +41,7 @@ public class Product implements Serializable {
     /**
      * 月销量
      */
-    private Integer mothSellNumber;
+    private Integer monthSellNumber;
 
     /**
      * 定购链接
@@ -124,11 +124,11 @@ public class Product implements Serializable {
     }
 
     public Integer getMothSellNumber() {
-        return mothSellNumber;
+        return monthSellNumber;
     }
 
-    public void setMothSellNumber(Integer mothSellNumber) {
-        this.mothSellNumber = mothSellNumber;
+    public void setMothSellNumber(Integer monthSellNumber) {
+        this.monthSellNumber = monthSellNumber;
     }
 
     public String getOrderLink() {
@@ -237,7 +237,7 @@ public class Product implements Serializable {
                 ", subTitle='" + subTitle + '\'' +
                 ", imageSrc='" + imageSrc + '\'' +
                 ", inventNumber=" + inventNumber +
-                ", mothSellNumber=" + mothSellNumber +
+                ", monthSellNumber=" + monthSellNumber +
                 ", orderLink='" + orderLink + '\'' +
                 ", realPrice=" + realPrice +
                 ", sellPrice=" + sellPrice +

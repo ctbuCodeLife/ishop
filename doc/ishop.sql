@@ -97,7 +97,7 @@ create table `product`(
     `sub_title` varchar(255) default null comment '商品子标题',
     `image_src` varchar(255) default null comment '商品缩略图连接地址',
     `invent_number` int unsigned default 0 comment '库存数量',
-	`moth_sell_number` int unsigned default 0 comment '月销量',
+	`month_sell_number` int unsigned default 0 comment '月销量',
     `order_link` varchar(200) default null comment '定购链接',
     `real_price` decimal(10,2) default 0.00 comment '商品原价',
     `sell_price` decimal(10,2) default 0.00 comment '商品实际价格',
