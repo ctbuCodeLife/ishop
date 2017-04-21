@@ -123,11 +123,11 @@ public class Product implements Serializable {
         this.inventNumber = inventNumber;
     }
 
-    public Integer getMothSellNumber() {
-        return monthSellNumber;
+    public Integer getMonthSellNumber() {
+        return this.monthSellNumber;
     }
 
-    public void setMothSellNumber(Integer monthSellNumber) {
+    public void setMonthSellNumber(Integer monthSellNumber) {
         this.monthSellNumber = monthSellNumber;
     }
 
@@ -159,8 +159,8 @@ public class Product implements Serializable {
         return isRecommend;
     }
 
-    public void setIsRecommmend(Integer isRecommmend) {
-        this.isRecommend = isRecommmend;
+    public void setIsRecommend(Integer isRecommend) {
+        this.isRecommend = isRecommend;
     }
 
     public Timestamp getCreated() {
@@ -195,7 +195,7 @@ public class Product implements Serializable {
             return false;
         if (getInventNumber() != null ? !getInventNumber().equals(product.getInventNumber()) : product.getInventNumber() != null)
             return false;
-        if (getMothSellNumber() != null ? !getMothSellNumber().equals(product.getMothSellNumber()) : product.getMothSellNumber() != null)
+        if (getMonthSellNumber() != null ? !getMonthSellNumber().equals(product.getMonthSellNumber()) : product.getMonthSellNumber() != null)
             return false;
         if (getOrderLink() != null ? !getOrderLink().equals(product.getOrderLink()) : product.getOrderLink() != null)
             return false;
@@ -218,7 +218,7 @@ public class Product implements Serializable {
         result = 31 * result + (getSubTitle() != null ? getSubTitle().hashCode() : 0);
         result = 31 * result + (getImageSrc() != null ? getImageSrc().hashCode() : 0);
         result = 31 * result + (getInventNumber() != null ? getInventNumber().hashCode() : 0);
-        result = 31 * result + (getMothSellNumber() != null ? getMothSellNumber().hashCode() : 0);
+        result = 31 * result + (getMonthSellNumber() != null ? getMonthSellNumber().hashCode() : 0);
         result = 31 * result + (getOrderLink() != null ? getOrderLink().hashCode() : 0);
         result = 31 * result + (getRealPrice() != null ? getRealPrice().hashCode() : 0);
         result = 31 * result + (getSellPrice() != null ? getSellPrice().hashCode() : 0);

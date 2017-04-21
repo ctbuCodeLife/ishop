@@ -5,6 +5,7 @@ import com.ishop.pojo.User;
 import com.ishop.util.DBUtil;
 
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,8 @@ public class UserDaoImpl implements UserDao {
         DBUtil db = new DBUtil();
         //sql statement
         String sql = "insert into `user`(`name`,`password`,real_name,email,phone,created) values(?,?,?,?,?,?)";
+        //获取当前时间并设置
+        user.setCreated(new Timestamp(System.currentTimeMillis()));
         //sql 的参数
         Object[] params = {
                 user.getName(),
@@ -37,6 +40,8 @@ public class UserDaoImpl implements UserDao {
         DBUtil db = new DBUtil();
         //sql statement
         String sql = "update `user` set `name`=?,`password`=?,real_name=?,email=?,phone=?,updated=? where id=?";
+        //获取当前时间并设置
+        user.setUpdated(new Timestamp(System.currentTimeMillis()));
         //sql 的参数
         Object[] params = {
                 user.getName(),
@@ -94,7 +99,7 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         return user ;
-        
+
     }
     //统计总条数
     public int countAll(){
@@ -144,7 +149,7 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         return list ;
-        
+
     }
     //根据Id判断对象是否存在
     public  boolean exists(Integer id){
