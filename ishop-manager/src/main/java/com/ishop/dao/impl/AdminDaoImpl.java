@@ -5,6 +5,7 @@ import com.ishop.pojo.Admin;
 import com.ishop.util.DBUtil;
 
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,8 @@ public class AdminDaoImpl implements AdminDao{
         DBUtil db = new DBUtil();
         //sql statement
         String sql = "insert into admin(role_id,`name`,`password`,real_name,email,phone,created) values(?,?,?,?,?,?,?)";
+        //获取当前时间并设置
+        admin.setCreated(new Timestamp(System.currentTimeMillis()));
         //sql 的参数
         Object[] params = {
                 admin.getRoleId(),
@@ -36,6 +39,8 @@ public class AdminDaoImpl implements AdminDao{
     public boolean update(Admin admin){
         //数据库工具类
         DBUtil db = new DBUtil();
+        //获取当前时间并设置
+        admin.setUpdated(new Timestamp(System.currentTimeMillis()));
         //sql statement
         String sql = "update admin set role_id=?,`name`=?,`password`=?,real_name=?,email=?,phone=?,updated=? where id=?";
         //sql 的参数
@@ -131,7 +136,7 @@ public class AdminDaoImpl implements AdminDao{
         Admin admin = new Admin();
         try {
             if (rs.next()){
-                admin.setId(1);
+                admin.setId(rs.getInt(1));
                 admin.setRoleId(rs.getInt(2));
                 admin.setName(rs.getString(3));
                 admin.setPassword(rs.getString(4));
