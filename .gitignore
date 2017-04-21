@@ -1,24 +1,14 @@
 
-doc/~\$目需求说明书\.docx
-
-<<<<<<< HEAD
-front/\.project
-=======
-doc/~\$要设计说明书\.doc
-
-*.tmp
-
-doc/~\$\$ishopUml\.~vsdx
->>>>>>> master
-
 \.idea/
+
+ishop-admin/ishop-admin\.iml
+
+ishop-manager/ishop-manager\.iml
 
 *.class
 
-*.iml
+ishop-manager/target/classes/
 
+ishop-manager/target/
 
-
-
-
-ishop-manager/src/main/resources/dbconfig\.properties
+ishop-portal/ishop-portal\.iml
