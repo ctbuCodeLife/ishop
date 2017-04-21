@@ -1,5 +1,7 @@
 package com.ishop.dao.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ishop.dao.AdminDao;
 import com.ishop.pojo.Admin;;
 import org.junit.Test;
@@ -22,10 +24,10 @@ public class AdminDaoImplTest {
     @Test
     public void testUpdate(){
         Admin admin = new Admin();
-        admin.setPhone("18787381223");
-        admin.setId(4);//此id为testAdmin用户id,
-        AdminDao ad = new AdminDaoImpl();
-        assertTrue(ad.update(admin));
+//        admin.setPhone("18787381223");
+//        admin.setId(4);//此id为testAdmin用户id,
+//        AdminDao ad = new AdminDaoImpl();
+//        assertTrue(ad.update(admin));
     }
     @Test
     public void testDelete(){
@@ -54,6 +56,11 @@ public class AdminDaoImplTest {
         List<Admin> list = new ArrayList<Admin>();
         AdminDao ad = new AdminDaoImpl();
         list = ad.listAll();
+        //将list的数据转换成JSON返回给前台
+        //JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+        //SerializerFeature.WriteDateUseDateFormat用来将日期格式化成yyyy-MM-dd的形式
+        String json = JSON.toJSONString(list,SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
+        System.out.println(json);
         assertNotNull(list);
     }
     @Test

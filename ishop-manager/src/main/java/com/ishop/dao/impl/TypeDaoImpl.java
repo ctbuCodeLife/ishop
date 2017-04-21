@@ -130,9 +130,10 @@ public class TypeDaoImpl implements TypeDao {
         //rs表示查询结果集,执行SQL
         ResultSet rs = db.doQuery(sql);
         //查询返回的对象
-        Type type = new Type();
+
         try {
-            if (rs.next()){
+            while (rs.next()){
+                Type type = new Type();
                 type.setId(rs.getInt(1));
                 type.setParentId(rs.getInt(2));
                 type.setName(rs.getString(3));

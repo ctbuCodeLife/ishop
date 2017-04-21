@@ -133,9 +133,9 @@ public class AdminDaoImpl implements AdminDao{
         //rs表示查询结果集,执行SQL
         ResultSet rs = db.doQuery(sql);
         //查询返回的对象
-        Admin admin = new Admin();
         try {
-            if (rs.next()){
+            while (rs.next()){
+                Admin admin = new Admin();
                 admin.setId(rs.getInt(1));
                 admin.setRoleId(rs.getInt(2));
                 admin.setName(rs.getString(3));

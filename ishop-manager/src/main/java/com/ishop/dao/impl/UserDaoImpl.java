@@ -131,10 +131,9 @@ public class UserDaoImpl implements UserDao {
         String sql = "select * from `user`";
         //rs表示查询结果集,执行SQL
         ResultSet rs = db.doQuery(sql);
-        //查询返回的对象
-        User user = new User();
         try {
-            if (rs.next()){
+            while (rs.next()){
+                User user = new User();
                 user.setId(1);
                 user.setName(rs.getString(2));
                 user.setPassword(rs.getString(3));

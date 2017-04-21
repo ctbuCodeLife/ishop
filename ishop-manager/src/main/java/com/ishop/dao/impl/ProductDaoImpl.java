@@ -145,9 +145,9 @@ public class ProductDaoImpl implements ProductDao{
         //rs表示查询结果集,执行SQL
         ResultSet rs = db.doQuery(sql);
         //查询返回的对象
-        Product product = new Product();
         try {
-            if (rs.next()){
+            while (rs.next()){
+                Product product = new Product();
                 product.setId(rs.getInt(1));
                 product.setTypeId(rs.getInt(2));
                 product.setName(rs.getString(3));

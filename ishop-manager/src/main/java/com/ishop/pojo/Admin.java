@@ -1,10 +1,14 @@
 package com.ishop.pojo;
 
+import com.alibaba.fastjson.annotation.JSONType;
+
 import java.sql.Timestamp;
 
 /**
  * @author
  */
+
+@JSONType(orders={"id","roleId","name","password","realName","email","phone","created","updated"})
 public class Admin  {
     /**
      * 管理员表id,自增
