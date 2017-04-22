@@ -91,13 +91,13 @@
                             <a href="userQuery.jsp" target="contentIframe">用户查询</a>
                         </li>
                         <li>
-                            <a href="">用户更行</a>
+                            <a href="userModify.jsp" target="contentIframe">用户更新</a>
                         </li>
                         <li>
-                            <a href="">用户增加</a>
+                            <a  href="userAdd.jsp" target="contentIframe">用户增加</a>
                         </li>
                         <li>
-                            <a href="">用户删除</a>
+                            <a  href="userDel.jsp" target="contentIframe">用户删除</a>
                         </li>
                     </ul>
                 </li>

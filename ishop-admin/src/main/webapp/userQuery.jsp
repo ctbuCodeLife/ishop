@@ -13,7 +13,7 @@
     <style type="text/css">
         .container{
             width: 700px;
-            height:800px;
+            height:600px;
         }
         .search{
             width: 300px;
