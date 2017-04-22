@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>所有管理员</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div id="data">
@@ -42,44 +42,13 @@
        </tr>
    </table>
 </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/vue.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/vue.js"></script>
+<script src="../js/admin.js"></script>
 <script>
     $(document).ready(function(){
         listAdmin();
-    })
-    function delAdmin(that) {
-        var p = that.parentNode.firstChild;
-        var id = p.innerHTML;
-        $.ajax({
-            type:"GET",
-            url:"/ishop-admin/delAdmin",
-            data:{id:id},
-            dataType:"json",
-            success:function (msg) {
-                console.log(msg);
-                alert(msg);
-            }
-        });
-        //location.reload();
-    }
-    function listAdmin() {
-        mydata=[];
-        $.ajax({
-            type:"GET",
-            url:"/ishop-admin/listAdmin",
-            dataType:"json",
-            success:function (data) {
-                //这里获取到数据展示到前台
-                var vm = new Vue({
-                    el:'#adminTable',
-                    data:{
-                        mydata:data
-                    }
-                });
-            }
-        })
-    }
+    });
 </script>
 
 </body>

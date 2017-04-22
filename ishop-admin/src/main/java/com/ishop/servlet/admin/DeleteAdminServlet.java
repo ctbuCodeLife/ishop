@@ -1,4 +1,4 @@
-package com.ishop.servlet;
+package com.ishop.servlet.admin;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
@@ -18,7 +18,7 @@ import java.io.PrintWriter;
  * Created by tao on 2017/4/22 0022.
  */
 
-@WebServlet("/delAdmin")
+@WebServlet(name="DeletaAdminServlet",urlPatterns = "/delAdmin")
 public class DeleteAdminServlet extends HttpServlet{
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             try{
@@ -27,7 +27,7 @@ public class DeleteAdminServlet extends HttpServlet{
                 Integer id = Integer.parseInt(paramId);
                 boolean result = ad.delete(id);
                 PrintWriter out = response.getWriter();
-                String message;
+                String message="";
                 if(result == true){
                     message = "delect sucess!";
                 }else{

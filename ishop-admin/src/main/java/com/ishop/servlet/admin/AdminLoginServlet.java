@@ -1,4 +1,4 @@
-package com.ishop.servlet;
+package com.ishop.servlet.admin;
 
 import com.ishop.dao.AdminDao;
 import com.ishop.dao.impl.AdminDaoImpl;
@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 /**
  * Created by tao on 2017/4/22 0022.
  */
-@WebServlet("/adminLogin")
+@WebServlet(name="AdminLoginServlet",urlPatterns = "/adminLogin")
 public class AdminLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        try {

@@ -34,13 +34,11 @@ public class AdminServlet extends BaseBackServlet {
 
 
     public String list(HttpServletRequest request, HttpServletResponse response, Page page) {
-        List<User> us = userDao.list(page.getStart(),page.getCount());
+        List<User> listUser = userDao.list(page.getStart(),page.getCount());
         int total = userDao.getTotal();
         page.setTotal(total);
-
-        request.setAttribute("us", us);
+        request.setAttribute("users", listUser);
         request.setAttribute("page", page);
-
         return "admin/listUser.jsp";
     }
 }

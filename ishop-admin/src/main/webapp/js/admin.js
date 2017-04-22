@@ -1,0 +1,53 @@
+//删除管理员
+function delAdmin(that) {
+    var p = that.parentNode.firstChild;
+    var id = p.innerHTML;
+    $.ajax({
+        type:"GET",
+        url:"/ishop-admin/delAdmin",
+        data:{id:id},
+        dataType:"json",
+        success:function (data) {
+            //这里获取到数据展示到前台
+            alert(data);
+        }
+    });
+    location.reload();
+}
+//查看所有管理员
+function listAdmin() {
+    mydata=[];
+    $.ajax({
+        type:"GET",
+        url:"/ishop-admin/listAdmin",
+        dataType:"json",
+        success:function (data) {
+            //这里获取到数据展示到前台
+            var vm = new Vue({
+                el:'#adminTable',
+                data:{
+                    mydata:data
+                }
+            });
+        }
+    })
+}
+//通过id查看admin
+function getAdmin(id) {
+    mydata=[];
+    $.ajax({
+        type:"GET",
+        url:"/ishop-admin/getAdmin",
+        data:{id:id},
+        dataType:"json",
+        success:function (data) {
+            //这里获取到数据展示到前台
+            var vm = new Vue({
+                el:'#adminTable',
+                data:{
+                    mydata:data
+                }
+            });
+        }
+    })
+}

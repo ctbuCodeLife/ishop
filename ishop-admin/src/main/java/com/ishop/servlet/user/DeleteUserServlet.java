@@ -1,4 +1,4 @@
-package com.ishop.servlet;
+package com.ishop.servlet.user;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
