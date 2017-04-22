@@ -20,6 +20,7 @@ public class UpdateAdminServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             //获取表单提交的参数
+            String id = request.getParameter("id");
             String roleId = request.getParameter("roleId");
             String name = request.getParameter("name");
             String password = request.getParameter("password");
@@ -28,6 +29,7 @@ public class UpdateAdminServlet extends HttpServlet {
             String phone = request.getParameter("phone");
             //设置Admin对象
             Admin admin = new Admin();
+            admin.setId(Integer.parseInt(id));
             admin.setRoleId(Integer.parseInt(roleId));
             admin.setName(name);
             admin.setPassword(password);
@@ -36,7 +38,7 @@ public class UpdateAdminServlet extends HttpServlet {
             admin.setPhone(phone);
             //插入数据库
             AdminDao ad = new AdminDaoImpl();
-            boolean result = ad.add(admin);
+            boolean result = ad.update(admin);
             //返回信息给前台
             PrintWriter out = response.getWriter();
             //返回信息
