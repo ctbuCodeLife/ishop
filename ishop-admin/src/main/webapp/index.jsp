@@ -1,6 +1,17 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+=======
+<%--
+  Created by IntelliJ IDEA.
+  User: tao
+  Date: 2017/4/22 0001
+  Time: 0:12
+  To change this template use File | Settings | File Templates.
+--%>
+<%@page contentType="text/html;charset=UTF-8" language="java" %>
+>>>>>>> dev
 <html>
 
 <head>
@@ -261,5 +272,10 @@
     };
 </script>
 </body>
+<<<<<<< HEAD
 
 </html>
+=======
+<p>登录成功</p>
+</html>
+>>>>>>> dev

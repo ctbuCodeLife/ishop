@@ -5,6 +5,7 @@ import com.ishop.pojo.User;
 import com.ishop.util.DBUtil;
 
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,8 @@ public class UserDaoImpl implements UserDao {
         DBUtil db = new DBUtil();
         //sql statement
         String sql = "insert into `user`(`name`,`password`,real_name,email,phone,created) values(?,?,?,?,?,?)";
+        //获取当前时间并设置
+        user.setCreated(new Timestamp(System.currentTimeMillis()));
         //sql 的参数
         Object[] params = {
                 user.getName(),
@@ -37,6 +40,8 @@ public class UserDaoImpl implements UserDao {
         DBUtil db = new DBUtil();
         //sql statement
         String sql = "update `user` set `name`=?,`password`=?,real_name=?,email=?,phone=?,updated=? where id=?";
+        //获取当前时间并设置
+        user.setUpdated(new Timestamp(System.currentTimeMillis()));
         //sql 的参数
         Object[] params = {
                 user.getName(),
@@ -94,7 +99,7 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         return user ;
-        
+
     }
     //统计总条数
     public int countAll(){
@@ -126,10 +131,9 @@ public class UserDaoImpl implements UserDao {
         String sql = "select * from `user`";
         //rs表示查询结果集,执行SQL
         ResultSet rs = db.doQuery(sql);
-        //查询返回的对象
-        User user = new User();
         try {
-            if (rs.next()){
+            while (rs.next()){
+                User user = new User();
                 user.setId(1);
                 user.setName(rs.getString(2));
                 user.setPassword(rs.getString(3));
@@ -144,7 +148,7 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         return list ;
-        
+
     }
     //根据Id判断对象是否存在
     public  boolean exists(Integer id){
@@ -160,7 +164,7 @@ public class UserDaoImpl implements UserDao {
         //sql statement
         String sql = "select id,real_name,email,phone,created,updated from user where `name`=? and `password`=?";
         //sql 的参数
-        Object[] params = {name};
+        Object[] params = {name,password};
         //rs表示查询结果集,执行SQL
         ResultSet rs = db.doQuery(sql,params);
         //查询返回的对象
