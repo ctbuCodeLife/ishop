@@ -20,7 +20,7 @@ public class AdminLoginFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse)resp;
         //当前地址
         String currentURL = request.getRequestURI();
-        System.out.println("currentURL:"+currentURL);
+       // System.out.println("currentURL:"+currentURL);
         //应用地址
         String ctxPath = request.getContextPath();
         //System.out.println("ctxPath:"+ctxPath);
