@@ -43,6 +43,7 @@ function delAdmin(that) {
 }
 //修改管理员
 function updateAdmin() {
+    var id = $("#id").val();
     var roleId = $("#roleId").val();
     var name = $("#name").val();
     var password = $("#password").val();
@@ -53,6 +54,7 @@ function updateAdmin() {
         type:"GET",
         url:"/ishop-admin/updateAdmin",
         data:{
+            id:id,
             roleId:roleId,
             name:name,
             password:password,

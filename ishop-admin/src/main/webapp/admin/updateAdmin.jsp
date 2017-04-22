@@ -20,6 +20,12 @@
 <div class="container">
     <h2>管理员修改</h2>
     <form action="#" method="post" class="form-horizontal">
+        <div class="form-group" hidden>
+            <label for="id" class="col-sm-3 control-label">管理员id</label>
+            <div class="col-sm-9">
+                <input id="id" type="hidden" name="id" class="form-control"  >
+            </div>
+        </div>
         <div class="form-group">
             <label for="roleId" class="col-sm-3 control-label">权限等级</label>
             <div class="col-sm-9">
@@ -75,6 +81,7 @@
 <script>
     $(document).ready(function(){
         var id = location.search.split("=")[1];
+        var idElemnt = document.getElementById("id");
         var roleId = document.getElementById("roleId");
         var name = document.getElementById("name");
         var password = document.getElementById("password");
@@ -88,6 +95,7 @@
                 dataType:"json",
                 success:function (data) {
                     //这里获取到数据展示到前台
+                    idElemnt.value = data.id;
                     roleId.value = data.roleId;
                     name.value = data.name;
                     password.value = data.password;
