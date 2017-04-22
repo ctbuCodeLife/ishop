@@ -13,8 +13,8 @@ import java.util.List;
  * Created by tao on 2017/4/21 0021.
  */
 public class UserDaoImpl implements UserDao {
-    //保存方法
-    public boolean save(User user){
+    //添加方法
+    public boolean add(User user){
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
@@ -102,7 +102,7 @@ public class UserDaoImpl implements UserDao {
 
     }
     //统计总条数
-    public int countAll(){
+    public int getTotal(){
 
         //数据库工具类
         DBUtil db = new DBUtil();
@@ -122,13 +122,22 @@ public class UserDaoImpl implements UserDao {
         return count ;
     }
     //查询列表
-    public List<User> listAll(){
+    public List<User> list(){
+        return list(0,Short.MAX_VALUE);
+    }
+    /**
+     * @param start 开始位置
+     * @param count 数量
+     * @return start到count范围的对象
+     */
+    public List<User> list(int start, int count){
         //返回的列表
         List<User> list = new ArrayList<User>();
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
-        String sql = "select * from `user`";
+        String sql = "select * from `user` order by id limit ?,?";
+        Object[] params = {start,count};
         //rs表示查询结果集,执行SQL
         ResultSet rs = db.doQuery(sql);
         try {

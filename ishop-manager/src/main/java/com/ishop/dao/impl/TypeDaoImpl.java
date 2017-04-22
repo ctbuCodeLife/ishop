@@ -1,6 +1,7 @@
 package com.ishop.dao.impl;
 
 import com.ishop.dao.TypeDao;
+import com.ishop.pojo.Product;
 import com.ishop.pojo.Type;
 import com.ishop.pojo.Type;
 import com.ishop.util.DBUtil;
@@ -14,8 +15,8 @@ import java.util.List;
  * Created by tao on 2017/4/21 0021.
  */
 public class TypeDaoImpl implements TypeDao {
-    //保存方法
-    public boolean save(Type type){
+    //添加方法
+    public boolean add(Type type){
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
@@ -100,7 +101,7 @@ public class TypeDaoImpl implements TypeDao {
 
     }
     //统计总条数
-    public int countAll(){
+    public int getTotal(){
 
         //数据库工具类
         DBUtil db = new DBUtil();
@@ -120,15 +121,24 @@ public class TypeDaoImpl implements TypeDao {
         return count ;
     }
     //查询列表
-    public List<Type> listAll(){
+    public List<Type> list(){
+        return list(0,Short.MAX_VALUE);
+    }
+    /**
+     * @param start 开始位置
+     * @param count 数量
+     * @return start到count范围的对象
+     */
+    public List<Type> list(int start, int count){
         //返回的列表
         List<Type> list = new ArrayList<Type>();
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
-        String sql = "select * from `type`";
+        String sql = "select * from `type` order by id limit ?,?";
+        Object[] params = {start,count};
         //rs表示查询结果集,执行SQL
-        ResultSet rs = db.doQuery(sql);
+        ResultSet rs = db.doQuery(sql,params);
         //查询返回的对象
 
         try {

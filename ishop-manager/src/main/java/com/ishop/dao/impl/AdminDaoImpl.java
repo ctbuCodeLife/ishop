@@ -13,8 +13,8 @@ import java.util.List;
  * Created by tao on 2017/4/19 0019.
  */
 public class AdminDaoImpl implements AdminDao{
-    //保存方法
-    public boolean save(Admin admin){
+    //添加方法
+    public boolean add(Admin admin){
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
@@ -31,6 +31,18 @@ public class AdminDaoImpl implements AdminDao{
                 admin.getPassword(),
                 admin.getCreated()
         };
+        //rowNum表示影响行数,执行SQL
+        int rowNum = db.doUpdate(sql,params);
+        return rowNum == 1;
+    }
+    //根据Id删除
+    public boolean delete(Integer id){
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "delete from admin where id=?";
+        //sql 的参数
+        Object[] params = {id};
         //rowNum表示影响行数,执行SQL
         int rowNum = db.doUpdate(sql,params);
         return rowNum == 1;
@@ -57,22 +69,6 @@ public class AdminDaoImpl implements AdminDao{
         //rowNum表示影响行数,执行SQL
         int rowNum = db.doUpdate(sql,params);
         return rowNum == 1;
-    }
-    //根据Id删除
-    public boolean delete(Integer id){
-        //数据库工具类
-        DBUtil db = new DBUtil();
-        //sql statement
-        String sql = "delete from admin where id=?";
-        //sql 的参数
-        Object[] params = {id};
-        //rowNum表示影响行数,执行SQL
-        int rowNum = db.doUpdate(sql,params);
-        return rowNum == 1;
-    }
-    //根据对象删除
-    public boolean delete(Admin admin){
-        return  delete(admin.getId());
     }
     //根据Id获取对象
     public Admin get(Integer id){
@@ -104,7 +100,7 @@ public class AdminDaoImpl implements AdminDao{
         return admin ;
     }
     //统计总条数
-    public int countAll(){
+    public int getTotal(){
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
@@ -123,15 +119,24 @@ public class AdminDaoImpl implements AdminDao{
         return count ;
     }
     //查询列表
-    public List<Admin> listAll(){
+    public List<Admin> list(){
+        return list(0,Short.MAX_VALUE);
+    }
+    /**
+     * @param start 开始位置
+     * @param count 数量
+     * @return start到count范围的对象
+     */
+    public List<Admin> list(int start ,int count){
         //返回的列表
         List<Admin> list = new ArrayList<Admin>();
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
-        String sql = "select * from admin";
+        String sql = "select * from admin order by id limit ?,?";
+        Object[] params = {start,count};
         //rs表示查询结果集,执行SQL
-        ResultSet rs = db.doQuery(sql);
+        ResultSet rs = db.doQuery(sql,params);
         //查询返回的对象
         try {
             while (rs.next()){

@@ -2,6 +2,7 @@ package com.ishop.dao.impl;
 
 import com.ishop.dao.ProductDao;
 import com.ishop.pojo.Product;
+import com.ishop.pojo.Product;
 import com.ishop.util.DBUtil;
 
 import java.sql.ResultSet;
@@ -13,8 +14,8 @@ import java.util.List;
  * Created by tao on 2017/4/21 0021.
  */
 public class ProductDaoImpl implements ProductDao{
-    //保存方法
-    public boolean save(Product product){
+    //添加方法
+    public boolean add(Product product){
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
@@ -116,7 +117,7 @@ public class ProductDaoImpl implements ProductDao{
         return product ;
     }
     //统计总条数
-    public int countAll(){
+    public int getTotal(){
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
@@ -135,15 +136,24 @@ public class ProductDaoImpl implements ProductDao{
         return count ;
     }
     //查询列表
-    public List<Product> listAll(){
+    public List<Product> list(){
+        return list(0,Short.MAX_VALUE);
+    }
+    /**
+     * @param start 开始位置
+     * @param count 数量
+     * @return start到count范围的对象
+     */
+    public List<Product> list(int start ,int count){
         //返回的列表
         List<Product> list = new ArrayList<Product>();
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
-        String sql = "select * from product";
+        String sql = "select * from product order by id limit ?,?";
+        Object[] params = {start,count};
         //rs表示查询结果集,执行SQL
-        ResultSet rs = db.doQuery(sql);
+        ResultSet rs = db.doQuery(sql,params);
         //查询返回的对象
         try {
             while (rs.next()){

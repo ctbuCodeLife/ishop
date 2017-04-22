@@ -3,9 +3,7 @@ package com.ishop.dao.impl;
 import com.ishop.dao.ProductImageDao;
 import com.ishop.pojo.ProductImage;
 import com.ishop.util.DBUtil;
-
 import java.sql.ResultSet;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +11,8 @@ import java.util.List;
  * Created by tao on 2017/4/21 0021.
  */
 public class ProductImageDaoImpl implements ProductImageDao {
-    //保存方法
-    public boolean save(ProductImage productImage){
+    //添加方法
+    public boolean add(ProductImage productImage){
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
@@ -95,7 +93,7 @@ public class ProductImageDaoImpl implements ProductImageDao {
 
     }
     //统计总条数
-    public int countAll(){
+    public int getTotal(){
 
         //数据库工具类
         DBUtil db = new DBUtil();
@@ -115,15 +113,24 @@ public class ProductImageDaoImpl implements ProductImageDao {
         return count ;
     }
     //查询列表
-    public List<ProductImage> listAll(){
+    public List<ProductImage> list(){
+        return list(0,Short.MAX_VALUE);
+    }
+    /**
+     * @param start 开始位置
+     * @param count 数量
+     * @return start到count范围的对象
+     */
+    public List<ProductImage> list(int start, int count){
         //返回的列表
         List<ProductImage> list = new ArrayList<ProductImage>();
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
-        String sql = "select * from productImage";
+        String sql = "select * from productImage order by id limit ?,?";
+        Object[] params = {start,count};
         //rs表示查询结果集,执行SQL
-        ResultSet rs = db.doQuery(sql);
+        ResultSet rs = db.doQuery(sql,params);
         try {
             while (rs.next()){
                 ProductImage productImage = new ProductImage();
