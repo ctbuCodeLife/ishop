@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <title>userModify</title>
     <style type="text/css">
         .container{
@@ -57,8 +57,8 @@
             </div>
         </form>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/vue.js"></script>
     <script>
         $(document).ready(function(){
             var id = location.search.split("=")[1];

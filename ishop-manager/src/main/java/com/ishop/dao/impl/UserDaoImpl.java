@@ -18,9 +18,10 @@ public class UserDaoImpl implements UserDao {
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
-        String sql = "insert into `user`(`name`,`password`,real_name,email,phone,created) values(?,?,?,?,?,?)";
+        String sql = "insert into `user`(`name`,`password`,real_name,email,phone,created,updated) values(?,?,?,?,?,?,?)";
         //获取当前时间并设置
         user.setCreated(new Timestamp(System.currentTimeMillis()));
+        user.setUpdated(new Timestamp(System.currentTimeMillis()));
         //sql 的参数
         Object[] params = {
                 user.getName(),
@@ -28,7 +29,8 @@ public class UserDaoImpl implements UserDao {
                 user.getRealName(),
                 user.getEmail(),
                 user.getPassword(),
-                user.getCreated()
+                user.getCreated(),
+                user.getUpdated()
         };
         //rowNum表示影响行数,执行SQL
         int rowNum = db.doUpdate(sql,params);

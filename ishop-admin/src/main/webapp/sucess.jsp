@@ -19,7 +19,7 @@
     <p>
         登录成功！正在进入我的ishop
         <br>
-        如果您的浏览器没有自动跳转，<a href="admin.jsp">请点击这里</a>
+        如果您的浏览器没有自动跳转，<a href="index.jsp">请点击这里</a>
     </p>
 </div>
 
@@ -27,7 +27,7 @@
 </body>
 <script type="text/javascript">
     function jumpurl(){
-        location='admin.jsp';
+        location='index.jsp';
     }
     setTimeout('jumpurl()',3000);
 </script>

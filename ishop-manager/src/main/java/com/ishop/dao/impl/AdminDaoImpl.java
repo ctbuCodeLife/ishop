@@ -18,9 +18,10 @@ public class AdminDaoImpl implements AdminDao{
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
-        String sql = "insert into admin(role_id,`name`,`password`,real_name,email,phone,created) values(?,?,?,?,?,?,?)";
+        String sql = "insert into admin(role_id,`name`,`password`,real_name,email,phone,created,updated) values(?,?,?,?,?,?,?,?)";
         //获取当前时间并设置
         admin.setCreated(new Timestamp(System.currentTimeMillis()));
+        admin.setUpdated(new Timestamp(System.currentTimeMillis()));
         //sql 的参数
         Object[] params = {
                 admin.getRoleId(),
@@ -29,7 +30,8 @@ public class AdminDaoImpl implements AdminDao{
                 admin.getRealName(),
                 admin.getEmail(),
                 admin.getPassword(),
-                admin.getCreated()
+                admin.getCreated(),
+                admin.getUpdated()
         };
         //rowNum表示影响行数,执行SQL
         int rowNum = db.doUpdate(sql,params);

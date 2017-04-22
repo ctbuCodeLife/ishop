@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <title>userQuery</title>
     <style type="text/css">
         .container{
@@ -24,7 +24,7 @@
 <body>
 <div class="container">
     <div class="search"></div>
-    <%@include file="getUserForm.txt"%>
+    <%@include file="../getUserForm.txt"%>
     <table id="user" class="active table table-hover table-striped">
         <tr>
             <th>用户名</th>
@@ -47,7 +47,7 @@
     </table>
 </div>
 
-    <script src="js/vue.js"></script>
+    <script src="../js/vue.js"></script>
     <script type="text/javascript">
         var vm = new Vue({
             el:'#user',

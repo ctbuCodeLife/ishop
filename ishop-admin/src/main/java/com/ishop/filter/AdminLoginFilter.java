@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by tao on 2017/4/9 0009.
  */
-@WebFilter("*.jsp")
+@WebFilter(filterName = "AdminLoginFilter",urlPatterns = "*.jsp")
 public class AdminLoginFilter implements Filter {
     public void destroy() {
     }
