@@ -25,7 +25,7 @@ public class ListAdminServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             AdminDao ad = new AdminDaoImpl();
-            List<Admin> list = ad.listAll();
+            List<Admin> list = ad.list();
             PrintWriter out = response.getWriter();
             //将list的数据转换成JSON返回给前台
             //JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd";

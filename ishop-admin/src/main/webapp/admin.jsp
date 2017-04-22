@@ -85,7 +85,7 @@
         <div id="left-bar" class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-pills nav-stacked">
                 <li>
-                    <a class="active font-1" href="">用户管理</a>
+                    <a class="active font-1" href="listAdmin.jsp" target="contentIframe">用户管理</a>
                     <ul class="nav nav-stacked">
                         <li>
                             <a href="userQuery.jsp" target="contentIframe">用户查询</a>
