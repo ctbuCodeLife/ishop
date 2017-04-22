@@ -1,32 +1,17 @@
-/**
-* 模仿天猫整站j2ee 教程 为how2j.cn 版权所有
-* 本教程仅用于学习使用，切勿用于非法用途，由此引起一切后果与本站无关
-* 供购买者学习，请勿私自传播，否则自行承担相关法律责任
-*/	
 
-package tmall.util;
-
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
-import java.awt.image.DataBuffer;
-import java.awt.image.DataBufferInt;
-import java.awt.image.DirectColorModel;
-import java.awt.image.PixelGrabber;
-import java.awt.image.Raster;
-import java.awt.image.RenderedImage;
-import java.awt.image.WritableRaster;
-import java.io.File;
-import java.io.IOException;
+package com.ishop.util;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.*;
+import java.io.File;
+import java.io.IOException;
 
 public class ImageUtil {
 
 	public static BufferedImage change2jpg(File f) {
 		try {
-			java.awt.Image i = Toolkit.getDefaultToolkit().createImage(f.getAbsolutePath());
+			Image i = Toolkit.getDefaultToolkit().createImage(f.getAbsolutePath());
 			PixelGrabber pg = new PixelGrabber(i, 0, 0, -1, -1, true);
 			pg.grabPixels();
 			int width = pg.getWidth(), height = pg.getHeight();
@@ -72,9 +57,3 @@ public class ImageUtil {
 	}
 
 }
-
-/**
-* 模仿天猫整站j2ee 教程 为how2j.cn 版权所有
-* 本教程仅用于学习使用，切勿用于非法用途，由此引起一切后果与本站无关
-* 供购买者学习，请勿私自传播，否则自行承担相关法律责任
-*/	
