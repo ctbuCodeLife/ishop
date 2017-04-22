@@ -22,10 +22,4 @@ ishop-manager/target/
 ishop-admin/target/
 ishop-portal/ishop-portal\.iml
 
-ishop-admin/src/main/resources/dbconfig\.properties
 
-ishop-admin/src/test/resources/dbconfig\.properties
-
-ishop-manager/src/main/resources/dbconfig\.properties
-
-ishop-manager/src/test/resources/dbconfig\.properties
