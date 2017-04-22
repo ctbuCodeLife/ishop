@@ -18,10 +18,13 @@ public interface ProductImageDao {
     public boolean delete(ProductImage productImage);
     //根据Id获取对象
     public ProductImage get(Integer id);
+    //根据商品id找到所有类型为imageType的图片
+    public List<ProductImage> listProductImage(Integer productId,String imageType);
     //统计总条数
     public int countAll();
     //查询列表
     public List<ProductImage> listAll();
     //根据Id判断对象是否存在
     public  boolean exists(Integer id);
+
 }
