@@ -18,7 +18,11 @@ doc/~\$\$ishopUml\.~vsdx
 *.iml
 
 
+ishop-manager/target
+ 
+ishop-admin/target
 
+ishop-portal/target
 
 
 ishop-manager/src/main/resources/dbconfig\.properties
