@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>list_admin.jsp</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div id="data">
@@ -34,7 +35,7 @@
            <td>{{user.created}}</td>
            <td>{{user.updated}}</td>
            <td>
-               <a v-bind:href="'deleteAdmin?id='+user.id"><button>删除</button></a>
+               <a v-bind:href="'delAdmin?id='+user.id"><button>删除</button></a>
                <a v-bind:href="'userModify.jsp?id='+user.id"><button>更新</button></a>
        </tr>
    </table>
