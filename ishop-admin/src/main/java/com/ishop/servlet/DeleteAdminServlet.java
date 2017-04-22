@@ -27,17 +27,11 @@ public class DeleteAdminServlet extends HttpServlet{
                 Integer id = Integer.parseInt(paramId);
                 boolean result = ad.delete(id);
                 PrintWriter out = response.getWriter();
-//                if (result == true){
-//                    //删除成功
-//                    request.getRequestDispatcher("sucess.jsp").forward(request,response);
-//                }else{
-//                    request.getRequestDispatcher("fail.jsp").forward(request,response);
-//                }
                 String message;
                 if(result == true){
-                    message = "删除成功!";
+                    message = "delect sucess!";
                 }else{
-                    message = "删除失败!";
+                    message = "delete failure!";
                 }
                out.println(message);
                out.close();
