@@ -8,7 +8,7 @@ import java.util.List;
  * Created by tao on 2017/4/20 0020.
  */
 public interface SellDao {
-    //保存方法
+    //添加方法
     public boolean add(Sell sell);
     //更新方法
     public boolean update(Sell sell);
@@ -20,6 +20,8 @@ public interface SellDao {
     public int getTotal();
     //查询列表
     public List<Sell> list();
+    //查询列表
+    public List<Sell> list(int start,int count);
     //根据Id判断对象是否存在
     public  boolean exists(Integer id);
     //根据管理员名判断对象是否存在

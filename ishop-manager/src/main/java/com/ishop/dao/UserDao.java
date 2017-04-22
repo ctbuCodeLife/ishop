@@ -8,7 +8,7 @@ import java.util.List;
  * Created by tao on 2017/4/19 0019.
  */
 public interface UserDao {
-    //保存方法
+    //添加方法
     public boolean add(User user);
     //根据Id删除
     public boolean delete(Integer id);
@@ -20,8 +20,11 @@ public interface UserDao {
     public int getTotal();
     //查询列表
     public List<User> list();
+    //查询列表
+    public List<User> list(int start,int count);
     //根据Id判断对象是否存在
     public  boolean exists(Integer id);
+    //根据name判断对象是否存在
     public  boolean exists(String name);
     //根据登录名和密码获取对象
     public User get(String name, String password);

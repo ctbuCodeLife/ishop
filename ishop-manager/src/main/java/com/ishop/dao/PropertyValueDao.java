@@ -8,7 +8,7 @@ import java.util.List;
  * Created by tao on 2017/4/19 0019.
  */
 public interface PropertyValueDao {
-    //保存方法
+    //添加方法
     public boolean add(PropertyValue propertyValue);
     //根据Id删除
     public boolean delete(Integer id);
@@ -20,6 +20,8 @@ public interface PropertyValueDao {
     public int getTotal();
     //查询列表
     public List<PropertyValue> list();
+    //查询列表
+    public List<PropertyValue> list(int start,int count);
     //根据Id判断对象是否存在
     public  boolean exists(Integer id);
 }
