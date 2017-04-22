@@ -1,3 +1,30 @@
+//增加管理员
+function addAdmin() {
+    var roleId = $("#roleId").val();
+    var name = $("#name").val();
+    var password = $("#password").val();
+    var realName = $("#realName").val();
+    var email =  $("#email").val();
+    var phone = $("#phone").val();
+    $.ajax({
+        type:"GET",
+        url:"/ishop-admin/addAdmin",
+        data:{
+            roleId:roleId,
+            name:name,
+            password:password,
+            realName:realName,
+            email:email,
+            phone:phone
+        },
+        dataType:"json",
+        success:function (data) {
+            //这里获取到数据展示到前台
+            alert(data);
+        }
+    });
+    location.href="listAdmin.jsp";
+}
 //删除管理员
 function delAdmin(that) {
     var p = that.parentNode.firstChild;
@@ -51,3 +78,5 @@ function getAdmin(id) {
         }
     })
 }
+
+

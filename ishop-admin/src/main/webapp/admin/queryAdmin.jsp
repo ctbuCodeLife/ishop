@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>查询管理员</title>
+    <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -36,7 +37,7 @@
     </table>
 </div>
 
-<script src="../js/vue.js"></script>
+<script src="<%=request.getContextPath()%>/js/vue.js"></script>
 <script type="text/javascript">
     var vm = new Vue({
         el:'#user',

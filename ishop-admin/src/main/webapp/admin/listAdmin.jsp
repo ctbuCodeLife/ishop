@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>所有管理员</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div id="data">
@@ -42,9 +42,9 @@
        </tr>
    </table>
 </div>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/vue.js"></script>
-<script src="../js/admin.js"></script>
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/vue.js"></script>
+<script src="<%=request.getContextPath()%>/js/admin.js"></script>
 <script>
     $(document).ready(function(){
         listAdmin();

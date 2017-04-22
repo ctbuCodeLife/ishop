@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>添加管理员</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
     <style type="text/css">
         .container{
             width: 500px;
@@ -19,7 +19,7 @@
 <body>
 <div class="container">
     <h2>管理员添加</h2>
-    <form action="<%=request.getContextPath()%>/addAdmin" method="post" class="form-horizontal">
+    <form action="#" method="post" class="form-horizontal">
         <div class="form-group">
             <label for="roleId" class="col-sm-3 control-label">权限等级</label>
             <div class="col-sm-9">
@@ -64,11 +64,13 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
-                <button type="submit" class="btn btn-default">添加</button>
+                <button type="button" onclick="addAdmin()" class="btn btn-default">添加</button>
             </div>
         </div>
     </form>
 </div>
-
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/vue.js"></script>
+<script src="<%=request.getContextPath()%>/js/admin.js"></script>
 </body>
 </html>
