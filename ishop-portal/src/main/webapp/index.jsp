@@ -21,7 +21,6 @@
     <link rel="stylesheet" type="text/css" href="css/left_nav.css"/>
     <link rel="stylesheet" type="text/css" href="css/footer.css"/>
     <!-- JQuery文件,务必在bootstrap.min.js 之前引入 -->
-    <script src="js/jquery-1.2.6.min.js" defer></script>
 
     <style type="text/css">
         ul {
@@ -70,7 +69,7 @@
             margin-top: 100px;
         }
     </style>
-    <title></title>
+    <title>ishop</title>
 </head>
 
 <body>
@@ -156,36 +155,7 @@
         </table>
     </div>
 </div>
-<div class="footer">
     <%@include file="footer.txt" %>
-</div>
-<div id="footer" class="navbar-fixed-bottom">
-    <div id="copyright" class="copy">
-        <span><a href="http://www.litao.work">李涛</a></span>
-        <b>|</b>
-        <span><a href="http://www.muyiquan.cn">牟一全的博客</a></span>
-        <b>|</b>
-        <span>邓嘉欣</span>
-        <b>|</b>
-        <span>侯兰</span>
-        <b>|</b>
-        <span><a href="https://taobao.com">淘宝</a></span>
-        <b>|</b>
-        <span><a href="https://www.tmall.com">天猫</a></span>
-        <b>|</b>
-        <span><a href="https://www.jd.com">京东</a></span>
-        <b>|</b>
-        <span><a href="https://github.com">Githup</a></span>
-        <b>|</b>
-        <span><a href="http://www.jsbin.com ">在线代码共享</a></span>
-        <b>|</b>
-        <span><a href="">待扩展</a></span>
-        <b>|</b>
-        <span><a href="">待扩展</a></span>
-        <b>|</b>
-        <span><a href="">待扩展</a></span>
-    </div>
-</div>
 <script src="js/vue.js"></script>
 <script type="text/javascript">
     var vm = new Vue({
