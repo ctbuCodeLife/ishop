@@ -20,16 +20,18 @@ public class TypeDaoImpl implements TypeDao {
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
-        String sql = "insert into `type`(parent_id,`name`,`describe`,grade,created) values(?,?,?,?,?)";
+        String sql = "insert into `type`(parent_id,`name`,`describe`,grade,created,updated) values(?,?,?,?,?,?)";
         //获取当前时间并设置
         type.setCreated(new Timestamp(System.currentTimeMillis()));
+        type.setUpdated(new Timestamp(System.currentTimeMillis()));
         //sql 的参数
         Object[] params = {
                 type.getParentId(),
                 type.getName(),
                 type.getDescribe(),
                 type.getGrade(),
-                type.getCreated()
+                type.getCreated(),
+                type.getUpdated()
         };
         //rowNum表示影响行数,执行SQL
         int rowNum = db.doUpdate(sql,params);
