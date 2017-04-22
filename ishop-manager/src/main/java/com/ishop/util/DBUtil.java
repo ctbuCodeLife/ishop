@@ -25,10 +25,6 @@ public class DBUtil {
 		InputStream in;
 		try {
 		    //获取classPath
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 		    String classPath = DBUtil.class.getClassLoader().getResource("").getPath();
             String name = classPath+ "dbconfig.properties";
 			in = new FileInputStream(name);

@@ -23,23 +23,23 @@ public class AdminDaoImplTest {
     }
     @Test
     public void testUpdate(){
-        String roleId = 3;
-        String name =
-        String password =;
-        String realName = ;
-        String email = ;
-        String phone = ;
-        //设置Admin对象
-        Admin admin = new Admin();
-        admin.setRoleId(Integer.parseInt(roleId));
-        admin.setName(name);
-        admin.setPassword(password);
-        admin.setRealName(realName);
-        admin.setEmail(email);
-        admin.setPhone(phone);
-        //插入数据库
-        AdminDao ad = new AdminDaoImpl();
-        boolean result = ad.update(admin);
+//        String roleId = 3;
+//        String name =
+//        String password =;
+//        String realName = ;
+//        String email = ;
+//        String phone = ;
+//        //设置Admin对象
+//        Admin admin = new Admin();
+//        admin.setRoleId(Integer.parseInt(roleId));
+//        admin.setName(name);
+//        admin.setPassword(password);
+//        admin.setRealName(realName);
+//        admin.setEmail(email);
+//        admin.setPhone(phone);
+//        //插入数据库
+//        AdminDao ad = new AdminDaoImpl();
+//        boolean result = ad.update(admin);
 //        admin.setPhone("18787381223");
 //        admin.setId(4);//此id为testAdmin用户id,
 //        AdminDao ad = new AdminDaoImpl();
