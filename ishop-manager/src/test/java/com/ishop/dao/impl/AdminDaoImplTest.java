@@ -14,12 +14,12 @@ import static org.junit.Assert.*;
  */
 public class AdminDaoImplTest {
     @Test
-    public  void testSave(){
+    public  void testadd(){
         Admin admin = new Admin();
         admin.setRoleId(2);
         admin.setRealName("testAdmin");
         AdminDao ad  = new AdminDaoImpl();
-        assertTrue(ad.save(admin));
+        assertTrue(ad.add(admin));
     }
     @Test
     public void testUpdate(){
@@ -45,17 +45,17 @@ public class AdminDaoImplTest {
         assertNotNull(admin);
     }
     @Test
-    public void testCountAll(){
+    public void testgetTotal(){
         int count = 0;
         AdminDao ad = new AdminDaoImpl();
-        count = ad.countAll();
+        count = ad.getTotal();
         assertTrue(count > 0);
     }
     @Test
-    public void testListAll(){
+    public void testlist(){
         List<Admin> list = new ArrayList<Admin>();
         AdminDao ad = new AdminDaoImpl();
-        list = ad.listAll();
+        list = ad.list();
         //将list的数据转换成JSON返回给前台
         //JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
         //SerializerFeature.WriteDateUseDateFormat用来将日期格式化成yyyy-MM-dd的形式
