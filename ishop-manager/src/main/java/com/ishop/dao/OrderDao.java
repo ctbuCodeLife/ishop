@@ -10,19 +10,17 @@ import java.util.List;
  */
 public interface OrderDao {
     //保存方法
-    public boolean save(Order order);
-    //更新方法
-    public boolean update(Order order);
+    public boolean add(Order order);
     //根据Id删除
     public boolean delete(Integer id);
-    //根据对象删除
-    public boolean delete(Order order);
+    //更新方法
+    public boolean update(Order order);
     //根据Id获取对象
     public Order get(Integer id);
     //统计总条数
-    public int countAll();
+    public int getTotal();
     //查询列表
-    public List<Order> listAll();
+    public List<Order> list();
     //根据Id判断对象是否存在
     public  boolean exists(Integer id);
 }

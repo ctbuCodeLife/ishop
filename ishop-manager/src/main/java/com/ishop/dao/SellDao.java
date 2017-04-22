@@ -9,19 +9,17 @@ import java.util.List;
  */
 public interface SellDao {
     //保存方法
-    public boolean save(Sell sell);
+    public boolean add(Sell sell);
     //更新方法
     public boolean update(Sell sell);
     //根据Id删除
     public boolean delete(Integer id);
-    //根据对象删除
-    public boolean delete(Sell sell);
     //根据Id获取对象
     public Sell get(Integer id);
     //统计总条数
-    public int countAll();
+    public int getTotal();
     //查询列表
-    public List<Sell> listAll();
+    public List<Sell> list();
     //根据Id判断对象是否存在
     public  boolean exists(Integer id);
     //根据管理员名判断对象是否存在

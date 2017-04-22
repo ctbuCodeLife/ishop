@@ -9,19 +9,17 @@ import java.util.List;
  */
 public interface RoleDao {
     //保存方法
-    public boolean save(Role role);
-    //更新方法
-    public boolean update(Role role);
+    public boolean add(Role role);
     //根据Id删除
     public boolean delete(Integer id);
-    //根据对象删除
-    public boolean delete(Role role);
+    //更新方法
+    public boolean update(Role role);
     //根据Id获取对象
     public Role get(Integer id);
     //统计总条数
-    public int countAll();
+    public int getTotal();
     //查询列表
-    public List<Role> listAll();
+    public List<Role> list();
     //根据Id判断对象是否存在
     public  boolean exists(Integer id);
 }

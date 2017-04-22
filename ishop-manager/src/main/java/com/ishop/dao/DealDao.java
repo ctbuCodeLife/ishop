@@ -9,23 +9,19 @@ import java.util.List;
  */
 public interface DealDao {
     //保存方法
-    public boolean save(Deal deal);
-    //更新方法
-    public boolean update(Deal deal);
+    public boolean add(Deal deal);
     //根据Id删除
     public boolean delete(Integer id);
-    //根据对象删除
-    public boolean delete(Deal deal);
+    //更新方法
+    public boolean update(Deal deal);
     //根据Id获取对象
     public Deal get(Integer id);
     //统计总条数
-    public int countAll();
+    public int getTotal();
     //查询列表
-    public List<Deal> listAll();
+    public List<Deal> list();
     //根据Id判断对象是否存在
     public  boolean exists(Integer id);
-    //根据管理员名判断对象是否存在
+    //根据名字判断对象是否存在
     public  boolean exists(String name);
-    //根据登录名和密码获取对象
-    public  Deal get(String name,String password);
 }

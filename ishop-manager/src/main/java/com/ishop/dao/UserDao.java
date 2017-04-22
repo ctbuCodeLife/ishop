@@ -9,19 +9,17 @@ import java.util.List;
  */
 public interface UserDao {
     //保存方法
-    public boolean save(User user);
-    //更新方法
-    public boolean update(User user);
+    public boolean add(User user);
     //根据Id删除
     public boolean delete(Integer id);
-    //根据对象删除
-    public boolean delete(User user);
+    //更新方法
+    public boolean update(User user);
     //根据Id获取对象
     public User get(Integer id);
     //统计总条数
-    public int countAll();
+    public int getTotal();
     //查询列表
-    public List<User> listAll();
+    public List<User> list();
     //根据Id判断对象是否存在
     public  boolean exists(Integer id);
     public  boolean exists(String name);
