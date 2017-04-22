@@ -14,6 +14,28 @@
     <artifactId>ishop-manager</artifactId>
     <version>1.0-SNAPSHOT</version>
     </dependency>
+    <!--引入manager包结束-->
+    <!-- 引入上传文件开始 -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.2</version>
+    </dependency>
+    <!-- 引入上传文件结束 -->
+    <!-- 引入commens-io开始 -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.5</version>
+    </dependency>
+    <!-- 引入commens-io结束 -->
+    <!-- 引入commens-lang开始 -->
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.6</version>
+    </dependency>
+    <!-- 引入commens-lang结束 -->
     <!--引入Servlet开始-->
     <dependency>
       <groupId>javax.servlet</groupId>
