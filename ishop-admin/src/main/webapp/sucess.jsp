@@ -9,11 +9,21 @@
 <html>
 <head>
     <title>登录成功</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/sucess.css" rel="stylesheet" >
 </head>
 <body>
-<p>登录成功</p>
-<a href="admin.jsp">3秒后系统会自动跳转，也可点击本处直接跳</a>
-<%=session.getAttribute("admin")%>
+<%@include file="nav.txt" %>
+<div class="loginBoole">
+    <p>
+        登录成功！正在进入我的ishop
+        <br>
+        如果您的浏览器没有自动跳转，<a href="admin.jsp">请点击这里</a>
+    </p>
+</div>
+
+<%@include file="footer.txt" %>
 </body>
 <script type="text/javascript">
     function jumpurl(){
