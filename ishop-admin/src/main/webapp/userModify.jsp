@@ -57,6 +57,32 @@
             </div>
         </form>
     </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script>
+        $(document).ready(function(){
+            var id = location.search.split("=")[1];
+            $.ajax({
+                    type:"GET",
+                    url:"/ishop-admin/getAdmin",
+                    data:{id:id},
+                    dataType:"json",
+                    success:function (data) {
+                        //这里获取到数据展示到前台
+                        console.log(data);
+                        //mydata=data;
+//                        var vm = new Vue({
+//                            el:'#userTable',
+//                            data:{
+//                                mydata:data
+//                            }
+//                        });
+                    }
 
+                }
+            );
+
+        })
+    </script>
 </body>
 </html>

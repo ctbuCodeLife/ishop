@@ -25,7 +25,7 @@
            <th>操作</th>
        </tr>
        <tr v-for="user in mydata">
-           <td>{{mydata.indexOf(user)+1}}</td>
+           <td>{{mydata.indexOf(user)+1}} <span style="display: none">{{user.id}}</span></td>
            <td>{{user.name}}</td>
            <td>{{user.password}}</td>
            <td>{{user.realName}}</td>
@@ -33,7 +33,9 @@
            <td>{{user.phone}}</td>
            <td>{{user.created}}</td>
            <td>{{user.updated}}</td>
-           <td><button>删除</button></td>
+           <td>
+               <a v-bind:href="'deleteAdmin?id='+user.id"><button>删除</button></a>
+               <a v-bind:href="'userModify.jsp?id='+user.id"><button>更新</button></a>
        </tr>
    </table>
 </div>
