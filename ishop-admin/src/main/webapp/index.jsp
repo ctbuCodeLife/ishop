@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-=======
 <%--
   Created by IntelliJ IDEA.
   User: tao
@@ -10,10 +8,7 @@
   Time: 0:12
   To change this template use File | Settings | File Templates.
 --%>
-<%@page contentType="text/html;charset=UTF-8" language="java" %>
->>>>>>> dev
 <html>
-
 <head>
     <meta charset="utf-8" />
     <!-- 下面这句用于响应移动设备的改变布局，必须写在前面 -->
@@ -272,10 +267,7 @@
     };
 </script>
 </body>
-<<<<<<< HEAD
-
 </html>
 =======
 <p>登录成功</p>
 </html>
->>>>>>> dev
