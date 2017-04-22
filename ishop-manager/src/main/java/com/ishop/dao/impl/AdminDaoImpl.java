@@ -101,6 +101,35 @@ public class AdminDaoImpl implements AdminDao{
         }
         return admin ;
     }
+    //根据name获取对象
+    public Admin get(String name){
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "select id,role_id,`password`,real_name,email,phone,created,updated from admin where name like ?";
+        //sql 的参数
+        Object[] params = {name};
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        Admin admin = new Admin();
+        try {
+            if (rs.next()){
+                admin.setId(rs.getInt(1));
+                admin.setRoleId(rs.getInt(2));
+                admin.setPassword(rs.getString(3));
+                admin.setRealName(rs.getString(4));
+                admin.setEmail(rs.getString(5));
+                admin.setPhone(rs.getString(6));
+                admin.setCreated(rs.getTimestamp(7));
+                admin.setUpdated(rs.getTimestamp(8));
+                admin.setName(name);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return admin ;
+    }
     //统计总条数
     public int getTotal(){
         //数据库工具类

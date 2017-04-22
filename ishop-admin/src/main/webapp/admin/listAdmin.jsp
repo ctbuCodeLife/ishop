@@ -37,7 +37,6 @@
            <td>
                <span style="display: none">{{admin.id}}</span>
                <button onclick="delAdmin(this)">删除</button>
-               <%--<a v-bind:href="'delAdmin?id='+admin.id"><button>删除</button></a>--%>
                <a v-bind:href="'updateAdmin.jsp?id='+admin.id"><button>更新</button></a>
        </tr>
    </table>

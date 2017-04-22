@@ -17,6 +17,8 @@ public interface AdminDao {
     public boolean update(Admin admin);
     //根据Id获取对象
     public Admin get(Integer id);
+    //根据name获取对象
+    public Admin get(String name);
     //统计总条数
     public int getTotal();
     //查询列表

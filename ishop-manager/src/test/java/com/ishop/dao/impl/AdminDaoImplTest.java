@@ -70,16 +70,26 @@ public class AdminDaoImplTest {
         AdminDao ad = new AdminDaoImpl();
         assertTrue(ad.exists(id));
     }
+    @Test
     public  void testExistsByName(){
         String name = "root";
         AdminDao ad = new AdminDaoImpl();
         assertTrue(ad.exists(name));
     }
     //根据登录名和密码获取对象
+    @Test
     public  void testGetNameAndPassword(){
         String name = "root";
         String password = "123456";
         AdminDao ad = new AdminDaoImpl();
         assertNotNull(ad.get(name,password));
+    }
+    @Test
+    public void testGetByName(){
+        String name = "root";
+        AdminDao ad = new AdminDaoImpl();
+        Admin admin = ad.get(name);
+        System.out.println(admin);
+        assertNotNull(admin);
     }
 }
