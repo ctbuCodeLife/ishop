@@ -88,7 +88,7 @@
                     <a class="active font-1" href="">用户管理</a>
                     <ul class="nav nav-stacked">
                         <li>
-                            <a href="">用户查询</a>
+                            <a href="userQuery.jsp" target="contentIframe">用户查询</a>
                         </li>
                         <li>
                             <a href="">用户更行</a>
@@ -156,9 +156,9 @@
         </div>
         <!--
     描述：右半部
--->
-        <iframe src="welcome.html" frameborder="0" width="100%" height="600px"></iframe>
-
+-->     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <iframe name="contentIframe" src="welcome.html" frameborder="0" width="100%" height="600px"></iframe>
+        </div>
 <script src="js/jquery.1.10.2.js"></script>
 <script>
 </script>
