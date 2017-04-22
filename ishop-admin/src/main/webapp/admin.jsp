@@ -88,16 +88,16 @@
                     <a class="active font-1" href="">用户管理</a>
                     <ul class="nav nav-stacked">
                         <li>
-                            <a href="">用户查询</a>
+                            <a href="userQuery.jsp" target="contentIframe">用户查询</a>
                         </li>
                         <li>
-                            <a href="">用户更行</a>
+                            <a href="userModify.jsp" target="contentIframe">用户更新</a>
                         </li>
                         <li>
-                            <a href="">用户增加</a>
+                            <a  href="userAdd.jsp" target="contentIframe">用户增加</a>
                         </li>
                         <li>
-                            <a href="">用户删除</a>
+                            <a  href="userDel.jsp" target="contentIframe">用户删除</a>
                         </li>
                     </ul>
                 </li>
@@ -156,36 +156,9 @@
         </div>
         <!--
     描述：右半部
--->
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div class="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-        			<button class="btn btn-default" type="button">Go!</button>
-     			</span>
-                </div>
-                <!-- /input-group -->
-            </div>
-            <!-- /.col-lg-6 -->
-            <table class="active table table-hover table-striped">
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><input type="submit" name="" id="" value="删除" /></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><input type="submit" name="" id="" value="删除" /></td>
-                </tr>
-            </table>
+-->     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <iframe name="contentIframe" src="welcome.html" frameborder="0" width="100%" height="600px"></iframe>
         </div>
-    </div>
-</div>
-
 <script src="js/jquery.1.10.2.js"></script>
 <script>
 </script>

@@ -25,8 +25,12 @@ public class DBUtil {
 		InputStream in;
 		try {
 		    //获取classPath
+<<<<<<< Updated upstream
 
 		    String classPath = DBUtil.class.getClassLoader().getResource("").getPath();
+=======
+		    String classPath = DBUtil.class.getResource("/").getPath();
+>>>>>>> Stashed changes
             String name = classPath+ "dbconfig.properties";
 			in = new FileInputStream(name);
 			prop.load(in);

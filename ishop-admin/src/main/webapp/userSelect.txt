@@ -1,0 +1,10 @@
+<form action="" method="post">
+<div class="search">
+         <div class="input-group">
+                    <input name="username" type="text" class="form-control" placeholder="Search By Username">
+                    <span class="input-group-btn">
+        			<button class="btn btn-default" type="button">Go!</button>
+     			</span>
+         </div>
+</div>
+</form>
