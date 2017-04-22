@@ -1,0 +1,38 @@
+<%@page language="java" pageEncoding="utf-8"%>
+<nav class="navbar navbar-default .navbar-fixed-top">
+				<div class="">
+					<div id="nav_left" class="col-md-6">
+						<ul>
+							<li>
+								<a id='username' class="navbar-brand" href="">username</a>
+							</li>
+							<li>
+								<a href="" aria-controls="welcome" role="tab" data-toggle="tab">注销</a>
+							</li>
+						</ul>
+
+					</div>
+					<div id="nav_right">
+						<ul class="nav nav-pills">
+							<li>
+								<a href="personalInfo.jsp" aria-controls="basic" role="tab" data-toggle="tab">个人信息</a>
+							</li>
+							<li>
+								<a href="shopCar.jsp" aria-controls="welcome" role="tab" data-toggle="tab">购物车</a>
+							</li>
+							<li>
+								<a href="callService.jsp" aria-controls="welcome" role="tab" data-toggle="tab">联系客服</a>
+							</li>
+							<li>
+								<a href="orderManage.jsp" aria-controls="factsheet" role="tab" data-toggle="tab">订单管理</a>
+							</li>
+							<li>
+								<a href="manageContent.jsp" aria-controls="jobdesc" role="tab" data-toggle="tab">评论管理</a>
+							</li>
+							<li>
+								<a href="favorites.jsp" aria-controls="invoice" role="tab" data-toggle="tab">收藏夹</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>

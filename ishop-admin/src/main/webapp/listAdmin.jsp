@@ -20,6 +20,7 @@
            <th>用户名</th>
            <th>密码</th>
            <th>真实名字</th>
+           <th>权限等级</th>
            <th>邮箱</th>
            <th>电话</th>
            <th>更新时间</th>
@@ -39,6 +40,7 @@
                <button onclick="delAdmin(this)">删除</button>
                <%--<a v-bind:href="'delAdmin?id='+admin.id"><button>删除</button></a>--%>
                <a v-bind:href="'updateAdmin.jsp?id='+admin.id"><button>更新</button></a>
+           </td>
        </tr>
    </table>
 </div>

@@ -23,3 +23,7 @@ ishop-admin/target/
 ishop-portal/ishop-portal\.iml
 
 
+
+ishop-admin/src/main/webapp/listAdmin\.jsp
+
+ishop-manager/src/main/java/com/ishop/util/DBUtil\.java

@@ -66,13 +66,16 @@
             padding: 10px 0 20px;
             color: #9ea7b4;
         }
+        .footer{
+            margin-top: 100px;
+        }
     </style>
     <title></title>
 </head>
 
 <body>
 <div class="container-fluid">
-    <%@include file="nav.txt"%>
+    <%@include file="head.txt"%>
     <div id="main" class="col-md-2 main">
         <div id="main_left" class="ul_product_type">
             <div class='button' id='b1'>
@@ -153,9 +156,9 @@
         </table>
     </div>
 </div>
-
-<%@include file="footer.txt" %>
-
+<div class="footer">
+    <%@include file="footer.txt" %>
+</div>
 <div id="footer" class="navbar-fixed-bottom">
     <div id="copyright" class="copy">
         <span><a href="http://www.litao.work">李涛</a></span>
@@ -267,7 +270,4 @@
     };
 </script>
 </body>
-</html>
-=======
-<p>登录成功</p>
 </html>

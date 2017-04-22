@@ -1,0 +1,3 @@
+﻿<div class="text-center">
+			Develop 2017.3-4 by 牟一全|李涛|侯兰|邓嘉欣<br> &copy; CTBUCodeLife
+</div>

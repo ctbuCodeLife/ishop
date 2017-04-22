@@ -31,11 +31,17 @@
             line-height: 25px;
             vertical-align: middle;
         }
+        #develop{
+            width: 100%;
+            height: 70px;
+            margin-bottom: 0px;
+            background-color: #dddddd;
+        }
     </style>
 </head>
 <body>
 <div name="header" class="header">
-    <%@include file="nav.txt" %>
+    <%@include file="head.txt" %>
 </div>
 <div id="search" class="col-md-4 input-group center">
     <input type="text" class="form-control" placeholder="comment id...">
@@ -54,15 +60,15 @@
             <th>操作</th>
         </tr>
         <tr v-for="comment in allComment">
-            <form action="" method="post">
-                <td></td>
+                <td>{{allComment.indexOf(comment)+1}}</td>
                 <td>{{comment.orderId}}</td>
                 <td name="commentId">{{comment.Id}}</td>
                 <td>{{comment.grade}}</td>
-                <td><textarea name=dtComment"" readonly="readonly">{{comment.content}}
-					</textarea></td>
+                <td>
+                    <textarea name=dtComment"" readonly="readonly">{{comment.content}}
+					</textarea>
+                </td>
                 <td><a href="">评论详情</a>&nbsp;<input type="submit"  name="" value="删除"/></td>
-            </form>
         </tr>
     </table>
 </div>
