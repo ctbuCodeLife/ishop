@@ -85,24 +85,29 @@
         <div id="left-bar" class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-pills nav-stacked">
                 <li>
-                    <a class="active font-1" href="listAdmin.jsp" target="contentIframe">用户管理</a>
+                    <a class="active font-1" href="listAdmin.jsp" target="contentIframe">管理员管理</a>
                     <ul class="nav nav-stacked">
                         <li>
-                            <a href="userQuery.jsp" target="contentIframe">用户查询</a>
+                            <a href="queryAdmin.jsp" target="contentIframe">管理员查询</a>
                         </li>
                         <li>
-                            <a href="userModify.jsp" target="contentIframe">用户更新</a>
-                        </li>
-                        <li>
-                            <a  href="userAdd.jsp" target="contentIframe">用户增加</a>
-                        </li>
-                        <li>
-                            <a  href="userDel.jsp" target="contentIframe">用户删除</a>
+                            <a  href="addAdmin.jsp" target="contentIframe">管理员增加</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a class="active font-1" href="">商品管理</a>
+                    <a class="active font-1" href="listUser.jsp" target="contentIframe">用户管理</a>
+                    <ul class="nav nav-stacked">
+                        <li>
+                            <a href="queryUser.jsp" target="contentIframe">用户查询</a>
+                        </li>
+                        <li>
+                            <a  href="addUser.jsp" target="contentIframe">用户增加</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="active font-1" href="listProduct.jsp">商品管理</a>
                     <ul class="nav nav-stacked">
                         <li>
                             <a href="">商品增加</a>
@@ -119,7 +124,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="active font-1" href="">评论管理</a>
+                    <a class="active font-1" href="listLeave.jsp">评论管理</a>
                     <ul class="nav nav-stacked">
                         <li>
                             <a href="">评论增加</a>
@@ -136,7 +141,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="active font-1" href="">订单管理</a>
+                    <a class="active font-1" href="listOrder.jsp">订单管理</a>
                     <ul class="nav nav-stacked">
                         <li>
                             <a href="">订单增加</a>
@@ -159,9 +164,6 @@
 -->     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <iframe name="contentIframe" src="welcome.html" frameborder="0" width="100%" height="600px"></iframe>
         </div>
-<script src="js/jquery.1.10.2.js"></script>
-<script>
-</script>
-</body>
 
+</body>
 </html>

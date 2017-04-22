@@ -1,6 +1,6 @@
 
 
-package com.ishop.servlet;
+package com.ishop.temp;
 
 
 import com.ishop.dao.impl.*;
