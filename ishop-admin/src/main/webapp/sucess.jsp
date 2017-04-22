@@ -12,6 +12,13 @@
 </head>
 <body>
 <p>登录成功</p>
+<a href="admin.jsp">3秒后系统会自动跳转，也可点击本处直接跳</a>
 <%=session.getAttribute("admin")%>
 </body>
+<script type="text/javascript">
+    function jumpurl(){
+        location='admin.jsp';
+    }
+    setTimeout('jumpurl()',3000);
+</script>
 </html>
