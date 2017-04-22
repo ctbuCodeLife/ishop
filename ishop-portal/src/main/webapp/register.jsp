@@ -12,29 +12,35 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<style type="text/css">
 			.container{
+				width: 40%;
 				margin-top: 10%;
 			}
-			.container input[type='tel'],input[type="password"]{
-				
-			}
-			
+
 		</style>
-		<title>会员注册</title>	
+		<title>会员注册</title>
 	</head>
 	<body>
 		<div class="container">
 			<div class="text-center">
 				<h1>会员注册</h1>
 				<form action="" method="post">
-					<div class="row">
-						<input id="username" name="username" type="text" onblur="" placeholder="手机号"/><br />
-						<span id="isUser"></span>
+					<div class="form-group">
+						<label for="username" class="col-sm-2 control-label">用户名</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="username" placeholder="username">
+						</div>
 					</div>
-					<div class="row">
-						<input id="password" name="password" type="password" placeholder="请输入密码"/><br />
+					<div class="form-group">
+					<label for="password" class="col-sm-2 control-label">密码</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="password" placeholder="Password">
+						</div>
 					</div>
-					<div class="row">
-						<input id="repassword" name="repassword" type="password" onblur="pwdCheck()" placeholder="重复密码"/>
+					<div class="form-group">
+						<label for="repassword" class="col-sm-2 control-label">重复密码</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="repassword" onblur="pwdCheck()" placeholder="rePassword">
+						</div>
 					</div>
 					<span id="isPwd"></span>
 					<div class="">
@@ -44,7 +50,7 @@
 						验证模块
 					</div>
 					<div class="row">
-						<input id="" name="" type="submit" class="btn-primary col-xs-6 col-xs-offset-3 col-md-2 col-md-offset-5" value="提交"/>
+						<input id="" name="" type="submit" class="btn-primary col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-5" value="提交"/>
 					</div>
 				</form>
 			</div>
@@ -64,7 +70,7 @@
                 });
 				function pwdCheck(){
 					if($("#password").val()==$("#repassword").val()&&$("#password").val()!=""){
-					    $("#isPwd").text("密码验证成功！");
+					    $("#isPwd").html("<font color='green'>密码验证成功！</font>");
 
 					}else {
                         $("#isPwd").html("<font color='red'>密码有误！</font>");
@@ -73,4 +79,3 @@
 		</script>
 	</body>
 </html>
-    
