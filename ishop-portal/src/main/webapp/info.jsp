@@ -5,29 +5,29 @@
   Time: 2:20
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>登录成功</title>
+    <title>提示页面</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/dashboard.css" rel="stylesheet">
-    <link href="css/failure.css" rel="stylesheet" >
+    <link href="css/info.css" rel="stylesheet" >
 </head>
 <body>
-<%@include file="head.txt" %>
+<%@include file="head.jsp" %>
 <div class="loginBoole">
     <p>
-        注册失败!3秒后跳转到注册界面!
+        ${sessionScope.msg}
         <br>
-        如果您的浏览器没有自动跳转，<a href="register.jsp">请点击这里</a>
+        如果您的浏览器没有自动跳转，<a href="${sessionScope.autoReturn}">请点击这里</a>
     </p>
 </div>
 
-<%@include file="footer.txt" %>
+<%@include file="foot.jsp" %>
 </body>
 <script type="text/javascript">
     function jumpurl(){
-        location='register.jsp';
+        location='${sessionScope.autoReturn}';
     }
     setTimeout('jumpurl()',3000);
 </script>
