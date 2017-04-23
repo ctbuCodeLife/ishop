@@ -191,10 +191,29 @@ public class UserDaoImpl implements UserDao {
     }
     //根据Id判断对象是否存在
     public  boolean exists(Integer id){
-        return true;
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "select id from `user` where id =?";
+        //sql 的参数
+        Object[] params = {id};
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        return  rs != null;
     }
+    //根据管理员名判断对象是否存在
     public  boolean exists(String name){
-        return true;
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "select id from `user` where `name` like ?";
+        //sql 的参数
+        Object[] params = {name};
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        return  rs != null;
     }
     //根据登录名和密码获取对象
     public User get(String name, String password){
