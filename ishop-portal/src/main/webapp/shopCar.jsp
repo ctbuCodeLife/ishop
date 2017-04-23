@@ -134,7 +134,7 @@
 			</div>
 			<%@include file="footer.txt" %>
 		</div>
-		<script src="js/jquery-1.2.6.min.js"></script>
+		<script src="js/jquery.min.js"></script>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			var vm = new Vue({

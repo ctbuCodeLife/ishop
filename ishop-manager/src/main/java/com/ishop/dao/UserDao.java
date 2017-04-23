@@ -16,6 +16,8 @@ public interface UserDao {
     public boolean update(User user);
     //根据Id获取对象
     public User get(Integer id);
+    //根据name获取对象
+    public User get(String name);
     //统计总条数
     public int getTotal();
     //查询列表

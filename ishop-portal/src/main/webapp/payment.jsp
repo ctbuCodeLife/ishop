@@ -163,7 +163,7 @@
 
 		<%@include file="footer.txt" %>
 
-		<script src="../StaticSource/js/jquery-1.2.6.min.js"></script>
+		<script src="../StaticSource/js/jquery.min.js"></script>
 		<script type="text/javascript">
 			$("#orderId").value = $("#orderId1").value;
 			$("#orderPrice").value = $("#orderPrice1").value;
