@@ -3,22 +3,30 @@
  */
 //增加商品
 function addProdcut() {
-    var Id = $("#roleId").val();
-    var name = $("#name").val();
-    var password = $("#password").val();
-    var realName = $("#realName").val();
-    var email =  $("#email").val();
-    var phone = $("#phone").val();
+    var name = $("#productName").val();
+    var subTitle = $("#productSubTitle").val();
+    var typeId = $("#typeName").val();
+    var imageSrc = $("#imageSrc").val();
+    var inventNum =  $("#inventNum").val();
+    var saleNum = $("#monthSaleNum").val();
+    var orderLink = $("#orderLink").val();
+    var salePrice = $("#salePrice").val();
+    var realPrice = $("#realName").val();
+    var isRecommend = $("#isRecommend").val();
     $.ajax({
         type:"GET",
-        url:"/ishop-admin/addAdmin",
+        url:"/ishop-product/addProduct",
         data:{
-            roleId:roleId,
-            name:name,
-            password:password,
-            realName:realName,
-            email:email,
-            phone:phone
+            name: name,
+            subTitle:subTitle,
+            typeId: typeId,
+            imageSrc:imageSrc,
+            inventNum:inventNum,
+            saleNum:saleNum,
+            orderLink:orderLink,
+            salePrice:salePrice,
+            realPrice:realPrice,
+            isRecommend:isRecommend
         },
         dataType:"json",
         success:function (data) {
@@ -26,16 +34,16 @@ function addProdcut() {
             alert(data);
         }
     });
-    location.href="listAdmin.jsp";
+    location.href="listProduct.jsp";
 }
 //删除商品
-function delAdmin(that) {
+function delProduct(that) {
     var p = that.parentNode.firstChild;
-    var id = p.innerHTML;
+    var name = p.innerHTML;
     $.ajax({
         type:"GET",
-        url:"/ishop-admin/delAdmin",
-        data:{id:id},
+        url:"/ishop-admin/delProduct",
+        data:{name:name},
         dataType:"json",
         success:function (data) {
             //这里获取到数据展示到前台
@@ -45,7 +53,7 @@ function delAdmin(that) {
     location.reload();
 }
 //修改商品
-function updateAdmin() {
+function updateProduct() {
     var id = $("#id").val();
     var roleId = $("#roleId").val();
     var name = $("#name").val();
@@ -55,7 +63,7 @@ function updateAdmin() {
     var phone = $("#phone").val();
     $.ajax({
         type:"GET",
-        url:"/ishop-admin/updateAdmin",
+        url:"/ishop-Product/updateProduct",
         data:{
             id:id,
             roleId:roleId,
@@ -71,19 +79,19 @@ function updateAdmin() {
             alert(data);
         }
     });
-    location.href="listAdmin.jsp";
+    location.href="listProduct.jsp";
 }
 //查看所有商品
-function listAdmin() {
+function listProduct() {
     mydata=[];
     $.ajax({
         type:"GET",
-        url:"/ishop-admin/listAdmin",
+        url:"/ishop-admin/listProduct",
         dataType:"json",
         success:function (data) {
             //这里获取到数据展示到前台
             var vm = new Vue({
-                el:'#adminTable',
+                el:'#ProductTable',
                 data:{
                     mydata:data
                 }
@@ -92,20 +100,20 @@ function listAdmin() {
     })
 }
 //通过id查看商品
-function getAdmin() {
+function getProduct() {
     var name = $("#name").val();
-    $("#queryAdminTable").show();
+    $("#queryProductTable").show();
     $.ajax({
         type:"GET",
-        url:"/ishop-admin/getAdminByName",
+        url:"/ishop-product/getProductByName",
         data:{name:name},
         dataType:"json",
         success:function (data) {
             //这里获取到数据展示到前台
             var vm = new Vue({
-                el:'#queryAdminTable',
+                el:'#queryProductTable',
                 data:{
-                    admin:data
+                    Product:data
                 }
             });
         }
