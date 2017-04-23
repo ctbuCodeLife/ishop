@@ -14,10 +14,21 @@ a{
     text-decoration: none;
 }
 /***********************全局样式结束**********************/
+
+/************公共样式开始****************/
+.footer {
+    width: 100%;
+    height: 70px;
+    margin-top:50px;
+    background-color: #dddddd;
+}
+/*************公共样式结束**************/
+/*************注册样式开支*************/
 .input_item{
     height: 50px;
-    margin: 10px 0 10px 0;
+    margin: 5px 0 5px 0;
 }
-.input_item >input{
+.input_item >input {
     height: 40px;
 }
+/*************注册样式结束*****************/

@@ -103,6 +103,34 @@ public class UserDaoImpl implements UserDao {
         return user ;
 
     }
+    //根据name获取对象
+    public User get(String name){
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "select id,`password`,real_name,email,phone,created,updated from `user` where name like ?";
+        //sql 的参数
+        Object[] params = {name};
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        User user = new User();
+        try {
+            if (rs.next()){
+                user.setId(rs.getInt(1));
+                user.setPassword(rs.getString(2));
+                user.setRealName(rs.getString(3));
+                user.setEmail(rs.getString(3));
+                user.setPhone(rs.getString(5));
+                user.setCreated(rs.getTimestamp(6));
+                user.setUpdated(rs.getTimestamp(7));
+                user.setName(name);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return user ;
+    }
     //统计总条数
     public int getTotal(){
 
@@ -163,10 +191,42 @@ public class UserDaoImpl implements UserDao {
     }
     //根据Id判断对象是否存在
     public  boolean exists(Integer id){
-        return true;
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "select id from `user` where id =?";
+        //sql 的参数
+        Object[] params = {id};
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        try {
+            if (rs.next()){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
+    //根据管理员名判断对象是否存在
     public  boolean exists(String name){
-        return true;
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "select id from `user` where `name` like ?";
+        //sql 的参数
+        Object[] params = {name};
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        try {
+            if (rs.next()){
+               return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
     //根据登录名和密码获取对象
     public User get(String name, String password){

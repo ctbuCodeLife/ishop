@@ -29,6 +29,6 @@
     function jumpurl(){
         location='index.jsp';
     }
-    setTimeout('jumpurl()',3000);
+    //setTimeout('jumpurl()',3000);
 </script>
 </html>
