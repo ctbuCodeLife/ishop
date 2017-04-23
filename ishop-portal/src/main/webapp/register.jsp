@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,23 +13,23 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/style.css">
 		<style type="text/css">
-			.container{
+			.login-box{
 				width: 40%;
 			}
             #msg{
 				height: 50px;
-				background: #62c462;
-				color: red;
+				line-height: 50px;
+				font-size: 30px;
 				display: none;
 			}
 		</style>
 		<title>会员注册</title>
 	</head>
 	<body>
-	<%@include file="head.txt"%>
 		<div class="container">
-			<div class="text-center">
-				<h1>会员注册</h1>
+			<%@include file="head.jsp"%>
+			<div class="text-center login-box">
+				<h2>会员注册</h2>
 				<form action="addUser" method="post">
 					<div class="row input_item" >
 						<div id="msg" class="col-sm-10 col-sm-offset-2" >
@@ -79,64 +80,67 @@
 						验证模块
 					</div>
 					<div class="row input_item">
-						<input id="" name="" type="submit" class="btn-primary col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-5" value="提交"/>
+						<input id="submit" name="" type="submit" class="btn-primary col-xs-6 col-xs-offset-3 col-md-10 col-md-offset-2" value="提交" onsubmit="return checkSubmint()"/>
 					</div>
 				</form>
 			</div>
+			<%@include file="foot.jsp"%>
 		</div>
-	<%@include file="footer.txt"%>
 		<script src="js/jquery.min.js"></script>
 	 	<script type="text/javascript">
-			$("#name").blur(function () {
-                var name = $("#name").val();
-                if(name == ""){
-                    $("#name").focus();
-                }
-            })
-			$("#password").blur(function () {
-                var psssword = $("#password").val();
-                if(password == ""){
-                    $("#password").focus();
-                }
 
-			})
-            $("#email").blur(function () {
-                var email = $("#email").val();
-                if(email == ""){
-                    $("#email").focus();
-                }
-
-            })
-            $("#phone").blur(function () {
-                var phone = $("#phone").val()
-                if(phone == ""){
-                    $("#phone").focus();
-                }
-            })
-            $("#realName").blur(function () {
-                var realName = $("#realName").val();
-                if(realName == ""){
-                    $("#realName").focus();
-                }
-            })
             function  checkName() {
                 var msg = document.getElementById("msg");
                 var nameValue = $("#name").val();
-                $.ajax({
-                    type:"GET",
-                    url:"/ishop-portal/existsUser",
-                    data:{name:nameValue},
-                    dataType:"json",
-                    success:function (data) {
-                        //这里获取到数据展示到前台
-                      if(data == true){
-                          msg.innerHTML = "该用户已存在!";
-                          msg.style.display = "block";
-                          msg.focus();
-					  }
+                if(nameValue != ""){
+                    $.ajax({
+                        type:"GET",
+                        url:"/ishop-portal/existsUser",
+                        data:{name:nameValue},
+                        dataType:"json",
+                        success:function (data) {
+                            //这里获取到数据展示到前台
+                            if(data == true){
+                                msg.innerHTML = "该用户已存在!";
+                                msg.style.display = "block";
+                                msg.style.color = "red";
+                                $("#name").focus();
+                            }else{
+                                msg.innerHTML = "可以使用该用户名!";
+                                msg.style.display = "block";
+                                msg.style.color = "green";
+                            }
+                        }
+                    });
+				}
+            }
+            function checkSubmint() {
+                    var name = $("#name").val();
+                    if(name == ""){
+                        $("#name").focus();
+                        return false;
                     }
-                });
-
+                    var psssword = $("#password").val();
+                    if(password == ""){
+                        $("#password").focus();
+                        return false;
+                    }
+                    var email = $("#email").val();
+                    if(email == ""){
+                        $("#email").focus();
+                        return false;
+                    }
+                    var phone = $("#phone").val()
+                    if(phone == "") {
+                        $("#phone").focus();
+                        return false;
+                    }
+                    var realName = $("#realName").val();
+                    if(realName == ""){
+                        $("#realName").focus();
+                        return false;
+                    }
+                return true;
             }
 		</script>
 	</body>
