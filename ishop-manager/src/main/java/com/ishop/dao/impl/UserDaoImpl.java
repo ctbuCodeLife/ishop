@@ -141,11 +141,11 @@ public class UserDaoImpl implements UserDao {
         String sql = "select * from `user` order by id limit ?,?";
         Object[] params = {start,count};
         //rs表示查询结果集,执行SQL
-        ResultSet rs = db.doQuery(sql);
+        ResultSet rs = db.doQuery(sql,params);
         try {
             while (rs.next()){
                 User user = new User();
-                user.setId(1);
+                user.setId(rs.getInt(1));
                 user.setName(rs.getString(2));
                 user.setPassword(rs.getString(3));
                 user.setRealName(rs.getString(4));

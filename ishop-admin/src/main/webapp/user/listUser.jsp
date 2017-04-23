@@ -21,7 +21,6 @@
             <th>真实名字</th>
             <th>邮箱</th>
             <th>电话</th>
-            <th>创建时间</th>
             <th>更新时间</th>
             <th>操作</th>
         </tr>
@@ -40,8 +39,8 @@
         </tr>
     </table>
 </div>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/vue.js"></script>
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/vue.js"></script>
 <script>
     $(document).ready(function(){
         mydata=[];
@@ -52,6 +51,8 @@
                 success:function (data) {
                     //这里获取到数据展示到前台
                     //mydata=data;
+                    alert("query list success");
+                    alert(data);
                     var vm = new Vue({
                         el:'#userTable',
                         data:{

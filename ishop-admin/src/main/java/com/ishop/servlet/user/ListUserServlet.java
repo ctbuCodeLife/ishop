@@ -22,13 +22,14 @@ import java.util.List;
 public class ListUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            UserDao ad = new UserDaoImpl();
-            List<User> list = ad.list();
+            UserDao us = new UserDaoImpl();
+            List<User> list = us.list();
+            System.out.println(list);
             PrintWriter out = response.getWriter();
             //将list的数据转换成JSON返回给前台
             //JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd";
             //SerializerFeature.WriteDateUseDateFormat用来将日期格式化成yyyy-MM-dd的形式
-            String json = JSON.toJSONString(list, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
+            String json = JSON.toJSONString(list,SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
             if(list != null) {
                 out.println(json);
                 out.close();
