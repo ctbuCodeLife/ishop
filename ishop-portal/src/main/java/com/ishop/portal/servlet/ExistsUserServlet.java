@@ -24,6 +24,7 @@ public class ExistsUserServlet extends HttpServlet {
             UserDao ad = new UserDaoImpl();
             String name = request.getParameter("name");
             boolean result = ad.exists(name);
+            System.out.println(result);
             PrintWriter out = response.getWriter();
             if(result == true) {
                 //用户存在

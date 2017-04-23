@@ -2,7 +2,6 @@ package com.ishop.dao.impl;
 
 import com.ishop.dao.ProductDao;
 import com.ishop.pojo.Product;
-import com.ishop.pojo.Product;
 import com.ishop.util.DBUtil;
 
 import java.sql.ResultSet;

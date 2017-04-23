@@ -74,7 +74,7 @@
 	<body>
 		
 			<div name="header" class="header">
-				<%@include file="head.txt" %>
+				<%@include file="head.jsp" %>
 			</div>
 			<hr color="red"/>
 			<div name="title" class="title">
@@ -102,7 +102,7 @@
 				</div>
 			</div>
 			<hr />
-		<%@include file="footer.txt" %>
+		<%@include file="foot.jsp" %>
 
 		<script src="js/jquery.min.js"></script>
 		<script type="text/javascript">

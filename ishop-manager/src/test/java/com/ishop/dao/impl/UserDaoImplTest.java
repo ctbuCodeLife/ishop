@@ -132,7 +132,8 @@ public void testExistsId() throws Exception {
 public void testExistsName() throws Exception { 
 //TODO: Test goes here...
     UserDao ud = new UserDaoImpl();
-    assertTrue(ud.exists("litao"));
+    String name = "";
+    System.out.println(ud.exists(name));
 } 
 
 /** 

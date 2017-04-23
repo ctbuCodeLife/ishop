@@ -99,7 +99,7 @@
 
 	<body>
 		<div name="container" class="container">
-			<%@include file="head.txt"%>
+			<%@include file="head.jsp"%>
 			<hr />
 			<div class="addr">
 				收货地址:
@@ -149,7 +149,7 @@
 				</form>
 			</div>
 		</div>
-		<%@include file="footer.txt" %>
+		<%@include file="foot.jsp" %>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
