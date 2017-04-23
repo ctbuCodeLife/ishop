@@ -23,7 +23,7 @@
         <div class="form-group">
             <label for="roleId" class="col-sm-3 control-label">权限等级</label>
             <div class="col-sm-9">
-                <select name="roleId" id="roleId">
+                <select name="roleId" id="roleId" class="form-control">
                     <option value="1">root</option>
                     <option value="2">admin</option>
                     <option value="3">backadmin</option>
