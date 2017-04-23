@@ -88,7 +88,7 @@ function listAdmin() {
         }
     })
 }
-//通过id查看admin
+//通过name查看admin
 function getAdmin() {
     var name = $("#name").val();
     $("#queryAdminTable").show();
