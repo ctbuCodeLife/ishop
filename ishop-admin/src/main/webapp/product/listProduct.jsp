@@ -18,8 +18,9 @@
             <th>序号</th>
             <th>商品编号</th>
             <th>商品名</th>
-            <th>商品子标题</th>
+            <th>商品类型</th>
             <th>商品缩略图</th>
+            <th>价格</th>
             <th>库存量</th>
             <th>月销量</th>
             <th>操作</th>
@@ -28,10 +29,11 @@
             <td>{{mydata.indexOf(product)+1}}</td>
             <td>{{product.id}}</td>
             <td>{{product.name}}</td>
-            <td>{{product.subTitle}}</td>
-            <td>{{product.imgSrc}}</td>
-            <td>{{product.inventNum}}</td>
-            <td>{{product.monthSaleNum}}</td>
+            <td>{{product.typeId}}</td>
+            <td>{{product.imageSrc}}</td>
+            <td>{{product.sellPrice}}</td>
+            <td>{{product.inventNumber}}</td>
+            <td>{{product.monthSellNumber}}</td>
             <td>
                 <span style="display: none">{{product.id}}</span>
                 <button onclick="delProduct(this)">删除</button>
