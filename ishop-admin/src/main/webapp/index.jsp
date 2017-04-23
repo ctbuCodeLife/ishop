@@ -107,24 +107,27 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="active font-1" href="listProduct.jsp">商品管理</a>
+                    <a class="active font-1" href="product/listProduct.jsp" target="contentIframe">商品管理</a>
                     <ul class="nav nav-stacked">
                         <li>
-                            <a href="">商品增加</a>
+                            <a href="queryProduct.jsp" target="contentIframe">商品查询</a>
                         </li>
                         <li>
-                            <a href="">商品删除</a>
+                            <a href="addProduct.jsp" target="contentIframe">商品增加</a>
                         </li>
                         <li>
-                            <a href="">商品修改</a>
+                            <a href="listType.jsp" target="contentIframe">所有类别</a>
                         </li>
                         <li>
-                            <a href="">商品查询</a>
+                            <a href="queryType" target="contentIframe">类别查询</a>
+                        </li>
+                        <li>
+                            <a href="addType" target="contentIframe">类别增加</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a class="active font-1" href="listLeave.jsp">评论管理</a>
+                    <a class="active font-1" href="listComment.jsp">评论管理</a>
                     <ul class="nav nav-stacked">
                         <li>
                             <a href="">评论增加</a>
