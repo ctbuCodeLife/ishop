@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -34,15 +35,28 @@ public class AddUserServlet extends javax.servlet.http.HttpServlet {
             //插入数据库
             UserDao ad = new UserDaoImpl();
             boolean result = ad.add(user);
-            String redrictPage = "index.jsp";
+            //获取数据库中的user
+            user = ad.get(user.getName());
+            //提示信息的页面
+            String redirectPage = "info.jsp";
+            //自动跳转目录
+            String autoReturnPage ;
+            //获取session
+            HttpSession session = request.getSession();
+            //返回的提示信息
+            String msg;
             if (result == true) {
                 //注册成功
-                request.getSession().setAttribute("user",user);
-                redrictPage = "sucess.jsp";
+                msg = "注册成功,正在自动登录,3秒后跳转到主页.";
+                autoReturnPage = "index.jsp";
+                session.setAttribute("user",user);
             }else {
-                redrictPage = "failure.jsp";
+                msg = "注册失败!3秒后跳转到注册界面!";
+                autoReturnPage = "register.jsp";
             }
-            response.sendRedirect(redrictPage);
+            session.setAttribute("msg",msg);
+            session.setAttribute("autoReturn",autoReturnPage);
+            response.sendRedirect(redirectPage);
         }catch (Exception e){
             e.printStackTrace();
         }
