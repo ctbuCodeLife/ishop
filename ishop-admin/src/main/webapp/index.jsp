@@ -110,24 +110,24 @@
                     <a class="active font-1" href="product/listProduct.jsp" target="contentIframe">商品管理</a>
                     <ul class="nav nav-stacked">
                         <li>
-                            <a href="queryProduct.jsp" target="contentIframe">商品查询</a>
+                            <a href="product/queryProduct.jsp" target="contentIframe">商品查询</a>
                         </li>
                         <li>
-                            <a href="addProduct.jsp" target="contentIframe">商品增加</a>
+                            <a href="product/addProduct.jsp" target="contentIframe">商品增加</a>
                         </li>
                         <li>
-                            <a href="listType.jsp" target="contentIframe">所有类别</a>
+                            <a href="product/listType.jsp" target="contentIframe">所有类别</a>
                         </li>
                         <li>
-                            <a href="queryType" target="contentIframe">类别查询</a>
+                            <a href="productqueryType.jsp" target="contentIframe">类别查询</a>
                         </li>
                         <li>
-                            <a href="addType" target="contentIframe">类别增加</a>
+                            <a href="product/addType.jsp" target="contentIframe">类别增加</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a class="active font-1" href="listComment.jsp">评论管理</a>
+                    <a class="active font-1" href="comment/listComment.jsp">评论管理</a>
                     <ul class="nav nav-stacked">
                         <li>
                             <a href="">评论增加</a>
