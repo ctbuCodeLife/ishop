@@ -54,27 +54,14 @@
         #main_right {
             height: 445px;
         }
-
-        #footer {
-            text-align: center;
-            vertical-align: middle;
-        }
-        .copy{
-            font-size: 16px;
-            text-align: center;
-            padding: 10px 0 20px;
-            color: #9ea7b4;
-        }
-        .footer{
-            margin-top: 100px;
-        }
     </style>
     <title>ishop</title>
 </head>
 
 <body>
-<div class="container-fluid">
-    <%@include file="head.txt"%>
+<div class="container">
+    <%@include file="head.jsp"%>
+    <%=session.getAttribute("user")%>
     <div id="main" class="col-md-2 main">
         <div id="main_left" class="ul_product_type">
             <div class='button' id='b1'>
@@ -155,7 +142,7 @@
         </table>
     </div>
 </div>
-    <%@include file="footer.txt" %>
+    <%@include file="foot.jsp" %>
 <script src="js/vue.js"></script>
 <script type="text/javascript">
     var vm = new Vue({
