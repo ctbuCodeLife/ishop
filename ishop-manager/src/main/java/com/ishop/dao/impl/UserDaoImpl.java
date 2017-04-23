@@ -244,6 +244,8 @@ public class UserDaoImpl implements UserDao {
         try {
             if (rs.next()){
                 user.setId(rs.getInt(1));
+                user.setName(name);
+                user.setPassword(password);
                 user.setRealName(rs.getString(2));
                 user.setEmail(rs.getString(3));
                 user.setPhone(rs.getString(4));
