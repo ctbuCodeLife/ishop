@@ -81,7 +81,7 @@
 	</head>
 	<body>
 		<div name="container" class="container">
-			<%@include file="head.txt"%>
+			<%@include file="head.jsp"%>
 			<hr color="red"/>
 			<div name="title" class="title">
 					<h3>购物车</h3>
@@ -132,7 +132,7 @@
 					
 				</form>
 			</div>
-			<%@include file="footer.txt" %>
+			<%@include file="foot.jsp" %>
 		</div>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>

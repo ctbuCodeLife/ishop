@@ -106,7 +106,7 @@
 
 	<body>
 		<div name="container" class="container">
-				<%@include file="head.txt"%>
+				<%@include file="head.jsp"%>
 			<hr />
 			<div name="title" class="title">
 				<h3>购物车</h3>
@@ -161,7 +161,7 @@
 			</div>
 		</div>
 
-		<%@include file="footer.txt" %>
+		<%@include file="foot.jsp" %>
 
 		<script src="../StaticSource/js/jquery.min.js"></script>
 		<script type="text/javascript">

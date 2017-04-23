@@ -75,7 +75,7 @@
 	</head>
 	<body>
 		<div name="header" class="header">
-			<%@include file="head.txt" %>
+			<%@include file="head.jsp" %>
 		</div>
 		<div class="dt-title">
 			<ul name="dtNav" class="dt-nav">
@@ -125,7 +125,7 @@
 			
 		</div>
 		<div class="footer">
-			<%@include file="footer.txt" %>
+			<%@include file="foot.jsp" %>
 		</div>
 	</body>
 </html>

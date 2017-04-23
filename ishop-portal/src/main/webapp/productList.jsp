@@ -96,7 +96,7 @@
 
 	<body>
 		<div class="head">
-			<%@include file="head.txt"%>
+			<%@include file="head.jsp"%>
 		</div>
 		<form action="" method="post">
 			<div id="search" class="col-md-4 input-group center">
@@ -214,7 +214,7 @@
 			</div>
 		</div>
 		<div class="footer">
-			<%@include file="footer.txt" %>
+			<%@include file="foot.jsp" %>
 		</div>
 	</body>
 </html>

@@ -41,7 +41,7 @@
 </head>
 <body>
 <div name="header" class="header">
-    <%@include file="head.txt" %>
+    <%@include file="head.jsp" %>
 </div>
 <div id="search" class="col-md-4 input-group center">
     <input type="text" class="form-control" placeholder="comment id...">
@@ -73,7 +73,7 @@
     </table>
 </div>
 <div class="footer">
-    <%@include file="footer.txt" %>
+    <%@include file="foot.jsp" %>
 </div>
 <script src="js/vue.js"></script>
 <script type="text/javascript">

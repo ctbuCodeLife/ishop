@@ -114,7 +114,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<%@include file="head.txt"%>
+			<%@include file="head.jsp"%>
 			<div class="nav_main">
 				<div class="nav_left">
 					会员中心
@@ -213,7 +213,7 @@
 			</div>
 			<hr />
 			<div class="footer">
-				<%@include file="footer.txt" %>
+				<%@include file="foot.jsp" %>
 			</div>
 		</div>
 
