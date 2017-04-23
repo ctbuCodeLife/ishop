@@ -200,7 +200,14 @@ public class UserDaoImpl implements UserDao {
         //rs表示查询结果集,执行SQL
         ResultSet rs = db.doQuery(sql,params);
         //查询返回的对象
-        return  rs != null;
+        try {
+            if (rs.next()){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
     //根据管理员名判断对象是否存在
     public  boolean exists(String name){
@@ -212,8 +219,14 @@ public class UserDaoImpl implements UserDao {
         Object[] params = {name};
         //rs表示查询结果集,执行SQL
         ResultSet rs = db.doQuery(sql,params);
-        //查询返回的对象
-        return  rs != null;
+        try {
+            if (rs.next()){
+               return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
     //根据登录名和密码获取对象
     public User get(String name, String password){

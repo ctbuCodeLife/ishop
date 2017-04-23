@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.assertTrue;
 
 /** 
 * UserDaoImpl Tester. 
@@ -129,7 +130,9 @@ public void testExistsId() throws Exception {
 */ 
 @Test
 public void testExistsName() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    UserDao ud = new UserDaoImpl();
+    assertTrue(ud.exists("litao"));
 } 
 
 /** 
