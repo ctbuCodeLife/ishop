@@ -32,10 +32,9 @@
             <td>{{user.email}}</td>
             <td>{{user.phone}}</td>
             <td>{{user.created}}</td>
-            <td>{{user.updated}}</td>
             <td>
-                <a v-bind:href="'delUser?id='+user.id"><button>删除</button></a>
-                <a v-bind:href="'updateUser.jsp?id='+user.id"><button>更新</button></a>
+                <a class="btn btn-danger" v-bind:href="'delUser?id='+user.id">删除</a>
+                <a class="btn btn-default" v-bind:href="'updateUser.jsp?id='+user.id">更新</a>
         </tr>
     </table>
 </div>

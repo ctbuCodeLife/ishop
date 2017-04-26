@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/dashboard.css" rel="stylesheet">
-    <title></title>
+    <title>ishop后台管理</title>
     <style type="text/css">
         * {
             margin: 0;

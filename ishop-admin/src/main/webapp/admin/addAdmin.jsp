@@ -6,7 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!doctype html>
+<html lang="cn-hans">
 <head>
     <title>添加管理员</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
