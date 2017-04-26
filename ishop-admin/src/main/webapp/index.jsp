@@ -54,34 +54,11 @@
     </style>
 </head>
 
-<body>
-<!--top menu-->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">欢迎你，管理员！</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#">主页</a>
-                </li>
-                <li>
-                    <a href="#">个人信息</a>
-                </li>
-                <li>
-                    <a href="#">帮助</a>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-            </form>
-        </div>
-    </div>
-</nav>
-<!--left menu-->
+<%@include file="head.jsp"%>
+
 <div class="container-fluid">
     <div class="row">
+        <!--左导航-->
         <div id="left-bar" class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-pills nav-stacked">
                 <li>
@@ -162,11 +139,11 @@
                 </li>
             </ul>
         </div>
-        <!--
-    描述：右半部
--->     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <!--描述：右半部-->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <iframe name="contentIframe" src="welcome.html" frameborder="0" width="100%" height="600px"></iframe>
         </div>
-
+    </div>
+</div>
 </body>
 </html>
