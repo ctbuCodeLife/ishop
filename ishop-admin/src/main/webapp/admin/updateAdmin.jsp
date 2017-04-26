@@ -10,6 +10,9 @@
 <head>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <title>修改管理员</title>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-awesome.min.css">
+    <!--提示框插件样式-->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
     <style type="text/css">
         .container{
             width: 500px;
@@ -77,6 +80,10 @@
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/vue.js"></script>
+<!--引入插件的js-->
+<script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
+
+<!--自定义的管理admin的js-->
 <script src="<%=request.getContextPath()%>/js/admin.js"></script>
 <script>
     $(document).ready(function(){
@@ -106,7 +113,6 @@
 
             }
         );
-
     })
 </script>
 </body>
