@@ -56,7 +56,7 @@ CREATE TABLE `admin` (
 	PRIMARY KEY (`id`),
 	KEY `role_id` (`role_id`),
 	CONSTRAINT `fk_role_admin` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`),
-	UNIQUE KEY `user_unique_key`(`phone`,`email`,`name`)
+	UNIQUE KEY `admin_name_unique`(`name`)
 ) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 comment '管理员表';
 
 DROP TABLE
@@ -72,7 +72,8 @@ CREATE TABLE `user` (
 	`created` DATETIME DEFAULT NULL COMMENT '创建时间',
 	`updated` DATETIME DEFAULT NULL COMMENT '更新时间',
 	PRIMARY KEY (`id`),
-	UNIQUE KEY `user_unique_key`(`phone`,`email`,`name`)
+	UNIQUE KEY `user_phone_unique`(`phone`),
+    unique key `user_name_unique`(`name`)
 ) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 comment '用户表';
 
 DROP TABLE
@@ -86,7 +87,8 @@ CREATE TABLE `type` (
 	`grade` TINYINT UNSIGNED  DEFAULT 1 comment '类别等级,为1时表示一级类别',
     `created` datetime default null comment '创建时间',
     `updated` datetime default null comment '更新时间',
-  primary key(`id`)
+  primary key(`id`),
+  unique key  `type_name_unique`(`name`)
 )ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8 comment '类别表';
 
 drop table if exists `product`;
