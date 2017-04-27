@@ -17,15 +17,6 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
 </head>
 <body>
-<<<<<<< HEAD
-<div class="container">
-    <form action="" method="post">
-        <div class="search">
-            <div class="input-group">
-                <input id="name" name="name" type="text" class="form-control" placeholder="Search By Username">
-                <span class="input-group-btn">
-        			<button class="btn btn-default" type="button" onclick="getAdmin()">Go!</button>
-=======
 <!--管理员导航-->
 <div id="adminNav">
     <span>管理员管理</span>
@@ -40,7 +31,6 @@
                     <input id="name" name="name" type="text" class="form-control" placeholder="按照管理员名字查询">
                     <span class="input-group-btn">
         			<button id="search" class="btn btn-primary" type="button" onclick="getAdmin()">查询</button>
->>>>>>> dev
      			</span>
                 </div>
             </div>
