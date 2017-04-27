@@ -22,8 +22,8 @@ import java.util.List;
 public class ListTypeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            TypeDao pd = new TypeDaoImpl();
-            List<Type> list = pd.list();
+            TypeDao td = new TypeDaoImpl();
+            List<Type> list = td.list();
             PrintWriter out = response.getWriter();
             String json = JSON.toJSONString(list, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
             if(list != null) {

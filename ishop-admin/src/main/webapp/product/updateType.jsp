@@ -37,9 +37,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="parentId" class="col-sm-3 control-label">父级id</label>
+            <label for="parentId" class="col-sm-3 control-label">父级类别</label>
             <div class="col-sm-9">
-                <input id="parentId" type="text" name="parentId" class="form-control"  placeholder="父级id">
+                <input type="hidden">
+                <input id="parentId" type="text" name="parentId" class="form-control"  placeholder="父级类别">
             </div>
         </div>
         <div class="form-group">

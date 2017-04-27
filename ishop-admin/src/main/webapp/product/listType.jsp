@@ -30,8 +30,8 @@
                 <td>{{type.describe}}</td>
                 <td>
                     <span style="display: none">{{type.id}}</span>
-                    <button onclick="delType(this)">删除</button>
-                    <a v-bind:href="'updateType.jsp?id='+type.id"><button>更新</button></a>
+                    <a class="btn btn-danger" onclick="delType(this)">删除</a>
+                    <a class="btn btn-default" v-bind:href="'updateType.jsp?id='+type.id">更新</a>
                 </td>
             </tr>
         </table>

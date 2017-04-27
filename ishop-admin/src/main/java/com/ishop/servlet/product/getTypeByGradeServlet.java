@@ -24,18 +24,17 @@ public class getTypeByGradeServlet extends HttpServlet {
         try{
             //错误
             TypeDao td = new TypeDaoImpl();
-            String grade = request.getParameter("grade");
-            Integer id = Integer.parseInt(grade);
+            String gradeParam = request.getParameter("grade");
+            Integer grade = Integer.parseInt(gradeParam);
             Type type = new Type();
-//            List<Type> list = td.get(id);
+            List<Type> list = td.getParentList(grade);
             PrintWriter out = response.getWriter();
-            String json = JSON.toJSONString(type, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
-            if(type != null) {
-                request.setAttribute("type",type);
+            String json = JSON.toJSONString(list, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
+            if (list != null) {
                 out.println(json);
                 out.close();
-            }else{
-                out.println("获取失败!");
+            }else {
+                out.println(json);
                 out.close();
             }
         }catch (Exception e) {

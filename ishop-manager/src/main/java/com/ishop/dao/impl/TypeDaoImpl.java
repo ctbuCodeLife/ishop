@@ -70,10 +70,6 @@ public class TypeDaoImpl implements TypeDao {
         int rowNum = db.doUpdate(sql,params);
         return rowNum == 1;
     }
-    //根据对象删除
-    public boolean delete(Type type){
-        return delete(type.getId());
-    }
     //根据Id获取对象
     public Type get(Integer id){
         //数据库工具类
@@ -91,10 +87,38 @@ public class TypeDaoImpl implements TypeDao {
                 type.setParentId(rs.getInt(1));
                 type.setName(rs.getString(2));
                 type.setDescribe(rs.getString(3));
-                type.setGrade(rs.getByte(4));
+                type.setGrade(rs.getInt(4));
                 type.setCreated(rs.getTimestamp(5));
                 type.setUpdated(rs.getTimestamp(6));
                 type.setId(id);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return type ;
+
+    }
+    //根据name获取对象
+    public Type get(String name){
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "select id,parent_id,`describe`,grade,created,updated from `type` where `name` =?";
+        //sql 的参数
+        Object[] params = {name};
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        Type type = new Type();
+        try {
+            if (rs.next()){
+                type.setId(rs.getInt(1));
+                type.setParentId(rs.getInt(2));
+                type.setDescribe(rs.getString(3));
+                type.setGrade(rs.getInt(4));
+                type.setCreated(rs.getTimestamp(5));
+                type.setUpdated(rs.getTimestamp(6));
+                type.setName(name);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -150,7 +174,7 @@ public class TypeDaoImpl implements TypeDao {
                 type.setParentId(rs.getInt(2));
                 type.setName(rs.getString(3));
                 type.setDescribe(rs.getString(4));
-                type.setGrade(rs.getByte(5));
+                type.setGrade(rs.getInt(5));
                 type.setCreated(rs.getTimestamp(6));
                 type.setUpdated(rs.getTimestamp(7));
                 list.add(type);
@@ -172,5 +196,57 @@ public class TypeDaoImpl implements TypeDao {
         //rowNum表示影响行数,执行SQL
         int rowNum = db.doUpdate(sql,params);
         return rowNum == 1;
+    }
+    //根据name判断对象是否存在
+    public  boolean exists(String name){
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "select id from `type` where `name`=?";
+        //sql 的参数
+        Object[] params = {name};
+        //rowNum表示影响行数,执行SQL
+        int rowNum = db.doUpdate(sql,params);
+        return rowNum == 1;
+    }
+    /**
+     * 通过子类别等级获取所有父类别
+     * @param grade 类别等级
+     * @return 所有父类别
+     */
+    public  List<Type> getParentList(int grade){
+        if (grade > 1){
+            //表示类别等级不为1的父类别
+            int parentGrade = grade - 1;
+            //返回的列表
+            List<Type> parentList = new ArrayList<Type>();
+            //数据库工具类
+            DBUtil db = new DBUtil();
+            //sql statement
+            String sql = "select * from `type` where grade = ? order by id ";
+            Object[] params = {parentGrade};
+            //rs表示查询结果集,执行SQL
+            ResultSet rs = db.doQuery(sql,params);
+            //查询返回的对象
+
+           try {
+                while (rs.next()){
+                    Type type = new Type();
+                    type.setId(rs.getInt(1));
+                    type.setParentId(rs.getInt(2));
+                    type.setName(rs.getString(3));
+                    type.setDescribe(rs.getString(4));
+                    type.setGrade(rs.getInt(5));
+                    type.setCreated(rs.getTimestamp(6));
+                    type.setUpdated(rs.getTimestamp(7));
+                    parentList.add(type);
+                }
+                return parentList ;
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        //类别等级为1时没有父类别.
+        return null;
     }
 }

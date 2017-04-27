@@ -30,7 +30,7 @@ public class Type implements Serializable {
     /**
      * 类别等级,为1时表示一级类别
      */
-    private Byte grade;
+    private Integer grade;
 
     /**
      * 创建时间
@@ -76,11 +76,11 @@ public class Type implements Serializable {
         this.describe = describe;
     }
 
-    public Byte getGrade() {
+    public Integer getGrade() {
         return grade;
     }
 
-    public void setGrade(Byte grade) {
+    public void setGrade(Integer grade) {
         this.grade = grade;
     }
 
