@@ -52,33 +52,39 @@
 							</div>
 						</div>
 					</div>
-					<div class="row input_item">
-						<div class="form-group">
-							<label for="email" class="col-sm-2 control-label"></label>
-							<div class="col-sm-10">
-								<input name="email" id="email" type="email" class="form-control"  placeholder="邮箱" >
-							</div>
-						</div>
-					</div>
+					<%--<div class="row input_item">--%>
+						<%--<div class="form-group">--%>
+							<%--<label for="email" class="col-sm-2 control-label"></label>--%>
+							<%--<div class="col-sm-10">--%>
+								<%--<input name="email" id="email" type="email" class="form-control"  placeholder="邮箱" >--%>
+							<%--</div>--%>
+						<%--</div>--%>
+					<%--</div>--%>
 					<div class="row input_item">
 						<div class="form-group">
 							<label for="phone" class="col-sm-2 control-label"></label>
 							<div class="col-sm-10">
-								<input name="phone" id="phone" type="tel" class="form-control"  placeholder="电话" >
+								<input name="phone" id="phone" type="tel" class="form-control"  placeholder="手机号" >
 							</div>
 						</div>
 					</div>
-					<div class="row input_item">
-						<div class="form-group">
-							<label for="realName" class="col-sm-2 control-label"></label>
-							<div class="col-sm-10">
-								<input name="realName" type="text" class="form-control" id="realName" placeholder="真实名字">
-							</div>
-						</div>
-					</div>
-					<div class="row input_item">
-						验证模块
-					</div>
+					<%--<div class="row input_item">--%>
+						<%--<div class="form-group">--%>
+							<%--<label for="realName" class="col-sm-2 control-label"></label>--%>
+							<%--<div class="col-sm-10">--%>
+								<%--<input name="realName" type="text" class="form-control" id="realName" placeholder="真实名字">--%>
+							<%--</div>--%>
+						<%--</div>--%>
+					<%--</div>--%>
+                    <div class="row input_item">
+                        <div class="form-group">
+                            <label for="checkCode" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-6">
+                                <input id="checkCode" type="text" class="from-control"  placeholder="短信验证码" >
+                                <button class="btn btn-danger" onclick="">获取验证码</button>
+                            </div>
+                        </div>
+                    </div>
 					<div class="row input_item">
 						<input id="submit" name="" type="submit" class="btn-primary col-xs-6 col-xs-offset-3 col-md-10 col-md-offset-2" value="提交" onsubmit="return checkSubmint()"/>
 					</div>
