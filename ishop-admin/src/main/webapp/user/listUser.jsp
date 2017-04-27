@@ -25,7 +25,7 @@
             <th>操作</th>
         </tr>
         <tr v-for="user in mydata">
-            <td>{{mydata.indexOf(user)+1}} <span style="display: none">{{user.id}}</span></td>
+            <td>{{mydata.indexOf(user)+1}}</td>
             <td>{{user.name}}</td>
             <td>{{user.password}}</td>
             <td>{{user.realName}}</td>
@@ -35,34 +35,16 @@
             <td>
                 <a class="btn btn-danger" v-bind:href="'delUser?id='+user.id">删除</a>
                 <a class="btn btn-default" v-bind:href="'updateUser.jsp?id='+user.id">更新</a>
+            </td>
         </tr>
     </table>
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/vue.js"></script>
-<script>
-    $(document).ready(function(){
-        mydata=[];
-        $.ajax({
-                type:"GET",
-                url:"/ishop-admin/listUser",
-                dataType:"json",
-                success:function (data) {
-                    //这里获取到数据展示到前台
-                    //mydata=data;
-                    alert("query list success");
-                    alert(data);
-                    var vm = new Vue({
-                        el:'#userTable',
-                        data:{
-                            mydata:data
-                        }
-                    });
-                }
-
-            }
-        );
-
+<script src="<%=request.getContextPath()%>/js/user.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        listUser();
     })
 </script>
 
