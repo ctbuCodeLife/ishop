@@ -8,7 +8,7 @@ function addAdmin() {
             return;
         }
     }
-    var nameValue = $("#name").val();
+    var name = $("#name").val();
     var roleId = $("#roleId").val();
     var password = $("#password").val();
     var realName = $("#realName").val();
@@ -18,18 +18,18 @@ function addAdmin() {
     $.ajax({
         type: "GET",
         url: "/ishop-admin/getAdminByName",
-        data: {name: nameValue},
+        data: {name: name},
         dataType: "json",
         success: function (data) {
             //这里获取到数据展示到前台
-            if (data.id === undefined) {
+            if (data === false) {
             //说明管理员名不存在可以添加,
                 $.ajax({
                     type: "POST",
                     url: "/ishop-admin/addAdmin",
                     data: {
                         roleId: roleId,
-                        name: nameValue,
+                        name: name,
                         password: password,
                         realName: realName,
                         email: email,
@@ -38,20 +38,19 @@ function addAdmin() {
                     dataType: "json",
                     success: function (data) {
                         //这里获取到数据展示到前台
-
+                        swal(
+                            '添加成功!',
+                            '成功添加了一条管理员信息!',
+                            'success'
+                        );
+                        //2秒后自动跳转
+                        function autoReturn() {
+                            location = "listAdmin.jsp";
+                        }
+                        setTimeout(autoReturn, 2000);
                     }
                 });
-                swal(
-                    '添加成功!',
-                    '成功添加了一条管理员信息!',
-                    'success'
-                );
-                //2秒后自动跳转
-                function autoReturn() {
-                    location = "listAdmin.jsp";
-                }
 
-                setTimeout(autoReturn, 2000);
             } else {
              //说明管理员名存在,不能添加.
                 swal(

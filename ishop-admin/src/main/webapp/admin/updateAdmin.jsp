@@ -32,19 +32,13 @@
         <div class="form-group">
             <label for="roleId" class="col-sm-3 control-label">权限等级</label>
             <div class="col-sm-9">
-                <select name="roleId" id="roleId">
-                    <option value="1">root</option>
-                    <option value="2">admin</option>
-                    <option value="3">backadmin</option>
-                    <option value="4">frontadmin</option>
-                    <option value="5">server</option>
-                </select>
+                <input id="roleId" name="roleId" class="form-control"type="text" disabled>
             </div>
         </div>
         <div class="form-group">
             <label for="name" class="col-sm-3 control-label">管理员名</label>
             <div class="col-sm-9">
-                <input id="name" type="text" name="name" class="form-control"  placeholder="管理员名">
+                <input id="name" type="text" name="name" class="form-control"  placeholder="管理员名" disabled>
             </div>
         </div>
         <div class="form-group">
