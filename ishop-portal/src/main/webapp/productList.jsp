@@ -73,7 +73,7 @@
 				border: 1px solid #000;
 				order: ;/*属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。*/
 				flex-grow: ;/*(是在剩余空间的基础上)属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。*/
-				flex-shrink: ;/*属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。(负值无效)*/
+				flex-shrink: ;/*属 性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。(负值无效)*/
 				flex-basis: ;/*属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
 				浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。
 				它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。*/
@@ -93,7 +93,6 @@
 			}
 		</style>
 	</head>
-
 	<body>
 		<div class="head">
 			<%@include file="head.jsp"%>
@@ -106,7 +105,6 @@
      		</span>
 		</div>
 		</form>
-		
 		<div class="product-Template">
 			<div class="product-nav">
 				<ul id="productType1" class="nav nav-tabs">
