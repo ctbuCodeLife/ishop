@@ -18,8 +18,8 @@ import java.util.List;
 /**
  * Created by tao on 2017/4/22 0022.
  */
-@WebServlet(name="GetAdminServlet",urlPatterns = "/getAdmin")
-public class GetAdminServlet extends HttpServlet {
+@WebServlet(name="GetAdminByIdServlet",urlPatterns = "/getAdmin")
+public class GetAdminByIdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             AdminDao ad = new AdminDaoImpl();

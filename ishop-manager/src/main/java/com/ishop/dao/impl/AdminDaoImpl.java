@@ -101,7 +101,7 @@ public class AdminDaoImpl implements AdminDao{
         }
         return admin ;
     }
-    //根据name获取对象
+    //根据name获取对象(一个用户)
     public Admin get(String name){
         //数据库工具类
         DBUtil db = new DBUtil();
@@ -129,6 +129,37 @@ public class AdminDaoImpl implements AdminDao{
             e.printStackTrace();
         }
         return admin ;
+    }
+    //根据name模糊查询(未完成状态，写完后与List<Admin>Merge)
+    public List<Admin> getByFuzzyQueryName(String name){
+        //返回的列表
+        List<Admin> list = new ArrayList<Admin>();
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "select * from admin order by id limit ?,?";
+        Object[] params = {name};
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        try {
+            while (rs.next()){
+                Admin admin = new Admin();
+                admin.setId(rs.getInt(1));
+                admin.setRoleId(rs.getInt(2));
+                admin.setName(rs.getString(3));
+                admin.setPassword(rs.getString(4));
+                admin.setRealName(rs.getString(5));
+                admin.setEmail(rs.getString(6));
+                admin.setPhone(rs.getString(7));
+                admin.setCreated(rs.getTimestamp(8));
+                admin.setUpdated(rs.getTimestamp(9));
+                list.add(admin);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
     }
     //统计总条数
     public int getTotal(){
