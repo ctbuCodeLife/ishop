@@ -91,7 +91,7 @@ function listProduct() {
         success:function (data) {
             //这里获取到数据展示到前台
             var vm = new Vue({
-                el:'#ProductTable',
+                el:'productTable',
                 data:{
                     mydata:data
                 }
