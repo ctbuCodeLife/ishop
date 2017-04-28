@@ -10,6 +10,9 @@
 <head>
     <title>所有用户</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-awesome.min.css">
+    <!--提示框插件样式-->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
 </head>
 <body>
 <div id="data">
@@ -33,7 +36,8 @@
             <td>{{user.phone}}</td>
             <td>{{user.created}}</td>
             <td>
-                <a class="btn btn-danger" v-bind:href="'delUser?id='+user.id">删除</a>
+                <span style="display: none">{{user.id}}</span>
+                <a class="btn btn-danger" onclick="delUser(this)">删除</a>
                 <a class="btn btn-default" v-bind:href="'updateUser.jsp?id='+user.id">更新</a>
             </td>
         </tr>
@@ -41,6 +45,8 @@
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/vue.js"></script>
+<!--引入插件的js-->
+<script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/user.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
