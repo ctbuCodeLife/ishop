@@ -193,9 +193,17 @@ public class TypeDaoImpl implements TypeDao {
         String sql = "select id from `type` where id=?";
         //sql 的参数
         Object[] params = {id};
-        //rowNum表示影响行数,执行SQL
-        int rowNum = db.doUpdate(sql,params);
-        return rowNum == 1;
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        try {
+            if (rs.next()){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
     //根据name判断对象是否存在
     public  boolean exists(String name){
@@ -205,9 +213,17 @@ public class TypeDaoImpl implements TypeDao {
         String sql = "select id from `type` where `name`=?";
         //sql 的参数
         Object[] params = {name};
-        //rowNum表示影响行数,执行SQL
-        int rowNum = db.doUpdate(sql,params);
-        return rowNum == 1;
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        try {
+            if (rs.next()){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
     /**
      * 通过子类别等级获取所有父类别

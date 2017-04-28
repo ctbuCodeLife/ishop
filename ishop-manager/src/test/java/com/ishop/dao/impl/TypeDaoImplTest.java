@@ -121,7 +121,12 @@ public void testListForStartCount() throws Exception {
 */ 
 @Test
 public void testExists() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    TypeDao td = new TypeDaoImpl();
+    String name = "女装男装";
+    boolean result = td.exists(name);
+    assertTrue(result);
+
 } 
 
 /** 

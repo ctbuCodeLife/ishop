@@ -21,21 +21,25 @@ public class DBUtil {
     public Statement stmt = null;
     // 通过配置文件设置driver,username,username,password
     static {
-		Properties prop = new Properties();
-		InputStream in;
-		try {
-		    //获取classPath
-		    String classPath = DBUtil.class.getClassLoader().getResource("").getPath();
-            String name = classPath+ "dbconfig.properties";
-			in = new FileInputStream(name);
-			prop.load(in);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		driver = prop.getProperty("driver");
-		url = prop.getProperty("url");
-		username = prop.getProperty("username");
-		password = prop.getProperty("password");
+//		Properties prop = new Properties();
+//		InputStream in;
+//		try {
+//		    //获取classPath
+//		    String classPath = DBUtil.class.getClassLoader().getResource("").getPath();
+//            String name = classPath+ "dbconfig.properties";
+//			in = new FileInputStream(name);
+//			prop.load(in);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		driver = prop.getProperty("driver");
+//		url = prop.getProperty("url");
+//		username = prop.getProperty("username");
+//		password = prop.getProperty("password");
+        driver="com.mysql.jdbc.Driver";
+        url="jdbc:mysql://localhost:3306/ishop?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+        username="root";
+        password="123456";
     }
 
     public DBUtil() {
