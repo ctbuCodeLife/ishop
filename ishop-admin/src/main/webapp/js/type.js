@@ -119,7 +119,7 @@ function delType(that) {
     }).then(function (isConfirm) {
         if (isConfirm) {
             //执行删除操作
-            var p = that.parentNode.firstChild;
+            var p = that.parentNode.firstElementChild;
             var id = p.innerHTML;
             $.ajax({
                 type: "GET",
