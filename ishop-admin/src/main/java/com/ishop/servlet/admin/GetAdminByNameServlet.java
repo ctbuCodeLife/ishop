@@ -23,21 +23,19 @@ public class GetAdminByNameServlet extends HttpServlet {
         try{
             AdminDao ad = new AdminDaoImpl();
             String name = request.getParameter("name");
-            boolean result = ad.exists(name);
             PrintWriter out = response.getWriter();
-            out.println(result);
-//            Admin admin = ad.get(name);
-//
-//            String json = JSON.toJSONString(admin, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
-//            if(admin != null) {
-//                request.setAttribute("admin",admin);
-//                out.println(json);
-//                out.close();
-//            }else{
-//                //查询失败
-//                out.println(false);
-//                out.close();
-//            }
+            Admin admin = ad.get(name);
+
+            String json = JSON.toJSONString(admin, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
+            if(admin != null) {
+               // request.setAttribute("admin",admin);
+                out.println(json);
+                out.close();
+            }else{
+                //查询失败
+                out.println(false);
+                out.close();
+            }
         }catch (Exception e) {
             e.printStackTrace();
         }

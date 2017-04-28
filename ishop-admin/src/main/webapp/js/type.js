@@ -17,6 +17,8 @@ function selectGrade(grade) {
                 //这里获取到数据展示到前台
                 if (data !== undefined) {
                     //console.log(data.length)
+                    //清除之前的数据
+                    $("#parentId > option").remove();
                     var length = data.length;
                     for (var i = 0; i < length; i++) {
                         console.log(data[i].id + " " + data[i].name);
@@ -42,7 +44,7 @@ function addType() {
     var parentId = $("#parentId").val();
     var describe = $("#describe").val();
 
-    //判断管理员是否存在
+    //判断类别是否存在
     $.ajax({
         type: "GET",
         url: "/ishop-admin/getTypeByName",
