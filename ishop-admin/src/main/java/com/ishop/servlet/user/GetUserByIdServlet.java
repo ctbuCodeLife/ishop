@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 /**
  * Created by tao on 2017/4/22 0022.
  */
-@WebServlet(name = "GetUserByIdServlet")
+@WebServlet(name = "GetUserByIdServlet",urlPatterns = "/getUserById")
 public class GetUserByIdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
