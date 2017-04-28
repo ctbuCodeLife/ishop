@@ -3,6 +3,15 @@
  */
 //增加商品
 function addProdcut() {
+    //输入非空验证
+    var productEle = ["#productName", "#productSubTitle", "#imageSrc", "#inventNum", "#monthSaleNum", "#orderLink","#salePrice","#realName","#isRecommend"];
+    for (var i = 0; i < productEle.length; i++) {
+        if ($(productEle[i]).val() === "") {
+            $(productEle[i]).focus();
+            return;
+        }
+    }
+    alert(2);
     var name = $("#productName").val();
     var subTitle = $("#productSubTitle").val();
     var typeId = $("#typeName").val();
@@ -34,7 +43,7 @@ function addProdcut() {
             alert(data);
         }
     });
-    location.href="listProduct.jsp";
+    //location.href="listProduct.jsp";
 }
 //删除商品
 function delProduct(that) {
@@ -91,7 +100,7 @@ function listProduct() {
         success:function (data) {
             //这里获取到数据展示到前台
             var vm = new Vue({
-                el:'productTable',
+                el:'#productTable',
                 data:{
                     mydata:data
                 }
