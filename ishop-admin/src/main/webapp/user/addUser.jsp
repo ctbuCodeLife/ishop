@@ -9,7 +9,9 @@
 <html>
 <head>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <title>userModify</title>
+    <!--提示框插件样式-->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
+    <title>addUser</title>
     <style type="text/css">
         .container{
             width: 500px;
@@ -19,7 +21,7 @@
 <body>
 <div class="container">
     <h2>用户添加</h2>
-    <form action="" method="post" class="form-horizontal">
+    <form action="#" method="post" class="form-horizontal">
         <div class="form-group">
             <label for="inputUsername" class="col-sm-2 control-label">用户名</label>
             <div class="col-sm-10">
@@ -39,9 +41,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
+            <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
             </div>
         </div>
         <div class="form-group">
@@ -52,11 +54,15 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">添加</button>
+                <button type="submit" onclick="addUser()" class="btn btn-default">添加</button>
             </div>
         </div>
     </form>
 </div>
-
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+<!--引入插件的js-->
+<script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
+<!--自定义的管理user的js-->
+<script src="<%=request.getContextPath()%>/js/user.js"></script>
 </body>
 </html>
