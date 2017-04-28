@@ -4,7 +4,6 @@
 //增加用户
 function addUser() {
     //输入非空验证
-    alert("进入addUser函数");
     var userEle = ["#inputUsername", "#inputPassword", "#inputPhone", "#inputEmail", "#inputRealname"];
     for (var i = 0; i < userEle.length; i++) {
         if ($(userEle[i]).val() === "") {
@@ -29,7 +28,7 @@ function addUser() {
             //这里获取到数据展示到前台
             console.log(3);
             if (jQuery.isEmptyObject(data)) {
-                //说明管理员名不存在可以添加,
+                //说明用户名不存在可以添加,
                 console.log(4);
                 $.ajax({
                     type: "POST",
@@ -46,7 +45,7 @@ function addUser() {
                         //这里获取到数据展示到前台
                         swal(
                             '添加成功!',
-                            '成功添加了一条管理员信息!',
+                            '成功添加了一条用户信息!',
                             'success'
                         );
                         //2秒后自动跳转
@@ -58,10 +57,10 @@ function addUser() {
                 });
 
             } else {
-                //说明管理员名存在,不能添加.
+                //说明用户名存在,不能添加.
                 swal(
                     '',
-                    '该管理员名已存在,请重新输入!',
+                    '该用户名已存在,请重新输入!',
                     'warning'
                 ).then(function () {
                     $("#inputUsername").focus();
@@ -114,7 +113,7 @@ function  updateUser(that) {
 //删除用户
 function delUser(that) {
     swal({
-        title: '删除管理员?',
+        title: '删除用户?',
         text: "删除后就不可恢复!",
         type: 'error',
         showCancelButton: true,
