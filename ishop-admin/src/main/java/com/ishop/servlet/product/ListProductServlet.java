@@ -22,6 +22,7 @@ import java.util.List;
 public class ListProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            System.out.print(1);
             ProductDao pd = new ProductDaoImpl();
             List<Product> list = pd.list();
             PrintWriter out = response.getWriter();
