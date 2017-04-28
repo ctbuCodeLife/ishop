@@ -16,8 +16,8 @@ import java.io.PrintWriter;
 /**
  * Created by tao on 2017/4/22 0022.
  */
-@WebServlet(name = "GetUserServlet")
-public class GetUserServlet extends HttpServlet {
+@WebServlet(name = "GetUserByNameServlet")
+public class GetUserByNameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             UserDao ud = new UserDaoImpl();
