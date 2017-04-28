@@ -10,6 +10,8 @@
 <head>
     <title>listType</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
+    <!--提示框插件样式-->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
 </head>
 <body>
     <div id="data">
