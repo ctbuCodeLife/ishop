@@ -62,7 +62,7 @@
         <div id="left-bar" class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-pills nav-stacked">
                 <li>
-                    <a class="active font-1" href="admin/listAdmin.jsp" target="contentIframe">管理员管理</a>
+                    <a class="active font-1" href="admin/listAdmin.jsp" target="contentIframe" onclick="showNav(this)">管理员管理</a>
                     <ul class="nav nav-stacked">
                         <li>
                             <a href="admin/queryAdmin.jsp" target="contentIframe">管理员查询</a>
@@ -145,5 +145,11 @@
         </div>
     </div>
 </div>
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+<script>
+    function showNav(that) {
+      that.toggle();
+    }
+</script>
 </body>
 </html>
