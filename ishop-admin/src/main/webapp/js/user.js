@@ -89,7 +89,6 @@ function  updateUser(that) {
 }
 //删除用户
 function delUser(that) {
-    alert(1);
     swal({
         title: '删除管理员?',
         text: "删除后就不可恢复!",
@@ -106,7 +105,7 @@ function delUser(that) {
             var id = p.innerHTML;
             $.ajax({
                 type: "GET",
-                url: "/ishop-admin/delAdmin",
+                url: "/ishop-admin/delUser",
                 data: {id: id},
                 dataType: "json",
                 success: function (data) {
@@ -116,14 +115,13 @@ function delUser(that) {
             });
             swal(
                 '删除成功!',
-                '您已经成功删除管理员',
+                '您已经成功删除用户',
                 'success'
             ).then(function () {
                 location.reload();
             });
         }
     });
-    alert(2);
 }
 //查询所有用户
 function listUser(){
