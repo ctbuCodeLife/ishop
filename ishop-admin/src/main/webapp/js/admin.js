@@ -81,9 +81,8 @@ function delAdmin(that) {
     }).then(function (isConfirm) {
         if (isConfirm) {
             //执行删除操作
-            // var p = that.parentNode.firstChild;
-            // var id = p.innerHTML;
-           var id = parseInt($("#deleteId").text());
+            var p = that.parentNode.firstElementChild;
+            var id = p.innerHTML;
             $.ajax({
                 type: "GET",
                 url: "/ishop-admin/delAdmin",
@@ -99,6 +98,12 @@ function delAdmin(that) {
                         ).then(function () {
                             location.reload();
                         });
+                    }else {
+                        swal(
+                            '删除失败!',
+                            '删除管理员失败',
+                            'success'
+                        )
                     }
                 }
             });
@@ -199,7 +204,7 @@ function getAdmin() {
                 //显示表格
                 $("#queryAdminTable").show();
                 //显示数据
-                nameEle.innerHTML = data.id;
+                nameEle.innerHTML = data.name;
                 roleIdEle.innerHTML = data.roleId;
                 passwordEle.innerHTML = data.password;
                 phoneEle.innerHTML = data.phone;

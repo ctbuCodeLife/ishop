@@ -122,10 +122,8 @@ function delUser(that) {
     }).then(function (isConfirm) {
         if (isConfirm) {
             //执行删除操作
-            // var p = that.parentNode.firstChild;
-            // var id = p.innerHTML;
-            var id = parseInt($("#deleteId").text());
-            console.log(id);
+            var p = that.parentNode.firstElementChild;
+            var id = p.innerHTML;
             $.ajax({
                 type: "GET",
                 url: "/ishop-admin/delUser",
