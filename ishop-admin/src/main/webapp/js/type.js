@@ -4,6 +4,7 @@
 function selectGrade(grade) {
     if (grade === "1") {
         //类别等级为1时,父类别没有,禁用父类别
+        $("#parentId > option").remove();
         $("#parentId").attr("disabled", "disable");
     } else {
         $("#parentId").attr("disabled", false);
@@ -47,7 +48,7 @@ function addType() {
     //判断类别是否存在
     $.ajax({
         type: "GET",
-        url: "/ishop-admin/getTypeByName",
+        url: "/ishop-admin/existsTypeByName",
         data: {name: name},
         dataType: "json",
         success: function (data) {

@@ -91,7 +91,19 @@
     </form>
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/vue.js"></script>
+<%--<script src="<%=request.getContextPath()%>/js/vue.js"></script>--%>
+<!--引入弹出框插件的js-->
+<script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
+<!--自定义的管理product的js-->
 <script src="<%=request.getContextPath()%>/js/product.js"></script>
+<script>
+    $(document).ready(function () {
+       swal(
+           'test',
+           'test msaged',
+           'success'
+       );
+    });
+</script>
 </body>
 </html>

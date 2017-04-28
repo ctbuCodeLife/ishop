@@ -1,3 +1,4 @@
+
 //增加管理员
 function addAdmin() {
     //输入非空验证
@@ -22,7 +23,7 @@ function addAdmin() {
         dataType: "json",
         success: function (data) {
             //这里获取到数据展示到前台
-            if (jQuery.isEmptyObject(data)||data === false) {
+            if (jQuery.isEmptyObject(data) || data == false) {
                 //说明管理员名不存在可以添加,
                 $.ajax({
                     type: "POST",
@@ -63,6 +64,8 @@ function addAdmin() {
             }
         }
     });
+
+
 }
 //删除管理员
 function delAdmin(that) {
@@ -78,8 +81,9 @@ function delAdmin(that) {
     }).then(function (isConfirm) {
         if (isConfirm) {
             //执行删除操作
-            var p = that.parentNode.firstChild;
-            var id = p.innerHTML;
+            // var p = that.parentNode.firstChild;
+            // var id = p.innerHTML;
+           var id = parseInt($("#deleteId").text());
             $.ajax({
                 type: "GET",
                 url: "/ishop-admin/delAdmin",
@@ -87,22 +91,24 @@ function delAdmin(that) {
                 dataType: "json",
                 success: function (data) {
                     //这里获取到数据展示到前台
-                    // alert(data);
+                    if(data === true){
+                        swal(
+                            '删除成功!',
+                            '您已经成功删除管理员',
+                            'success'
+                        ).then(function () {
+                            location.reload();
+                        });
+                    }
                 }
             });
-            swal(
-                '删除成功!',
-                '您已经成功删除管理员',
-                'success'
-            ).then(function () {
-                location.reload();
-            });
+
         }
     });
 }
 //修改管理员
 function updateAdmin() {
-    var adminEle = ["#id","#roleId","#name","#password","#realName","#email","#phone"];
+    var adminEle = ["#id", "#roleId", "#name", "#password", "#realName", "#email", "#phone"];
     //输入框非空验证
     for (var i = 0; i < adminEle.length; i++) {
         if ($(adminEle[i]).val() === "") {
@@ -171,6 +177,7 @@ function getAdmin() {
     var phoneEle = document.getElementById("showPhone");
     var emailEle = document.getElementById("showEmail");
     var realNameEle = document.getElementById("showRealName");
+    var idEle = document.getElementById("deleteId");
     $.ajax({
         type: "GET",
         url: "/ishop-admin/getAdminByName",
@@ -178,7 +185,7 @@ function getAdmin() {
         dataType: "json",
         success: function (data) {
             //这里获取到数据展示到前台
-            if(data.id === undefined){
+            if (data.id === undefined) {
                 $("#queryAdminTable").hide();
                 //查询到数据展示到前台
                 //没找到数据给出提示
@@ -188,8 +195,7 @@ function getAdmin() {
                     '抱歉,没有查找到您要查找的信息',
                     'error'
                 )
-
-            }else{
+            } else {
                 //显示表格
                 $("#queryAdminTable").show();
                 //显示数据
@@ -199,11 +205,10 @@ function getAdmin() {
                 phoneEle.innerHTML = data.phone;
                 emailEle.innerHTML = data.email;
                 realNameEle.innerHTML = data.realName;
+                idEle.innerHTML = data.id;
                 //更新更新按钮
-                $("#updateBtn").attr("href","updateAdmin.jsp?id="+data.id);
+                $("#updateBtn").attr("href", "updateAdmin.jsp?id=" + data.id);
             }
         }
-    })
+    });
 }
-
-

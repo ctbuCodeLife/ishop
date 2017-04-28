@@ -48,7 +48,7 @@
                 <td>{{admin.phone}}</td>
                 <td>{{admin.updated}}</td>
                 <td>
-                    <span style="display: none">{{admin.id}}</span>
+                    <span id="deleteId" style="display: none">{{admin.id}}</span>
                     <a class="btn btn-danger" onclick="delAdmin(this)">删除</a>
                     <a class="btn btn-default" v-bind:href="'updateAdmin.jsp?id='+admin.id">更新</a>
                 </td>
