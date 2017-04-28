@@ -72,20 +72,44 @@ function addUser() {
 }
 //修改用户
 function  updateUser(that) {
-    var p = that.parentNode.firstChild;
-    var id = p.innerHTML;
-    alert(id);
+    var userEle = ["#id",,"#name","#password","#realName","#email","#phone"];
+    //输入框非空验证
+    for (var i = 0; i < userEle.length; i++) {
+        if ($(userEle[i]).val() === "") {
+            $(userEle[i]).focus();
+            return;
+        }
+    }
+    var id = $("#id").val();
+    var name = $("#name").val();
+    var password = $("#password").val();
+    var realName = $("#realName").val();
+    var email = $("#email").val();
+    var phone = $("#phone").val();
     $.ajax({
-        type:"GET",
-        url:"/ishop-admin/delUser",
-        data:{id:id},
-        dataType:"json",
-        success:function (data) {
+        type: "GET",
+        url: "/ishop-admin/updateUser",
+        data: {
+            id: id,
+            name: name,
+            password: password,
+            realName: realName,
+            email: email,
+            phone: phone
+        },
+        dataType: "json",
+        success: function (data) {
             //这里获取到数据展示到前台
-            alert(data);
         }
     });
-    location.reload();
+    //提示框
+    swal(
+        '更新成功!',
+        '成功更新了一条用户信息!',
+        'success'
+    ).then(function () {
+        location.href = "listUser.jsp";
+    });
 }
 //删除用户
 function delUser(that) {
