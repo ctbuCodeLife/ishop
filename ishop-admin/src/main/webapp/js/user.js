@@ -147,21 +147,42 @@ function listUser(){
 }
 //通过name查看User
 function getUserByName() {
-    var name = $("#name").val();
-    $("#queryAdminTable").show();
+    var nameValue = $("#name").val();
+    var nameEle = document.getElementById("showName");
+    var passwordEle = document.getElementById("showPassword");
+    var phoneEle = document.getElementById("showPhone");
+    var emailEle = document.getElementById("showEmail");
+    var realNameEle = document.getElementById("showRealName");
     $.ajax({
-        type:"GET",
-        url:"/ishop-admin/getUserByName",
-        data:{name:name},
-        dataType:"json",
-        success:function (data) {
+        type: "GET",
+        url: "/ishop-admin/getUserByName",
+        data: {name: nameValue},
+        dataType: "json",
+        success: function (data) {
             //这里获取到数据展示到前台
-            var vm = new Vue({
-                el:'#queryUserTable',
-                data:{
-                    admin:data
-                }
-            });
+            if(data.id === undefined){
+                $("#queryUserTable").hide();
+                //查询到数据展示到前台
+                //没找到数据给出提示
+                //提示框
+                swal(
+                    '查找失败!',
+                    '抱歉,没有查找到您要查找的信息',
+                    'error'
+                )
+
+            }else{
+                //显示表格
+                $("#queryUserTable").show();
+                //显示数据
+                nameEle.innerHTML = data.name;
+                passwordEle.innerHTML = data.password;
+                phoneEle.innerHTML = data.phone;
+                emailEle.innerHTML = data.email;
+                realNameEle.innerHTML = data.realName;
+                //更新更新按钮
+                $("#updateBtn").attr("href","updateAdmin.jsp?id="+data.id);
+            }
         }
     })
 }
