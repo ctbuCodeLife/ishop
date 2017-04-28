@@ -65,9 +65,9 @@ public void testDeleteId() throws Exception {
 */ 
 @Test
 public void testDeleteUser() throws Exception { 
-//    //测试成功
+//TODO: Test goes here...
 //    UserDao ud = new UserDaoImpl();
-//    boolean result = ud.delete(2);
+//    boolean result = ud.delete(1);
 //    assertTrue(result);
 } 
 
