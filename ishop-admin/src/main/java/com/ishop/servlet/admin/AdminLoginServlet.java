@@ -37,7 +37,6 @@ public class AdminLoginServlet extends HttpServlet {
                response.sendRedirect("sucess.jsp");
            }else{
                //没找到
-              response.sendRedirect("fail.jsp");
            }
 
        }catch (Exception e){

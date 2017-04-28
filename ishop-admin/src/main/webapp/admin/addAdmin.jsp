@@ -74,9 +74,8 @@
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/vue.js"></script>
-<!--引入插件的js-->
+<!--引入弹出框插件的js-->
 <script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
-
 <!--自定义的管理admin的js-->
 <script src="<%=request.getContextPath()%>/js/admin.js"></script>
 

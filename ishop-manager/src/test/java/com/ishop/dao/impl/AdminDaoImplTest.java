@@ -15,11 +15,12 @@ import static org.junit.Assert.*;
 public class AdminDaoImplTest {
     @Test
     public  void testadd(){
-        Admin admin = new Admin();
-        admin.setRoleId(2);
-        admin.setRealName("testAdmin");
-        AdminDao ad  = new AdminDaoImpl();
-        assertTrue(ad.add(admin));
+        //测试成功
+//        Admin admin = new Admin();
+//        admin.setRoleId(2);
+//        admin.setRealName("testAdmin");
+//        AdminDao ad  = new AdminDaoImpl();
+//        assertTrue(ad.add(admin));
     }
     @Test
     public void testUpdate(){

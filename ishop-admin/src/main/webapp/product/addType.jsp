@@ -58,12 +58,10 @@
     </form>
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
-
 <script src="<%=request.getContextPath()%>/js/vue.js"></script>
-<!--引入插件的js-->
+<!--引入弹出框插件的js-->
 <script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
-
-<!--类别操作-->
+<!--自定义的管理type的js-->
 <script src="<%=request.getContextPath()%>/js/type.js"></script>
 
 <script type="text/javascript">

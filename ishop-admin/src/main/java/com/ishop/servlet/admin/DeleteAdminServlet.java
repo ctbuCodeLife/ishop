@@ -27,14 +27,8 @@ public class DeleteAdminServlet extends HttpServlet{
                 Integer id = Integer.parseInt(paramId);
                 boolean result = ad.delete(id);
                 PrintWriter out = response.getWriter();
-                String message="";
-                if(result == true){
-                    message = "delect sucess!";
-                }else{
-                    message = "delete failure!";
-                }
-               out.println(message);
-               out.close();
+                out.println(result);
+                out.close();
             }catch (Exception e) {
                 e.printStackTrace();
             }

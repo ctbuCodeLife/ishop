@@ -64,8 +64,12 @@ public void testUpdate() throws Exception {
 * 
 */ 
 @Test
-public void testDelete() throws Exception { 
-//TODO: Test goes here... 
+public void testDelete() throws Exception {
+    //测试成功
+//    TypeDao td = new TypeDaoImpl();
+//    int id = 51;
+//    boolean result = td.delete(id);
+//    assertTrue(result);
 } 
 
 /** 

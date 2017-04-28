@@ -38,6 +38,9 @@
     </div>
     <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
     <script src="<%=request.getContextPath()%>/js/vue.js"></script>
+    <!--引入弹出框插件的js-->
+    <script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
+    <!--引入自定义的type.js-->
     <script src="<%=request.getContextPath()%>/js/type.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){

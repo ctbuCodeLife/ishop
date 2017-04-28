@@ -63,10 +63,6 @@ function addAdmin() {
             }
         }
     });
-
-
-
-
 }
 //删除管理员
 function delAdmin(that) {

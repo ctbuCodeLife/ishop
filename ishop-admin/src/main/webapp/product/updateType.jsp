@@ -57,6 +57,45 @@
     </form>
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/vue.js"></script>
+<!--引入弹出框插件的js-->
+<script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
+<!--引入自定义的type.js-->
 <script src="<%=request.getContextPath()%>/js/type.js"></script>
+<script>
+    $(document).ready(function(){
+        swal(
+            'teest!',
+            'fdsf',
+            'success'
+        )
+//        var id = location.search.split("=")[1];
+//        var idElemnt = document.getElementById("id");
+//        var roleId = document.getElementById("roleId");
+//        var name = document.getElementById("name");
+//        var password = document.getElementById("password");
+//        var realName = document.getElementById("realName");
+//        var email =  document.getElementById("email");
+//        var phone = document.getElementById("phone");
+//        $.ajax({
+//                type:"GET",
+//                url:"/ishop-admin/getAdmin",
+//                data:{id:id},
+//                dataType:"json",
+//                success:function (data) {
+//                    //这里获取到数据展示到前台
+//                    idElemnt.value = data.id;
+//                    roleId.value = data.roleId;
+//                    name.value = data.name;
+//                    password.value = data.password;
+//                    realName.value = data.realName;
+//                    email.value = data.email;
+//                    phone.value = data.phone
+//                }
+//
+//            }
+//        );
+    })
+</script>
 </body>
 </html>

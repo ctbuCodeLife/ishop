@@ -7,7 +7,7 @@ function selectGrade(grade) {
         $("#parentId").attr("disabled", "disable");
     } else {
         $("#parentId").attr("disabled", false);
-        mydata = [];
+        var mydata = [];
         $.ajax({
             type: "GET",
             url: "/ishop-admin/getTypeByGrade",
@@ -66,24 +66,35 @@ function addType() {
                     dataType: "json",
                     success: function (data) {
                         //这里获取到数据展示到前台
-                        alert(data);
+                        if(data === true){
+                            swal(
+                                '添加成功!',
+                                '成功添加了一条信息!',
+                                'success'
+                            );
+                            //2秒后自动跳转
+                            function autoReturn() {
+                                location = "listType.jsp";
+                            }
+
+                            setTimeout(autoReturn, 2000);
+                        }else{
+                            swal(
+                                '添加失败!',
+                                '成功添加了一条信息!',
+                                'error'
+                            ).then(function () {
+                                location.reload()
+                                }
+                            );
+                        }
                     }
                 });
-                swal(
-                    '添加成功!',
-                    '成功添加了一条管理员信息!',
-                    'success'
-                );
-                //2秒后自动跳转
-                function autoReturn() {
-                    location = "listType.jsp";
-                }
 
-                setTimeout(autoReturn, 2000);
             } else {
-                //说明管理员名存在,不能添加.
+                //说明类别名存在,不能添加.
                 swal(
-                    '',
+                    '添加失败',
                     '该类别名已存在,请重新输入!',
                     'warning'
                 ).then(function () {
@@ -93,9 +104,41 @@ function addType() {
         }
     });
 }
-//删除商品类型
-function  delType() {
-    
+//删除管理员
+function delType(that) {
+    swal({
+        title: '删除类别?',
+        text: "删除后就不可恢复!",
+        type: 'error',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '确认删除',
+        cancelButtonText: "取消"
+    }).then(function (isConfirm) {
+        if (isConfirm) {
+            //执行删除操作
+            var p = that.parentNode.firstChild;
+            var id = p.innerHTML;
+            $.ajax({
+                type: "GET",
+                url: "/ishop-admin/delType",
+                data: {id: id},
+                dataType: "json",
+                success: function (data) {
+                    //这里获取到数据展示到前台
+                     alert(data);
+                }
+            });
+            swal(
+                '删除成功!',
+                '您已经成功删除管理员',
+                'success'
+            ).then(function () {
+                location.reload();
+            });
+        }
+    });
 }
 //更改商品类型
 function  updateType() {
