@@ -61,7 +61,7 @@
                 <%--<td id="showEmail">{{admin.email}}</td>--%>
                 <%--<td id="showRealName">{{admin.realName}}</td>--%>
                 <td>
-                    <span style="display: none">{{admin.id}}</span>
+                    <span id="deleteId" style="display: none"></span>
                     <a class="btn btn-danger" onclick="delAdmin(this)">删除</a>
                     <a id="updateBtn" class="btn btn-default" >更新</a>
                 </td>

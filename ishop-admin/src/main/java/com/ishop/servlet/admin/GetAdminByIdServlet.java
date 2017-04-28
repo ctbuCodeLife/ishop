@@ -35,7 +35,7 @@ public class GetAdminByIdServlet extends HttpServlet {
                 out.println(json);
                 out.close();
             }else{
-                out.println("获取失败!");
+                out.println(false);
                 out.close();
             }
         }catch (Exception e) {
