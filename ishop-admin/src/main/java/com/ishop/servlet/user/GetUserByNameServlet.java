@@ -1,4 +1,5 @@
 package com.ishop.servlet.user;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ishop.dao.UserDao;
@@ -14,16 +15,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by tao on 2017/4/22 0022.
+ * Created by myq on 2017/4/28.
  */
-@WebServlet(name = "GetUserServlet")
-public class GetUserServlet extends HttpServlet {
+@WebServlet(name = "GetUserByNameServlet",urlPatterns = "/getUserByName")
+public class GetUserByNameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             UserDao ud = new UserDaoImpl();
-            String paramId = request.getParameter("id");
-            Integer id = Integer.parseInt(paramId);
-            User user = ud.get(id);
+            String name = request.getParameter("name");
+            User user = ud.get(name);
             PrintWriter out = response.getWriter();
             //将list的数据转换成JSON返回给前台
             //JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd";
@@ -33,13 +33,15 @@ public class GetUserServlet extends HttpServlet {
                 out.println(json);
                 out.close();
             } else {
-                out.println("获取失败!");
+                out.println(false);
                 out.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request,response);
     }
 }

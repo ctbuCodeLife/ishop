@@ -6,64 +6,69 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c"
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>css/bootstrap.min.css">
-    <title>userQuery</title>
-    <style type="text/css">
-        .container{
-            width: 700px;
-            height:600px;
-        }
-        .search{
-            width: 300px;
-            margin: auto;
-        }
-    </style>
+    <title>查询管理员</title>
+    <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-awesome.min.css">
+    <!--提示框插件样式-->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
 </head>
 <body>
-<div class="container">
-    <form action="" method="post">
-        <div class="search">
-            <div class="input-group">
-                <input id="name" name="name" type="text" class="form-control" placeholder="Search By Username">
-                <span class="input-group-btn">
-        			<button class="btn btn-default" type="button" onclick="getUser()">Go!</button>
+<!--管理员导航-->
+<div id="adminNav">
+    <span>用户管理</span>
+    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    <span>查询用户</span>
+</div>
+<div class="container-fuild">
+    <div class="search">
+        <form action="" method="post" class="form-inline">
+            <div class="search ">
+                <div class="input-group">
+                    <input id="name" name="name" type="text" class="form-control" placeholder="按照用户名字查询">
+                    <span class="input-group-btn">
+        			<button id="search" class="btn btn-primary" type="button" onclick="getUserByName()">查询</button>
      			</span>
+                </div>
             </div>
-        </div>
-    </form>
-    <table id="user" class="active table table-hover table-striped">
-        <tr>
-            <th>用户名</th>
-            <th>密码</th>
-            <th>电话</th>
-            <th>邮箱</th>
-            <th>真实姓名</th>
-            <th>操作</th>
-        </tr>
-        <form action="" method="post">
-            <tr v-for="user in mydata">
-                <td>{{user.name}}</td>
-                <td>{{user.password}}</td>
-                <td>{{user.phone}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.realname}}</td>
+        </form>
+    </div>
+    <div class="table-responsive">
+        <table id="queryUserTable" class="active table table-hover table-striped " style="display: none" >
+            <tr>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>电话</th>
+                <th>邮箱</th>
+                <th>真实姓名</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td id="showName"></td>
+                <td id="showPassword"></td>
+                <td id="showPhone"></td>
+                <td id="showEmail"></td>
+                <td id="showRealName"></td>
                 <td>
-                    <span style="display: none">{{user.id}}</span>
-                    <button onclick="delUser(this)">删除</button>
-                    <a v-bind:href="'updateUser.jsp?id='+user.id"><button>更新</button></a>
+                    <span style="display: none">{{id}}</span>
+                    <a class="btn btn-danger" onclick="delUser(this)">删除</a>
+                    <a id="updateBtn" class="btn btn-default" >更新</a>
                 </td>
             </tr>
-        </form>
-    </table>
+        </table>
+    </div>
 </div>
-
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/vue.js"></script>
-<script src="<%=request.getContextPath()%>/js/user.js"></script>
-    <script type="text/javascript">
+<!--引入插件的js-->
+<script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
 
-    </script>
+<!--自定义的管理user的js-->
+<script src="<%=request.getContextPath()%>/js/user.js"></script>
+<script>
+</script>
 </body>
 </html>

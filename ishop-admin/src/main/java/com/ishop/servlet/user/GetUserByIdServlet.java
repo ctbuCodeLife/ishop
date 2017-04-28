@@ -1,5 +1,6 @@
 package com.ishop.servlet.user;
-
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ishop.dao.UserDao;
 import com.ishop.dao.impl.UserDaoImpl;
 import com.ishop.pojo.User;
@@ -15,30 +16,31 @@ import java.io.PrintWriter;
 /**
  * Created by tao on 2017/4/22 0022.
  */
-@WebServlet(name = "DeleteUserServlet",urlPatterns = "/delUser")
-public class DeleteUserServlet extends HttpServlet {
+@WebServlet(name = "GetUserByIdServlet")
+public class GetUserByIdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try{
+        try {
             UserDao ud = new UserDaoImpl();
             String paramId = request.getParameter("id");
             Integer id = Integer.parseInt(paramId);
-            boolean result = ud.delete(id);
+            User user = ud.get(id);
             PrintWriter out = response.getWriter();
-            String message="";
-            if(result == true){
-                message = "delect sucess!";
-            }else{
-                message = "delete failure!";
+            //将list的数据转换成JSON返回给前台
+            //JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd";
+            //SerializerFeature.WriteDateUseDateFormat用来将日期格式化成yyyy-MM-dd的形式
+            String json = JSON.toJSONString(user, SerializerFeature.WriteDateUseDateFormat, SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
+            if (user != null) {
+                out.println(json);
+                out.close();
+            } else {
+                out.println("获取失败!");
+                out.close();
             }
-            out.println(message);
-            out.close();
-            System.out.print(1111);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+            doPost(request,response);
     }
 }

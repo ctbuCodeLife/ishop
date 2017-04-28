@@ -1,3 +1,4 @@
+
 //增加管理员
 function addAdmin() {
     //输入非空验证
@@ -47,7 +48,6 @@ function addAdmin() {
                         function autoReturn() {
                             location = "listAdmin.jsp";
                         }
-
                         setTimeout(autoReturn, 2000);
                     }
                 });
