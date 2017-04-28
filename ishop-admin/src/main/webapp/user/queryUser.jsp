@@ -53,7 +53,7 @@
                 <td id="showEmail"></td>
                 <td id="showRealName"></td>
                 <td>
-                    <span style="display: none">{{id}}</span>
+                    <span id="deleteId" style="display: none"></span>
                     <a class="btn btn-danger" onclick="delUser(this)">删除</a>
                     <a id="updateBtn" class="btn btn-default" >更新</a>
                 </td>

@@ -36,7 +36,7 @@
             <td>{{user.phone}}</td>
             <td>{{user.created}}</td>
             <td>
-                <span style="display: none">{{user.id}}</span>
+                <span id="deleteId" style="display: none">{{user.id}}</span>
                 <a class="btn btn-danger" onclick="delUser(this)">删除</a>
                 <a class="btn btn-default" v-bind:href="'updateUser.jsp?id='+user.id">更新</a>
             </td>
