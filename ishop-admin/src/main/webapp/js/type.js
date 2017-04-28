@@ -17,8 +17,17 @@ function selectGrade(grade) {
                 //这里获取到数据展示到前台
                 if (data !== undefined) {
                     //console.log(data.length)
+<<<<<<< Updated upstream
                     //清除之前的数据
                     $("#parentId > option").remove();
+=======
+<<<<<<< HEAD
+                    $("#parentId").remove("#parentid optiion");
+=======
+                    //清除之前的数据
+                    $("#parentId > option").remove();
+>>>>>>> dev
+>>>>>>> Stashed changes
                     var length = data.length;
                     for (var i = 0; i < length; i++) {
                         console.log(data[i].id + " " + data[i].name);
