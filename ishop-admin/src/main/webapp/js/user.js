@@ -26,10 +26,8 @@ function addUser() {
         dataType:"json",
         success:function (data) {
             //这里获取到数据展示到前台
-            console.log(3);
             if (jQuery.isEmptyObject(data)) {
                 //说明用户名不存在可以添加,
-                console.log(4);
                 $.ajax({
                     type: "POST",
                     url: "/ishop-admin/addUser",
@@ -124,8 +122,10 @@ function delUser(that) {
     }).then(function (isConfirm) {
         if (isConfirm) {
             //执行删除操作
-            var p = that.parentNode.firstChild;
-            var id = p.innerHTML;
+            // var p = that.parentNode.firstChild;
+            // var id = p.innerHTML;
+            var id = parseInt($("#deleteId").text());
+            console.log(id);
             $.ajax({
                 type: "GET",
                 url: "/ishop-admin/delUser",
@@ -133,7 +133,7 @@ function delUser(that) {
                 dataType: "json",
                 success: function (data) {
                     //这里获取到数据展示到前台
-                    // alert(data);
+                     alert(data);
                 }
             });
             swal(
@@ -176,6 +176,7 @@ function getUserByName() {
     var phoneEle = document.getElementById("showPhone");
     var emailEle = document.getElementById("showEmail");
     var realNameEle = document.getElementById("showRealName");
+    var idEle = document.getElementById("deleteId");
     $.ajax({
         type: "GET",
         url: "/ishop-admin/getUserByName",
@@ -203,6 +204,7 @@ function getUserByName() {
                 phoneEle.innerHTML = data.phone;
                 emailEle.innerHTML = data.email;
                 realNameEle.innerHTML = data.realName;
+                idEle.innerHTML = data.id;
                 //更新更新按钮
                 $("#updateBtn").attr("href","updateAdmin.jsp?id="+data.id);
             }
