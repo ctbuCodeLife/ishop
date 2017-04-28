@@ -96,7 +96,7 @@
                             <a href="product/listType.jsp" target="contentIframe">所有类别</a>
                         </li>
                         <li>
-                            <a href="productqueryType.jsp" target="contentIframe">类别查询</a>
+                            <a href="product/queryType.jsp" target="contentIframe">类别查询</a>
                         </li>
                         <li>
                             <a href="product/addType.jsp" target="contentIframe">类别增加</a>

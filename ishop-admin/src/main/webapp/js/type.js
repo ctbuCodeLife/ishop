@@ -134,7 +134,7 @@ function delType(that) {
                             '成功删除一条信息',
                             'success'
                         ).then(function () {
-                            location.reload();
+                            location.href = "listType.jsp";
                         });
                     }
                 }
@@ -169,3 +169,47 @@ function  listType(grade) {
     })
 }
 
+//根据name查询商品类型
+function getType() {
+    //输入框的内容
+    var nameValue = $("#name").val();
+
+    var showName = document.getElementById("showName");
+    var showGrade = document.getElementById("showGrade");
+    var showParent = document.getElementById("showParent");
+    var showDescribe = document.getElementById("showDescribe");
+
+    var idEle = document.getElementById("deleteId");
+    $.ajax({
+        type: "GET",
+        url: "/ishop-admin/getTypeByName",
+        data: {name: nameValue},
+        dataType: "json",
+        success: function (data) {
+            //这里获取到数据展示到前台
+            if (data.id === undefined) {
+                $("#queryTypeTable").hide();
+                //查询到数据展示到前台
+                //没找到数据给出提示
+                //提示框
+                swal(
+                    '查找失败!',
+                    '抱歉,没有查找到您要查找的信息',
+                    'error'
+                )
+            } else {
+                //显示表格
+                $("#queryTypeTable").show();
+                //显示数据
+                showName.innerHTML = data.name;
+                showGrade.innerHTML = data.grade;
+                showDescribe.innerHTML = data.describe;
+                showParent.innerHTML = data.parentId;
+
+                idEle.innerHTML = data.id;
+                //更新更新按钮
+                $("#updateBtn").attr("href", "updateType.jsp?id=" + data.id);
+            }
+        }
+    });
+}

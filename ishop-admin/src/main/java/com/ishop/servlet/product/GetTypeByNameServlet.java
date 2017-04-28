@@ -17,19 +17,26 @@ import java.io.PrintWriter;
 /**
  * Created by tao on 2017/4/28 0028.
  */
-@WebServlet(name = "ExistsTypeByNameServlet",urlPatterns = "/existsTypeByName")
-public class ExistsTypeByNameServlet extends HttpServlet {
+@WebServlet(name = "GetTypeByNameServlet",urlPatterns = "/getTypeByName")
+public class GetTypeByNameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            //获取参数
+        try{
+            TypeDao ad = new TypeDaoImpl();
             String name = request.getParameter("name");
-            //查询
-            TypeDao td = new TypeDaoImpl();
-            boolean result  = td.exists(name);
+            Type type = ad.get(name);
             PrintWriter out = response.getWriter();
-            out.println(result);
-            out.close();
-        }catch (Exception e){
+            //将list的数据转换成JSON返回给前台
+            //JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd";
+            //SerializerFeature.WriteDateUseDateFormat用来将日期格式化成yyyy-MM-dd的形式
+            String json = JSON.toJSONString(type, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
+            if(type != null) {
+                out.println(json);
+                out.close();
+            }else{
+                out.println(false);
+                out.close();
+            }
+        }catch (Exception e) {
             e.printStackTrace();
         }
     }
