@@ -17,17 +17,8 @@ function selectGrade(grade) {
                 //这里获取到数据展示到前台
                 if (data !== undefined) {
                     //console.log(data.length)
-<<<<<<< Updated upstream
                     //清除之前的数据
                     $("#parentId > option").remove();
-=======
-<<<<<<< HEAD
-                    $("#parentId").remove("#parentid optiion");
-=======
-                    //清除之前的数据
-                    $("#parentId > option").remove();
->>>>>>> dev
->>>>>>> Stashed changes
                     var length = data.length;
                     for (var i = 0; i < length; i++) {
                         console.log(data[i].id + " " + data[i].name);
@@ -90,7 +81,7 @@ function addType() {
                         }else{
                             swal(
                                 '添加失败!',
-                                '成功添加了一条信息!',
+                                '了一条信息!',
                                 'error'
                             ).then(function () {
                                 location.reload()
@@ -135,17 +126,19 @@ function delType(that) {
                 data: {id: id},
                 dataType: "json",
                 success: function (data) {
-                    //这里获取到数据展示到前台
-                     alert(data);
+                    //这里获取到数据判断删除是否成功
+                    if(data === true) {
+                        swal(
+                            '删除成功!',
+                            '成功删除一条信息',
+                            'success'
+                        ).then(function () {
+                            location.reload();
+                        });
+                    }
                 }
             });
-            swal(
-                '删除成功!',
-                '您已经成功删除管理员',
-                'success'
-            ).then(function () {
-                location.reload();
-            });
+
         }
     });
 }
