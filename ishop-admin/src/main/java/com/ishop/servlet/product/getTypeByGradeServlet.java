@@ -18,8 +18,8 @@ import java.util.List;
 /**
  * Created by myq on 2017/4/23.
  */
-@WebServlet(name = "getTypeByGradeServlet",urlPatterns = "/getTypeByGrade")
-public class getTypeByGradeServlet extends HttpServlet {
+@WebServlet(name = "GetTypeByGradeServlet",urlPatterns = "/getTypeByGrade")
+public class GetTypeByGradeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             //错误
