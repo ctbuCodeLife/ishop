@@ -25,7 +25,7 @@ public class GetProductByNameServlet extends HttpServlet {
             String name = request.getParameter("name");
             PrintWriter out = response.getWriter();
             //getByName方法还没写
-            Product product = pd.getByName(name);
+            Product product = pd.get(name);
 
             String json = JSON.toJSONString(product, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
             if(product != null) {
