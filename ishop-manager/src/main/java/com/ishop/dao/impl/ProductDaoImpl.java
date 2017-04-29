@@ -118,7 +118,7 @@ public class ProductDaoImpl implements ProductDao{
         return product ;
     }
     //根据name获取对象
-    public  Product getByName(String name){
+    public  Product get(String name){
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
