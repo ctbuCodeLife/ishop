@@ -19,7 +19,6 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/banner.css" />
     <link rel="stylesheet" type="text/css" href="css/left_nav.css"/>
-    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
     <!-- JQuery文件,务必在bootstrap.min.js 之前引入 -->
 
     <style type="text/css">
