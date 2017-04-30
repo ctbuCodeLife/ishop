@@ -16,6 +16,8 @@ public interface ProductDao {
     public boolean update(Product product);
     //根据Id获取对象
     public Product get(Integer id);
+    //根据name获取对象
+    public Product get(String name);
     //统计总条数
     public int getTotal();
     //查询列表

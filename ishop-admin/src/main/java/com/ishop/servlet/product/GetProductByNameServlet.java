@@ -2,9 +2,9 @@ package com.ishop.servlet.product;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.ishop.dao.TypeDao;
-import com.ishop.dao.impl.TypeDaoImpl;
-import com.ishop.pojo.Type;
+import com.ishop.dao.ProductDao;
+import com.ishop.dao.impl.ProductDaoImpl;
+import com.ishop.pojo.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,28 +13,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 /**
- * Created by myq on 2017/4/23.
+ * Created by myq on 2017/4/28.
  */
-@WebServlet(name = "GetTypeByGradeServlet",urlPatterns = "/getTypeByGrade")
-public class GetTypeByGradeServlet extends HttpServlet {
+@WebServlet(name = "GetProductByNameServlet",urlPatterns = "/getProductByName")
+public class GetProductByNameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            //错误
-            TypeDao td = new TypeDaoImpl();
-            String gradeParam = request.getParameter("grade");
-            Integer grade = Integer.parseInt(gradeParam);
-            Type type = new Type();
-            List<Type> list = td.getParentList(grade);
+            ProductDao pd = new ProductDaoImpl();
+            String name = request.getParameter("name");
             PrintWriter out = response.getWriter();
-            String json = JSON.toJSONString(list, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
-            if (list != null) {
+            //getByName方法还没写
+            Product product = pd.get(name);
+
+            String json = JSON.toJSONString(product, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
+            if(product != null) {
+                // request.setAttribute("admin",admin);
                 out.println(json);
                 out.close();
-            }else {
-                out.println(json);
+            }else{
+                //查询失败
+                out.println(false);
                 out.close();
             }
         }catch (Exception e) {

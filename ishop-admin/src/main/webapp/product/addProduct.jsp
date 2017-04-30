@@ -10,6 +10,8 @@
 <head>
     <title>addProduct</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
+    <!--提示框插件样式-->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
     <style type="text/css">
         .container{
             width: 500px;
@@ -35,7 +37,7 @@
         <div class="form-group">
             <label for="typeName" class="col-sm-3 control-label">类别名</label>
             <div class="col-sm-9">
-                <input id="typeName" name="typeName" type="password"  class="form-control"  placeholder="类别名">
+                <input id="typeName" name="typeName" type="text"  class="form-control"  placeholder="类别名">
             </div>
         </div>
         <div class="form-group">

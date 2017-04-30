@@ -3,6 +3,15 @@
  */
 //增加商品
 function addProdcut() {
+    //输入非空验证
+    var productEle = ["#productName", "#productSubTitle","#typeName", "#imageSrc", "#inventNum", "#monthSaleNum", "#orderLink","#salePrice","#realName","#isRecommend"];
+    for (var i = 0; i < productEle.length; i++) {
+        if ($(productEle[i]).val() === "") {
+            $(productEle[i]).focus();
+            return;
+        }
+    }
+    alert(2);
     var name = $("#productName").val();
     var subTitle = $("#productSubTitle").val();
     var typeId = $("#typeName").val();
@@ -11,30 +20,62 @@ function addProdcut() {
     var saleNum = $("#monthSaleNum").val();
     var orderLink = $("#orderLink").val();
     var salePrice = $("#salePrice").val();
-    var realPrice = $("#realName").val();
+    var realPrice = $("#realPrice").val();
     var isRecommend = $("#isRecommend").val();
+    //判断管理员是否存在
     $.ajax({
-        type:"GET",
-        url:"/ishop-product/addProduct",
-        data:{
-            name: name,
-            subTitle:subTitle,
-            typeId: typeId,
-            imageSrc:imageSrc,
-            inventNum:inventNum,
-            saleNum:saleNum,
-            orderLink:orderLink,
-            salePrice:salePrice,
-            realPrice:realPrice,
-            isRecommend:isRecommend
-        },
-        dataType:"json",
-        success:function (data) {
+        type: "GET",
+        url: "/ishop-admin/getProductByName",
+        data: {name: name},
+        dataType: "json",
+        success: function (data) {
             //这里获取到数据展示到前台
-            alert(data);
+            if (jQuery.isEmptyObject(data) || data == false) {
+                //说明商品名不存在可以添加,
+                $.ajax({
+                    type: "POST",
+                    url: "/ishop-admin/addProduct",
+                    data: {
+                        name: name,
+                        subTitle:subTitle,
+                        typeId: typeId,
+                        imageSrc:imageSrc,
+                        inventNum:inventNum,
+                        saleNum:saleNum,
+                        orderLink:orderLink,
+                        salePrice:salePrice,
+                        realPrice:realPrice,
+                        isRecommend:isRecommend
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        //这里获取到数据展示到前台
+                        swal(
+                            '添加成功!',
+                            '成功添加了一条商品信息!',
+                            'success'
+                        );
+                        //2秒后自动跳转
+                        function autoReturn() {
+                            location = "listProduct.jsp";
+                        }
+                        setTimeout(autoReturn, 2000);
+                    }
+                });
+
+            } else {
+                //说明商品名存在,不能添加.
+                swal(
+                    '',
+                    '该商品已存在,请重新输入!',
+                    'warning'
+                ).then(function () {
+                    $("#name").focus();
+                });
+            }
         }
     });
-    location.href="listProduct.jsp";
+    //location.href="listProduct.jsp";
 }
 //删除商品
 function delProduct(that) {
@@ -91,7 +132,7 @@ function listProduct() {
         success:function (data) {
             //这里获取到数据展示到前台
             var vm = new Vue({
-                el:'productTable',
+                el:'#productTable',
                 data:{
                     mydata:data
                 }
@@ -99,8 +140,8 @@ function listProduct() {
         }
     })
 }
-//通过id查看商品
-function getProduct() {
+//通过name查看商品
+function getProductByName() {
     var name = $("#name").val();
     $("#queryProductTable").show();
     $.ajax({
@@ -118,4 +159,8 @@ function getProduct() {
             });
         }
     })
+}
+//通过Id查询商品
+function  getProductById() {
+
 }

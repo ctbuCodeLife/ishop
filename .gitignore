@@ -31,3 +31,5 @@ ishop-manager/src/main/java/com/ishop/util/DBUtil\.java
 ishop-admin/src/main/webapp/listProduct\.jsp
 
 ishop-admin/src/main/webapp/admin/queryAdmin\.jsp
+
+ishop-admin/src/main/java/com/ishop/servlet/product/existsTypeByNameServlet\.java
