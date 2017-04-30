@@ -98,7 +98,8 @@ public class AdminDaoImplTest {
         String name = "root";
         String password = "123456";
         AdminDao ad = new AdminDaoImpl();
-        assertNotNull(ad.get(name,password));
+        Admin admin = ad.get(name,password);
+        assertNotNull(admin);
     }
     @Test
     public void testGetByName(){

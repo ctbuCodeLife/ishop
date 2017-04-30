@@ -276,6 +276,8 @@ public class AdminDaoImpl implements AdminDao{
             if (rs.next()){
                 admin.setId(rs.getInt(1));
                 admin.setRoleId(rs.getInt(2));
+                admin.setName(name);
+                admin.setPassword(password);
                 admin.setRealName(rs.getString(3));
                 admin.setEmail(rs.getString(4));
                 admin.setPhone(rs.getString(5));
