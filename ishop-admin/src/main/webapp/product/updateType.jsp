@@ -42,8 +42,7 @@
         <div class="form-group">
             <label for="parentId" class="col-sm-3 control-label">父级选择</label>
             <div class="col-sm-9">
-                <select name="parentId" id="parentId" class="form-control">
-                    <option id="typeGrade" value=""></option>
+                <select id="parentId" name="parentId"  class="form-control">
                 </select>
             </div>
         </div>
@@ -75,7 +74,6 @@
             var parentId = document.getElementById("parentId");
             var typeGrade = document.getElementById("typeGrade");
             var describe = document.getElementById("describe");
-            selectGrade(idValue);
             $.ajax({
                     type: "GET",
                     url: "/ishop-admin/getTypeById",
@@ -86,11 +84,26 @@
                         console.log(data);
                         idELe.value = data.id;
                         grade.value = data.grade;
-                        name.value = data.name
-                        parentId.value = data.parentId;
+                        name.value = data.name;
                         describe.value = data.describe;
+                        //
+//                        parentId.value = data.parentId;
+                        $.ajax({
+                            type: "GET",
+                            url: "/ishop-admin/getTypeById",
+                            data: {id: data.parentId},
+                            dataType: "json",
+                            success: function (parentData) {
+                                console.log(parentData);
+                                $("#parentId").append("<option  value=" + parentData.parentId + ">" + parentData.name + "</option>");
+                            }
+                        });
+
+
                     }
             });
+            $("#grade").focus();
+           // selectGrade(grade);
         });
 </script>
 </body>

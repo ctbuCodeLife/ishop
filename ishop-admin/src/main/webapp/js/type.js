@@ -2,7 +2,7 @@
  * Created by myq on 2017/4/23.
  */
 function selectGrade(grade) {
-    if (grade === "1") {
+    if (grade == "1") {
         //类别等级为1时,父类别没有,禁用父类别
         $("#parentId > option").remove();
         $("#parentId").attr("disabled", "disable");
@@ -33,8 +33,8 @@ function selectGrade(grade) {
 //增加类别
 function addType() {
     //输入非空验证
-    var adminEle = ["#grade", "#name", "#parentId", "#describe"];
-    for (var i = 0; i < adminEle.length; i++) {
+    vartypeEle = ["#grade", "#name", "#parentId", "#describe"];
+    for (var i = 0; i <typeEle.length; i++) {
         if ($(adminEle[i]).val() === "") {
             $(adminEle[i]).focus();
             return;
@@ -145,7 +145,54 @@ function delType(that) {
 }
 //更改商品类型
 function  updateType() {
-    
+    var typeEle = ["#id", "#grade","#name", "#parentId", "#describe"];
+    //输入框非空验证
+    for (var i = 0; i <typeEle.length; i++) {
+        if ($(typeEle[i]).val() === "") {
+            $(typeEle[i]).focus();
+            return;
+        }
+    }
+    var id = $("#id").val();
+    var grade = $("#grade").val();
+    var name = $("#name").val();
+    var parentId = $("#parentId").val();
+    var describe = $("#describe").val();
+    $.ajax({
+        type: "GET",
+        url: "/ishop-admin/updateType",
+        data: {
+            id:id,
+            grade:grade,
+            name:name,
+            parentId:parentId,
+            describe:describe
+        },
+        dataType: "json",
+        success: function (data) {
+            //这里获取到数据展示到前台
+            if (data != false){
+                //提示框
+                swal(
+                    '更新成功!',
+                    '成功更新了一条类别信息!',
+                    'success'
+                ).then(function () {
+                    location.href = "listType.jsp";
+                });
+            } else {
+                //提示框
+                swal(
+                    '失败!',
+                    '更新失败!',
+                    'error'
+                ).then(function () {
+                    location.reload();
+                });
+            }
+        }
+    });
+
 }
 //查询所有商品类型
 function  listType(grade) {

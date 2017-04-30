@@ -22,7 +22,12 @@ import java.util.List;
 public class ListProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            System.out.print(1);
+            response.setContentType("text/html; charset=utf-8");
+            response.addHeader("Access-Control-Allow-Origin", "*");
+            response.addHeader("Access-Control-Allow-Methods", "*");
+            response.addHeader("Access-Control-Max-Age", "100");
+            response.addHeader("Access-Control-Allow-Headers", "X-Custom-Header,accept, content-type");
+            response.addHeader("Access-Control-Allow-Credentials", "false");
             ProductDao pd = new ProductDaoImpl();
             List<Product> list = pd.list();
             PrintWriter out = response.getWriter();
