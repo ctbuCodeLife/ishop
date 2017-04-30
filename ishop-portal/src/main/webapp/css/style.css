@@ -6,6 +6,7 @@
 body{
     font-family: "Microsoft YaHei UI Light";
     font-size: 14px;
+    background-color: #f6f6f6;
 }
 ul > li {
     list-style: none;
@@ -17,10 +18,9 @@ a{
 
 /************公共样式开始****************/
 .footer {
-    width: 100%;
+    width: 90%;
     height: 70px;
-    margin-top:50px;
-    background-color: #dddddd;
+    margin:0px auto;
 }
 /*************公共样式结束**************/
 /*************注册样式开支*************/

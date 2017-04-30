@@ -79,14 +79,14 @@
                     <div class="row input_item">
                         <div class="form-group">
                             <label for="checkCode" class="col-sm-2 control-label"></label>
-                            <div class="col-sm-6">
-                                <input id="checkCode" type="text" class="from-control"  placeholder="短信验证码" >
-                                <button class="btn btn-danger" onclick="">获取验证码</button>
+                            <div class="col-sm-10 row">
+                                <input id="checkCode" type="text" class=" col-sm-6 "  placeholder="短信验证码" >
+                                <button class="btn btn-danger  " onclick="">获取验证码</button>
                             </div>
                         </div>
                     </div>
 					<div class="row input_item">
-						<input id="submit" name="" type="submit" class="btn-primary col-xs-6 col-xs-offset-3 col-md-10 col-md-offset-2" value="提交" onsubmit="return checkSubmint()"/>
+						<input id="submit" name="" type="submit" class="btn btn-danger col-xs-6 col-xs-offset-3 col-md-10 col-md-offset-2" value="注册" onsubmit="return checkSubmint()"/>
 					</div>
 				</form>
 			</div>

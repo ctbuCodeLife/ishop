@@ -96,7 +96,6 @@ public class TypeDaoImpl implements TypeDao {
             e.printStackTrace();
         }
         return type ;
-
     }
     //根据name获取对象
     public Type get(String name){

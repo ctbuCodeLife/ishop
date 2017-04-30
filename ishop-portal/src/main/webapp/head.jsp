@@ -5,20 +5,18 @@
 <nav class="navbar navbar-default .navbar-fixed-top">
     <div class="">
         <div id="nav_left" class="col-md-6">
-            <ul>
+            <ul style="line-height: 35px;">
             <c:if test="${not empty sessionScope.user}">
             <li>
                 <a id="username" class="navbar-brand" href="#">当前用户:${sessionScope.user.name}</a>
-            </li>
-            <li>
-                 <a href="logout" >注销</a>
+                &nbsp;&nbsp;
+                <a href="logout" >注销</a>
             </li>
             </c:if>
             <c:if test="${ empty sessionScope.user}">
             <li>
                 <a href="login.jsp">登录</a>
-            </li>
-            <li>
+                 &nbsp;&nbsp;
                  <a href="register.jsp " >注册</a>
             </li>
             </c:if>
@@ -26,6 +24,9 @@
         </div>
         <div id="nav_right">
             <ul class="nav nav-pills">
+                <li>
+                    <a href="index.jsp" aria-controls="basic" role="tab" data-toggle="tab">首页</a>
+                </li>
                 <li>
                     <a href="personalInfo.jsp" aria-controls="basic" role="tab" data-toggle="tab">个人信息</a>
                 </li>

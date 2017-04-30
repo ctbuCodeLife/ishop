@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/banner.css" />
     <link rel="stylesheet" type="text/css" href="css/left_nav.css"/>
-    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+    <link rel="stylesheet" href="css/style.css">
     <!-- JQuery文件,务必在bootstrap.min.js 之前引入 -->
 
     <style type="text/css">
@@ -143,6 +143,7 @@
     </div>
 </div>
     <%@include file="foot.jsp" %>
+<script src="js/jquery.min.js"></script>
 <script src="js/vue.js"></script>
 <script type="text/javascript">
     var vm = new Vue({
