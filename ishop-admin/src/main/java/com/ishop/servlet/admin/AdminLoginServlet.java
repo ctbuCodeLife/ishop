@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -27,18 +28,28 @@ public class AdminLoginServlet extends HttpServlet {
            Admin admin = new Admin();
            //通过用户名和密码获取admin对象
            admin = ad.get(name,password);
-
-           PrintWriter out = response.getWriter();
-           String pagePath = "WEB-INF/page/";
-           if (admin.getId() != null){
-               //找到了
-               //设置session
-               request.getSession().setAttribute("admin",admin);
-               response.sendRedirect("sucess.jsp");
+           System.out.println(admin);
+           //提示信息的页面
+           String redirectPage = "info.jsp";
+           //自动跳转目录
+           String autoReturnPage ="index.jsp";
+           //获取session
+           HttpSession session = request.getSession();
+           //返回的提示信息
+           String msg="";
+           if(admin.getId() != null ){
+               //提示登录成功,跳转到主页
+               session.setAttribute("admin", admin);
+               msg="欢迎管理员"+admin.getName()+"回到ishop后台管理!";
+               autoReturnPage = "index.jsp";
            }else{
-               //没找到
+               //用户名密码不匹配,跳转到登录页面
+               msg = "用户名或密码不匹配";
+               autoReturnPage = "login.jsp";
            }
-
+           session.setAttribute("msg",msg);
+           session.setAttribute("autoReturn",autoReturnPage);
+           response.sendRedirect(redirectPage);
        }catch (Exception e){
            e.printStackTrace();
        }
