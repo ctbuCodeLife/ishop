@@ -43,6 +43,7 @@
         <div class="form-group">
             <label for="imageSrc" class="col-sm-3 control-label">图片地址</label>
             <div class="col-sm-9">
+                <img v-bind:src="product.imageSrc" v-bind:alt="product.name" width="70" height="100">
                 <input id="imageSrc" name="imageSrc" type="text"  class="form-control"  placeholder="图片地址">
             </div>
         </div>
