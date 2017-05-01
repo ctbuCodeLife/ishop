@@ -22,6 +22,5 @@ public interface ReceiverDao {
     public List<Receiver> list();
     //查询列表
     public List<Receiver> list(int start,int count);
-    //根据Id判断对象是否存在
-    public  boolean exists(Integer id);
+
 }
