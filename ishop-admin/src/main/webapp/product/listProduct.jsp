@@ -10,6 +10,9 @@
 <head>
     <title>所有商品</title>
     <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/font-awesome.min.css">
+    <!--提示框插件样式-->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
 </head>
 <body>
 <div id="data">
@@ -36,14 +39,16 @@
             <td>{{product.monthSellNumber}}</td>
             <td>
                 <span style="display: none">{{product.id}}</span>
-                <button onclick="delProduct(this)">删除</button>
-                <a v-bind:href="'updateProduct.jsp?id='+product.id"><button>更新</button></a>
+                <button class="btn btn-danger" onclick="delProduct(this)">删除</button>
+                <a  v-bind:href="'updateProduct.jsp?id='+product.id"><button class="btn btn-default">更新</button></a>
             </td>
         </tr>
     </table>
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/vue.js"></script>
+<!--引入插件的js-->
+<script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/product.js"></script>
 <script>
     $(document).ready(function(){
