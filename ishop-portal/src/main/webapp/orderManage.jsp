@@ -4,7 +4,6 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="css/footer.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<title>订单管理</title>
 	<style type="text/css">
@@ -20,6 +19,10 @@
 				margin-left: 10%;
 				margin-top: 30px;
 			}
+		#orderTable tr .form-control{
+			width: 60px;
+			float: left;
+		}
 	</style>
 </head>
 <body>
@@ -33,27 +36,55 @@
      		</span>
 		</div>
 		<div class="main">
-			<table class="table table-striped table-hover table-responsive">
+			<table id="orderTable" class="table table-striped table-hover table-responsive">
 				<tr>
 					<th>序号</th>
 					<th>订单号</th>
-					<th>产品数量</th>
-					<th>总额度</th>
-					<th>日期</th>
+					<th>产品价格</th>
+					<th>运费</th>
+					<th>总价</th>
+					<th>状态</th>
+					<th>时间</th>
 					<th>操作</th>
 				</tr>
-				<tr>
-					<td>1</td>
-					<td>2156313</td>
-					<td>2</td>
-					<td>120.0</td>
-					<td>2017-4-20</td>
-					<td><a href="">订单详情</a>&nbsp;<input type="submit" id="" name="" value="删除"/></td>
+				<tr  v-for="order in mydata">
+					<td>{{mydata.indexOf(order)+1}}</td>
+					<td>{{order.id}}</td>
+					<td>{{order.productPrice}}</td>
+					<td>{{order.trafficPrice}}</td>
+					<td>{{order.totalPrice}}</td>
+					<td>{{order.status}}</td>
+					<td>{{order.created}}</td>
+					<td>
+						<span style="display: none">{{order.id}}</span>
+						<button class="btn btn-danger" onclick="delOrder(this)">删除</button>
+						<a  v-bind:href="'updateProduct.jsp?id='+product.id"><button class="btn btn-default">付款</button></a>
+					</td>
 				</tr>
 			</table>
 		</div>
 		<div class="footer">
 			<%@include file="foot.jsp" %>
 		</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		var id = location.search.split("=")[1];
+		$.ajax({
+			type: "GET",
+			url: "/ishop-portal/listOrder",
+			data:{userId:id},
+			dataType: "json",
+			success: function (data) {
+				//这里获取到数据展示到前台
+				var vm = new Vue({
+					el:'#orderTable',
+					data:{
+						mydata:data
+					}
+				});
+			}
+		});
+	</script>
 </body>
 </html>
