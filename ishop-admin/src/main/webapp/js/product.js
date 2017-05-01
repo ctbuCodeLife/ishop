@@ -29,7 +29,6 @@ function addProdcut() {
         data: {name: name},
         dataType: "json",
         success: function (data) {
-            //这里获取到数据展示到前台
             if (jQuery.isEmptyObject(data) || data == false) {
                 //说明商品名不存在可以添加,
                 $.ajax({
@@ -50,16 +49,27 @@ function addProdcut() {
                     dataType: "json",
                     success: function (data) {
                         //这里获取到数据展示到前台
-                        swal(
-                            '添加成功!',
-                            '成功添加了一条商品信息!',
-                            'success'
-                        );
-                        //2秒后自动跳转
-                        function autoReturn() {
-                            location = "listProduct.jsp";
+                        if(data==true){
+                            function autoReturn() {
+                                location = "listProduct.jsp";
+                            }
+                            swal(
+                                '添加成功!',
+                                '成功添加了一条商品信息!',
+                                'success'
+                            ).then(function () {
+                                setTimeout(autoReturn, 2000);
+                            });
+                        }else{
+                            swal(
+                                '添加失败!',
+                                '添加失败!',
+                                'error'
+                            ).then(function () {
+                                    location.reload();
+                            });
                         }
-                        setTimeout(autoReturn, 2000);
+
                     }
                 });
 
@@ -75,7 +85,6 @@ function addProdcut() {
             }
         }
     });
-    //location.href="listProduct.jsp";
 }
 //删除商品
 function delProduct(that) {
@@ -141,6 +150,8 @@ function updateProdcut() {
     var salePrice = $("#salePrice").val();
     var realPrice = $("#realPrice").val();
     var isRecommend = $("#isRecommend").val();
+    var productId =$("#id").val();
+    alert(productId);
     $.ajax({
         type: "GET",
         url: "/ishop-admin/updateProduct",
@@ -154,7 +165,8 @@ function updateProdcut() {
             orderLink:orderLink,
             salePrice:salePrice,
             realPrice:realPrice,
-            isRecommend:isRecommend
+            isRecommend:isRecommend,
+            id: productId
         },
         dataType: "json",
         success: function (data) {
@@ -167,7 +179,7 @@ function updateProdcut() {
         '成功更新了一条商品信息!',
         'success'
     ).then(function () {
-        location.href = "ListProduct.jsp";
+        location.href = "listProduct.jsp";
     });
 }
 //查看所有商品
