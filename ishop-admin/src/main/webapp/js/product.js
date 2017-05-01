@@ -149,8 +149,7 @@ function updateProdcut() {
     var orderLink = $("#orderLink").val();
     var salePrice = $("#salePrice").val();
     var realPrice = $("#realPrice").val();
-    var isRecommend = $("#isRecommend").val();
-<<<<<<< Updated upstream
+    var isRecommend = $("#isRecommend").val()
     var productId =$("#id").val();
     alert(productId);
     $.ajax({
@@ -166,12 +165,8 @@ function updateProdcut() {
             orderLink:orderLink,
             salePrice:salePrice,
             realPrice:realPrice,
-<<<<<<< Updated upstream
             isRecommend:isRecommend,
             id: productId
-=======
-            isRecommend:isRecommend
->>>>>>> Stashed changes
         },
         dataType: "json",
         success: function (data) {
@@ -184,11 +179,7 @@ function updateProdcut() {
         '成功更新了一条商品信息!',
         'success'
     ).then(function () {
-<<<<<<< Updated upstream
         location.href = "listProduct.jsp";
-=======
-        location.href = "ListProduct.jsp";
->>>>>>> Stashed changes
     });
 }
 //查看所有商品
