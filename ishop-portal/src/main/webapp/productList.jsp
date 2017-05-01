@@ -157,7 +157,6 @@
 				</div>
 			</div>
 			<div id="productList" class="product-all" >
-
 				<div name="product" class="product" v-for="product in mydata">
                     <a v-bind:href="product.orderLink">
 					<p class="text-center">{{product.name}}</p>
@@ -182,22 +181,23 @@
     <script src="<%=request.getContextPath()%>/js/vue.js"></script>
     <script>
         var typeData = [];
+        var vm = new Vue({
+            el:'#productList',
+            data:{
+                mydata:[]
+            }
+        });
         $(document).ready(function () {
-            var mydata=[];
             $.ajax({
                 type:"GET",
                 url:"/ishop-portal/listProduct",
                 dataType:"json",
                 success:function (data) {
                     //这里获取到数据展示到前台
-                    var vm = new Vue({
-                        el:'#productList',
-                        data:{
-                            mydata:data
-                        }
-                    });
+                   vm.mydata = data;
                 }
             });
+
             $.ajax({
                 type:"GET",
                 url:"/ishop-portal/listType",
@@ -205,9 +205,9 @@
                 success:function (data) {
                     //这里获取到数据展示到前台
                     var vm = new Vue({
-                        el:'#typeGrade',
-                        data:{
-                            typeData:data
+                        el: '#typeGrade',
+                        data: {
+                            typeData: data
                         }
                     });
                     typeData = data;
@@ -230,11 +230,24 @@
             $("#typeGrade3 > li").remove();
             for(var i = 0; i < typeData.length; i++){
                 if(obj == typeData[i].parentId){
-                    $("#typeGrade3").append('<li role="presentation" ><span style="display: none">'+typeData[i].id+'</span> <a href="#">'+typeData[i].name+'</a> </li>');
+                    $("#typeGrade3").append('<li role="presentation" ><span style="display: none">'+typeData[i].id+'</span> <a href="#" onclick="listByType('+typeData[i].id+')">'+typeData[i].name+'</a> </li>');
                     $("#typeGrade3").css("display","block");
                 }
             }
-
         }
+        function listByType(typeId) {
+            vm.mydata= [];
+            $.ajax({
+                type:"GET",
+                url:"/ishop-portal/listProductByType",
+                data:{typeId:typeId},
+                dataType:"json",
+                success:function (data) {
+                    //这里获取到数据展示到前台
+                    vm.mydata = data;
+                }
+            });
+        }
+
     </script>
 </html>
