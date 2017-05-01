@@ -22,6 +22,9 @@
 				font-size: 30px;
 				display: none;
 			}
+			#checkCode{
+				width: 50%;
+			}
 		</style>
 		<title>会员注册</title>
 	</head>
@@ -52,14 +55,6 @@
 							</div>
 						</div>
 					</div>
-					<%--<div class="row input_item">--%>
-						<%--<div class="form-group">--%>
-							<%--<label for="email" class="col-sm-2 control-label"></label>--%>
-							<%--<div class="col-sm-10">--%>
-								<%--<input name="email" id="email" type="email" class="form-control"  placeholder="邮箱" >--%>
-							<%--</div>--%>
-						<%--</div>--%>
-					<%--</div>--%>
 					<div class="row input_item">
 						<div class="form-group">
 							<label for="phone" class="col-sm-2 control-label"></label>
@@ -68,19 +63,11 @@
 							</div>
 						</div>
 					</div>
-					<%--<div class="row input_item">--%>
-						<%--<div class="form-group">--%>
-							<%--<label for="realName" class="col-sm-2 control-label"></label>--%>
-							<%--<div class="col-sm-10">--%>
-								<%--<input name="realName" type="text" class="form-control" id="realName" placeholder="真实名字">--%>
-							<%--</div>--%>
-						<%--</div>--%>
-					<%--</div>--%>
                     <div class="row input_item">
                         <div class="form-group">
                             <label for="checkCode" class="col-sm-2 control-label"></label>
-                            <div class="col-sm-10 row">
-                                <input id="checkCode" type="text" class=" col-sm-6 "  placeholder="短信验证码" >
+                            <div class="col-sm-10">
+                                <input id="checkCode" type="text" class=" col-sm-6 form-control"  placeholder="短信验证码" >
                                 <button class="btn btn-danger  " onclick="">获取验证码</button>
                             </div>
                         </div>
