@@ -41,7 +41,10 @@ public class Receiver implements Serializable {
      * 邮编
      */
     private String zipcode;
-
+    /**
+     * 是否是默认收货地址,默认为1,表示为默认收货地址
+     */
+    private Integer isDefault;
     /**
      * 创建时间
      */
@@ -110,6 +113,14 @@ public class Receiver implements Serializable {
         this.zipcode = zipcode;
     }
 
+    public Integer getIsDefault() {
+        return isDefault;
+    }
+
+    public void setIsDefault(Integer isDefault) {
+        this.isDefault = isDefault;
+    }
+
     public Timestamp getCreated() {
         return created;
     }
@@ -124,6 +135,10 @@ public class Receiver implements Serializable {
 
     public void setUpdated(Timestamp updated) {
         this.updated = updated;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     @Override
@@ -143,6 +158,8 @@ public class Receiver implements Serializable {
         if (getEmail() != null ? !getEmail().equals(receiver.getEmail()) : receiver.getEmail() != null) return false;
         if (getZipcode() != null ? !getZipcode().equals(receiver.getZipcode()) : receiver.getZipcode() != null)
             return false;
+        if (getIsDefault() != null ? !getIsDefault().equals(receiver.getIsDefault()) : receiver.getIsDefault() != null)
+            return false;
         if (getCreated() != null ? !getCreated().equals(receiver.getCreated()) : receiver.getCreated() != null)
             return false;
         return getUpdated() != null ? getUpdated().equals(receiver.getUpdated()) : receiver.getUpdated() == null;
@@ -157,6 +174,7 @@ public class Receiver implements Serializable {
         result = 31 * result + (getAddress() != null ? getAddress().hashCode() : 0);
         result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
         result = 31 * result + (getZipcode() != null ? getZipcode().hashCode() : 0);
+        result = 31 * result + (getIsDefault() != null ? getIsDefault().hashCode() : 0);
         result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
         result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
         return result;
@@ -172,6 +190,7 @@ public class Receiver implements Serializable {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", zipcode='" + zipcode + '\'' +
+                ", isDefault='" + isDefault + '\'' +
                 ", created=" + created +
                 ", updated=" + updated +
                 '}';

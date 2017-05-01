@@ -187,6 +187,7 @@ create table `receiver`(
    `address` varchar(255) default null comment '收货人详细地址,xx省xx市xx县xx镇+详细地址',
    `email` varchar(50) default null comment '收货人邮箱',
    `zipcode` varchar(10) default null comment '邮编',
+   `is_default` int(1) default 1 comment '是否是默认收货地址,默认为1,表示为默认收货地址',
    `created` datetime default null comment '创建时间',
    `updated` datetime default null comment '更新时间',
    primary key(`id`),
