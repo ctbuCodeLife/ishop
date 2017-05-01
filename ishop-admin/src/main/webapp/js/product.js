@@ -79,48 +79,96 @@ function addProdcut() {
 }
 //删除商品
 function delProduct(that) {
-    var p = that.parentNode.firstChild;
-    var name = p.innerHTML;
-    $.ajax({
-        type:"GET",
-        url:"/ishop-admin/delProduct",
-        data:{name:name},
-        dataType:"json",
-        success:function (data) {
-            //这里获取到数据展示到前台
-            alert(data);
+    swal({
+        title: '删除商品?',
+        text: "删除后就不可恢复!",
+        type: 'error',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '确认删除',
+        cancelButtonText: "取消"
+    }).then(function (isConfirm) {
+        if (isConfirm) {
+            //执行删除操作
+            var p = that.parentNode.firstElementChild;
+            var id = p.innerHTML;
+            $.ajax({
+                type: "GET",
+                url: "/ishop-admin/delProduct",
+                data: {id: id},
+                dataType: "json",
+                success: function (data) {
+                    //这里获取到数据展示到前台
+                    if(data === true){
+                        swal(
+                            '删除成功!',
+                            '您已经成功删除商品',
+                            'success'
+                        ).then(function () {
+                            location.reload();
+                        });
+                    }else {
+                        swal(
+                            '删除失败!',
+                            '删除商品失败',
+                            'success'
+                        )
+                    }
+                }
+            });
+
         }
     });
-    location.reload();
 }
 //修改商品
-function updateProduct() {
-    var id = $("#id").val();
-    var roleId = $("#roleId").val();
-    var name = $("#name").val();
-    var password = $("#password").val();
-    var realName = $("#realName").val();
-    var email =  $("#email").val();
-    var phone = $("#phone").val();
+function updateProdcut() {
+    //输入非空验证
+    var productEle = ["#productName", "#productSubTitle","#typeName", "#imageSrc", "#inventNum", "#monthSaleNum", "#orderLink","#salePrice","#realName","#isRecommend"];
+    for (var i = 0; i < productEle.length; i++) {
+        if ($(productEle[i]).val() === "") {
+            $(productEle[i]).focus();
+            return;
+        }
+    }
+    var name = $("#productName").val();
+    var subTitle = $("#productSubTitle").val();
+    var typeId = $("#typeName").val();
+    var imageSrc = $("#imageSrc").val();
+    var inventNum =  $("#inventNum").val();
+    var saleNum = $("#monthSaleNum").val();
+    var orderLink = $("#orderLink").val();
+    var salePrice = $("#salePrice").val();
+    var realPrice = $("#realPrice").val();
+    var isRecommend = $("#isRecommend").val();
     $.ajax({
-        type:"GET",
-        url:"/ishop-Product/updateProduct",
-        data:{
-            id:id,
-            roleId:roleId,
-            name:name,
-            password:password,
-            realName:realName,
-            email:email,
-            phone:phone
+        type: "GET",
+        url: "/ishop-admin/updateProduct",
+        data: {
+            name: name,
+            subTitle:subTitle,
+            typeId: typeId,
+            imageSrc:imageSrc,
+            inventNum:inventNum,
+            saleNum:saleNum,
+            orderLink:orderLink,
+            salePrice:salePrice,
+            realPrice:realPrice,
+            isRecommend:isRecommend
         },
-        dataType:"json",
-        success:function (data) {
+        dataType: "json",
+        success: function (data) {
             //这里获取到数据展示到前台
-            alert(data);
         }
     });
-    location.href="listProduct.jsp";
+    //提示框
+    swal(
+        '更新成功!',
+        '成功更新了一条商品信息!',
+        'success'
+    ).then(function () {
+        location.href = "ListProduct.jsp";
+    });
 }
 //查看所有商品
 function listProduct() {
