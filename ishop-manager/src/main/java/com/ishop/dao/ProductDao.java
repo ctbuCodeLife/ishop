@@ -24,6 +24,10 @@ public interface ProductDao {
     public List<Product> list();
     //查询列表
     public List<Product> list(int start,int count);
+    //根据typeID查询列表
+    public List<Product> list(int typeId);
     //根据Id判断对象是否存在
     public  boolean exists(Integer id);
+    //根据name判断对象是否存在
+    public  boolean exists(String name);
 }

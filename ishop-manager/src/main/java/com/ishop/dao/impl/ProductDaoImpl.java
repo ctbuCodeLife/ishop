@@ -212,6 +212,44 @@ public class ProductDaoImpl implements ProductDao{
         }
         return list ;
     }
+    /**
+     * @param  typeId 类别id
+     * @return 根据类别id查询到的列表
+     */
+    public List<Product> list(int typeId){
+        //返回的列表
+        List<Product> list = new ArrayList<Product>();
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "SELECT * FROM `product` where type_id = ? order by id ";
+        Object[] params = {typeId};
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        try {
+            while (rs.next()){
+                Product product = new Product();
+                product.setId(rs.getInt(1));
+                product.setTypeId(rs.getInt(2));
+                product.setName(rs.getString(3));
+                product.setSubTitle(rs.getString(4));
+                product.setImageSrc(rs.getString(5));
+                product.setInventNumber(rs.getInt(6));
+                product.setMonthSellNumber(rs.getInt(7));
+                product.setOrderLink(rs.getString(8));
+                product.setRealPrice(rs.getBigDecimal(9));
+                product.setSellPrice(rs.getBigDecimal(10));
+                product.setIsRecommend(rs.getInt(11));
+                product.setCreated(rs.getTimestamp(12));
+                product.setUpdated(rs.getTimestamp(13));
+                list.add(product);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list ;
+    }
     //根据Id判断对象是否存在
     public  boolean exists(Integer id){
         //数据库工具类
