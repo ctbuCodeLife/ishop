@@ -67,8 +67,9 @@
 			}
 			.product-Template .product-all div{
 				width: 200px;
-				height: 350px;
+				height: 330px;
 				margin-top: 10px;
+				margin-left: 30px;
 				border: 1px solid #000;
 				order: 1;/*属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。*/
 				flex-grow: 0;/*(是在剩余空间的基础上)属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。*/
@@ -210,101 +211,100 @@
 				</div>
 			</div>
 			<div class="product-all">
-
-
-                    <%--<div>--%>
-                        <%--<span>{{mydata.indexOf(product)+1}}</span>--%>
-                        <%--<span>{{product.id}}</span>--%>
-                        <%--<span>{{product.name}}</span>--%>
-                        <%--<span>{{product.typeId}}</span>--%>
-                        <%--<span>{{product.imageSrc}}</span>--%>
-                        <%--<span>{{product.sellPrice}}</span>--%>
-                        <%--<span>{{product.inventNumber}}</span>--%>
-                        <%--<span>{{product.monthSellNumber}}</span>--%>
-                        <%--<span>--%>
-                            <%--<span style="display: none">{{product.id}}</span>--%>
-                            <%--<button onclick="delProduct(this)">删除</button>--%>
-                            <%--<a v-bind:href="'updateProduct.jsp?id='+product.id"><button>更新</button></a>--%>
-                        <%--</span>--%>
-                    <%--</div>--%>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
+				<div name="product" class="product">
+					<p class="text-center">商品名</p>
+					<a href=""><img src="img/4.png"/></a>
+					<p>原价：<span></span></p>
+					<p>售价：<span></span></p>
+					<a href="">查看详情</a>
+				</div>
 			</div>
 		</div>
-        <div >
-            <div class="p-img">
-                <a target="_blank" href="">
-                    <div></div>
-                    <img width="220" height="220" src="" title="" style="">
-                </a>
-            </div>
-            <div class="p-scroll scrolled">
-                <div class="ps-wrap" style="position: relative; overflow: hidden; width: 170px;">
-                    <%--<ul class="ps-main" style="position: absolute; width: 272px;">--%>
-                        <%--<li class="ps-item" style="float: left;">--%>
-                            <%--<a title="" href="javascript:;" class=""><img data-sku="1458942" width="25" height="25" class="loading-style2" src=""></a>--%>
-                        <%--</li>--%>
-                        <%--<li class="ps-item"  style="float: left;">--%>
-                            <%--<a title="黑肤各三双" href="javascript:;">--%>
-                                <%--<img data-sku="1458939" data-lazy-img="done" width="25" height="25" class="" src="">--%>
-                        <%--</a>--%>
-                        <%--</li>--%>
-                        <%--<li class="ps-item" href="javascript:;">--%>
-                            <%--<a href="">--%>
-                        <%--<img data-sku="1458947" data-lazy-img="done" width="25" height="25" class="" src="" title="">--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
-                        <%--<li class="ps-item" style="float: left;">--%>
-                            <%--<a title="" href="javascript:;" class="" style="">--%>
-                                <%--<img data-sku="1458941" data-lazy-img="done" width="25" height="25" class="" src="" title="" style="">--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
-                        <%--<li class="ps-item" style="float: left;">--%>
-                            <%--<a title="黑咖各三双" href="javascript:;">--%>
-                                <%--<img data-sku="1460946" data-lazy-img="done" width="25" height="25" class="" src="">--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
-                        <%--<li class="ps-item" style="float: left;">--%>
-                            <%--<a title="黑灰各三双" href="javascript:;">--%>
-                                <%--<img data-sku="1460941" data-lazy-img="done" width="25" height="25" class="" src="">--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
-                        <%--<li class="ps-item" style="float: left;">--%>
-                            <%--<a title="肤灰各三双" href="javascript:;">--%>
-                                <%--<img data-sku="1460942" data-lazy-img="done" width="25" height="25" class="" src="">--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
-                    <%--</ul>--%>
-                </div>
-            </div>
-            <div class="p-price">
-                <strong class="J_price"><em>¥</em><i>49.00</i></strong>
-                <strong class="J_price js_ys" style="display:none"><em>¥</em><i>49.00</i></strong>
-            </div>
-            <div class="p-name">
-                <a target="_blank" title="" href="">
-                </a>
-            </div>
-            <div class="p-focus"><a class="J_focus" data-sku="1460919" href="javascript:;"><i></i>关注</a></div>
-            <div class="p-stock" data-isdeliveryable="5" style="display: none;" data-stock_v="5" data-stock_h="40"></div>
-        </div>
-        <div id="productList" class="container-fluid">
-            <%--<p class="text-center">重庆南岸</p>--%>
-            <ul id="ulFlex">
-                <li v-for="product of mydata" class="row" >
-                    <div class="col-md-3">
-                        <div class="col-md-3">
-                            <a href=""><img  v-bind:src="product.imageSrc" width="200px" height="200px"/></a>
-                        </div>
-                        <span>{{product.id}}</span>
-                        <span>{{product.name}}</span>
-                        <span>{{product.typeId}}</span>
-                        <span>{{product.imageSrc}}</span>
-                        <span>{{product.sellPrice}}</span>
-                        <span>{{product.inventNumber}}</span>
-                        <span>{{product.monthSellNumber}}</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
+
 		<div class="footer">
 			<%@include file="foot.jsp" %>
 		</div>
