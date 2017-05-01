@@ -316,7 +316,7 @@
             var mydata=[];
             $.ajax({
                 type:"GET",
-                url:"http://127.0.0.1:9090/ishop-admin/listProduct",
+                url:"/ishop-portal/listProduct",
                 dataType:"json",
                 success:function (data) {
                     //这里获取到数据展示到前台
