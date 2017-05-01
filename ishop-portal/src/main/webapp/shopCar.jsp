@@ -29,12 +29,13 @@
 			}
 			.title H3{
 				width: 25%;
+				height: 50px;
 				margin: auto auto;
 				line-height: 30px;
 				vertical-align: middle;
 				text-align: center;
 			}
-			.title H3:first-child{
+			.title H3:nth-child(1){
 				background-color: #E8F1F5;
 			}
 			.main{
