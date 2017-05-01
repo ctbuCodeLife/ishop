@@ -28,7 +28,6 @@ public class AdminLoginServlet extends HttpServlet {
            Admin admin = new Admin();
            //通过用户名和密码获取admin对象
            admin = ad.get(name,password);
-           System.out.println(admin);
            //提示信息的页面
            String redirectPage = "info.jsp";
            //自动跳转目录

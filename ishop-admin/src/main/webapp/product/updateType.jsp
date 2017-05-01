@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>addType</title>
+    <title>更新类别</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
     <!--提示框插件样式-->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
