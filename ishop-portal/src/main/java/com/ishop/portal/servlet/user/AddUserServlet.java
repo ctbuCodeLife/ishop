@@ -22,15 +22,15 @@ public class AddUserServlet extends javax.servlet.http.HttpServlet {
             //获取表单提交的参数
             String name = request.getParameter("name");
             String password = request.getParameter("password");
-            String email = request.getParameter("email");
+//            String email = request.getParameter("email");
             String phone = request.getParameter("phone");
-            String realName = request.getParameter("realName");
+//            String realName = request.getParameter("realName");
             //设置User对象
             User user = new User();
-            user.setName(name);
+//            user.setName(name);
             user.setPassword(password);
-            user.setRealName(realName);
-            user.setEmail(email);
+//            user.setRealName(realName);
+//            user.setEmail(email);
             user.setPhone(phone);
             //插入数据库
             UserDao ad = new UserDaoImpl();
