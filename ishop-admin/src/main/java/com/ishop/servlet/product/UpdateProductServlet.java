@@ -13,11 +13,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 
+import static java.lang.Integer.parseInt;
+
 /**
- * Created by myq on 2017/4/23.
+ * Created by myq on 2017/4/29.
  */
-@WebServlet(name = "AddProductServlet",urlPatterns = "/addProduct")
-public class AddProductServlet extends HttpServlet {
+@WebServlet(name = "UpdateProductServlet",urlPatterns = "/updateProduct")
+public class UpdateProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             //获取表单提交的参数
@@ -31,29 +33,38 @@ public class AddProductServlet extends HttpServlet {
             String salePrice = request.getParameter("salePrice");
             String realPrice = request.getParameter("realPrice");
             String isRecommend = request.getParameter("isRecommend");
+            String id = request.getParameter("id");
             Product product = new Product();
-            product.setImageSrc(imageSrc);
-            product.setInventNumber(Integer.parseInt(inventNum));
-            product.setIsRecommend(Integer.parseInt(isRecommend));
-            product.setMonthSellNumber(Integer.parseInt(saleNum));
+            product.setId(parseInt(id));
             product.setName(name);
-            product.setTypeId(Integer.parseInt(typeId));
-            product.setOrderLink(orderLink);
             product.setSubTitle(subTitle);
+            product.setTypeId(parseInt(typeId));
+            product.setImageSrc(imageSrc);
+            product.setInventNumber(parseInt(inventNum));
+            product.setIsRecommend(parseInt(isRecommend));
+            product.setMonthSellNumber(parseInt(saleNum));
+            product.setOrderLink(orderLink);
             BigDecimal bdrealPrice=new BigDecimal(realPrice);
             BigDecimal bdsalePrice=new BigDecimal(salePrice);
-            product.setSellPrice(bdsalePrice);
             product.setRealPrice(bdrealPrice);
+            product.setSellPrice(bdsalePrice);
             //插入数据库
             ProductDao pd = new ProductDaoImpl();
-            boolean result = pd.add(product);
-            //返回信息给前台
+            boolean result = pd.update(product);
+            //返回信息给前台01
             PrintWriter out = response.getWriter();
             //返回信息
-           out.println(result);
+            String msg = "";
+            if (result == true){
+                msg = "update success!";
+            }else {
+                msg = "update fail!";
+            }
+            out.println(msg);
             out.close();
         }catch (Exception e){
             e.printStackTrace();
+            System.out.println("enter catch");
         }
     }
 
