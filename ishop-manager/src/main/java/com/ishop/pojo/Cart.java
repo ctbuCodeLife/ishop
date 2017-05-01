@@ -99,4 +99,47 @@ public class Cart implements Serializable {
     public void setUpdated(Timestamp updated) {
         this.updated = updated;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cart)) return false;
+
+        Cart cart = (Cart) o;
+
+        if (getId() != null ? !getId().equals(cart.getId()) : cart.getId() != null) return false;
+        if (getUserId() != null ? !getUserId().equals(cart.getUserId()) : cart.getUserId() != null) return false;
+        if (getProductId() != null ? !getProductId().equals(cart.getProductId()) : cart.getProductId() != null)
+            return false;
+        if (getProductNum() != null ? !getProductNum().equals(cart.getProductNum()) : cart.getProductNum() != null)
+            return false;
+        if (getIsBuy() != null ? !getIsBuy().equals(cart.getIsBuy()) : cart.getIsBuy() != null) return false;
+        if (getCreated() != null ? !getCreated().equals(cart.getCreated()) : cart.getCreated() != null) return false;
+        return getUpdated() != null ? getUpdated().equals(cart.getUpdated()) : cart.getUpdated() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getUserId() != null ? getUserId().hashCode() : 0);
+        result = 31 * result + (getProductId() != null ? getProductId().hashCode() : 0);
+        result = 31 * result + (getProductNum() != null ? getProductNum().hashCode() : 0);
+        result = 31 * result + (getIsBuy() != null ? getIsBuy().hashCode() : 0);
+        result = 31 * result + (getCreated() != null ? getCreated().hashCode() : 0);
+        result = 31 * result + (getUpdated() != null ? getUpdated().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", productId=" + productId +
+                ", productNum=" + productNum +
+                ", isBuy=" + isBuy +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
 }

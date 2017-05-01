@@ -36,7 +36,7 @@ public class Order implements Serializable {
     /**
      * 总价
      */
-    private Long totalPrice;
+    private BigDecimal totalPrice;
 
     /**
      * 订单状态:未支付,已支付,待发货,已取消,已发货,已收货,未评论,已评论
@@ -95,11 +95,11 @@ public class Order implements Serializable {
         this.trafficPrice = trafficPrice;
     }
 
-    public Long getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Long totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
 
