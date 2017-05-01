@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>addProduct</title>
+    <title>updateProduct</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
     <!--提示框插件样式-->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
@@ -85,6 +85,12 @@
                 </select>
             </div>
         </div>
+        <div class="form-group" >
+            <label for="id" class="col-sm-3 control-label">id</label>
+            <div class="col-sm-9">
+                <input id="id" class="form-control" type="text">
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
                 <button type="button" onclick="updateProdcut()" class="btn btn-default">修改</button>
@@ -110,15 +116,25 @@
         var salePrice = $("#salePrice");
         var realPrice = $("#realPrice");
         var isRecommend = $("#isRecommend");
+        var productId =$("#id");
         $.ajax({
                 type:"GET",
-                url:"/ishop-admin/getProduct",
+                url:"/ishop-admin/getProductById",
                 data:{id:id},
                 dataType:"json",
                 success:function (data) {
                     //这里获取到数据展示到前台
                     name.val(data.name);
-
+                    subTitle.val(data.subTitle);
+                    typeId.val(data.typeId);
+                    imageSrc.val(data.imageSrc);
+                    inventNum.val(data.inventNumber);
+                    saleNum.val(data.monthSellNumber);
+                    orderLink.val(data.orderLink);
+                    salePrice.val(data.sellPrice);
+                    realPrice.val(data.realPrice);
+                    isRecommend.val(data.isRecommend);
+                    productId.val(data.id);
                 }
 
             }
