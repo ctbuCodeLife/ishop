@@ -4,7 +4,6 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="css/footer.css" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 		<title>产品详情</title>
 		<style type="text/css">
@@ -37,19 +36,17 @@
 				width: 90%;
 				height: 35rem;
 				margin-left: 5%;
-				border: 1px solid #000;
 			}
 			.main .dt-img{
 				width: 300px;
-				height: 95%;
+				height: 430px;
 				margin-left: 10%;
-				border: 1px solid #000;
+				overflow: hidden;
 			}
 			.main .dt-product{
 				width: 500px;
 				height: 95%;
-				margin-left: 5%;
-				border: 1px solid #000;
+				margin-left: 15%;
 				
 			}
 			.main .dt-product p{
@@ -86,21 +83,24 @@
 				<li><a href="">二级标题</a></li>
 			</ul>
 		</div>
+		<br />
 		<div class="main">
-			<div class="dt-img">
-				<img id="de-img" src="" alt="" />
+			<div  class="dt-img">
+				<img id="deImg" src="" alt="" width="100%" height="100%"/>
 			</div>
-			<form action="" method="post">
+			<form action="addShopCart" method="post">
 				<div class="dt-product">
-				<h3>产品名</h3>
+					<input id="productId" name="productId" type="hidden" value=""/>
+					<input id="userId" name="userId" type="hidden" value="${sessionScope.user.id}"/>
+					<input id="" name="" type="hidden" value=""/>
+				<h3 id="name"></h3>
 				<div name="dtProduct" class="">
 					<p><b>某某特价</b><a href="">降价通知！</a></p>
-					<p><span>原价：￥</span><span id="productPrice"></span></p>
-					<p><span>折扣价：￥</span></p>
+					<p>原价：￥<s><span id="realPrice"></span></s></p>
+					<p>售价：￥<span id="salePrice"></span></p>
 				</div>
 				<div name="dtProductDiscount">
 					<p><b>优惠</b></p>
-					<p>买两件九折</p>
 				</div>
 				<div name="dtSendAddr">
 					<p><b>配送至</b></p>
@@ -117,7 +117,7 @@
 					<p>北京时间:<span></span></p>
 				</div>
 				<div class="addShopCar">
-					<input id="number" type="number" value="1" />
+					<input id="number" name="number" type="number" value="1" />
 					<button>加入购物车</button>
 				</div>
 			</div>
@@ -127,5 +127,26 @@
 		<div class="footer">
 			<%@include file="foot.jsp" %>
 		</div>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			window.onload = function () {
+                var id = location.search.split("=")[1];
+                $.ajax({
+                    type: "GET",
+                    url: "/ishop-portal/getProductById",
+                    data: {id: id},
+                    dataType: "json",
+                    success: function (data) {
+                        //这里获取到数据展示到前台
+						$("#deImg").attr('src',data.imageSrc);
+						$("#realPrice").text(data.realPrice);
+						$("#salePrice").text(data.sellPrice);
+                        $("#sellPrice").val(data.sellPrice);
+						$("#productId").val(data.id);
+						$("#name").text(data.name);
+                    }
+                });
+            }
+		</script>
 	</body>
 </html>
