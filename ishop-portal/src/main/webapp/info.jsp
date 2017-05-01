@@ -12,6 +12,14 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/dashboard.css" rel="stylesheet">
     <link href="css/info.css" rel="stylesheet" >
+    <style type="text/css">
+        ul{
+            list-style: none;
+        }
+        .footer{
+            margin-top: 450px;
+        }
+    </style>
 </head>
 <body>
 <%@include file="head.jsp" %>
