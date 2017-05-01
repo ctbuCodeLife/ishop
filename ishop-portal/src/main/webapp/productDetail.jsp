@@ -128,25 +128,25 @@
 			<%@include file="foot.jsp" %>
 		</div>
 		<script src="js/jquery.min.js"></script>
-		<script type="text/javascript">
-			window.onload = function () {
-                var id = location.search.split("=")[1];
-                $.ajax({
-                    type: "GET",
-                    url: "/ishop-portal/getProductById",
-                    data: {id: id},
-                    dataType: "json",
-                    success: function (data) {
-                        //这里获取到数据展示到前台
-						$("#deImg").attr('src',data.imageSrc);
-						$("#realPrice").text(data.realPrice);
-						$("#salePrice").text(data.sellPrice);
-                        $("#sellPrice").val(data.sellPrice);
-						$("#productId").val(data.id);
-						$("#name").text(data.name);
-                    }
-                });
-            }
+        <script type="text/javascript">
+        window.onload = function () {
+            var id = location.search.split("=")[1];
+            $.ajax({
+                type: "GET",
+                url: "/ishop-portal/getProductById",
+                data: {id: id},
+                dataType: "json",
+                success: function (data) {
+                    //这里获取到数据展示到前台
+                    $("#deImg").attr('src',data.imageSrc);
+                    $("#realPrice").text(data.realPrice);
+                    $("#salePrice").text(data.sellPrice);
+                    $("#sellPrice").val(data.sellPrice);
+                    $("#productId").val(data.id);
+                    $("#name").text(data.name);
+                }
+            });
+        }
 		</script>
 	</body>
 </html>
