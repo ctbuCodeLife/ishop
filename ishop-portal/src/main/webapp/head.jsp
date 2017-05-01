@@ -37,7 +37,7 @@
                     <a href="callService.jsp" aria-controls="welcome" role="tab" data-toggle="tab">联系客服</a>
                 </li>
                 <li>
-                    <a href="orderManage.jsp" aria-controls="factsheet" role="tab" data-toggle="tab">订单管理</a>
+                    <a href="orderManage.jsp?id=${sessionScope.user.id}" aria-controls="factsheet" role="tab" data-toggle="tab">订单管理</a>
                 </li>
                 <li>
                     <a href="manageContent.jsp" aria-controls="jobdesc" role="tab" data-toggle="tab">评论管理</a>
