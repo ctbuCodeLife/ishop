@@ -2,7 +2,6 @@
 #container {
  	width: 700px;
  	height: 445px;
- 	border: 3px solid #333;
  	overflow: hidden;
  	position: relative;
  }
@@ -30,7 +29,6 @@
  #buttons span {
  	cursor: pointer;
  	float: left;
- 	border: 1px solid #fff;
  	width: 10px;
  	height: 10px;
  	border-radius: 50%;

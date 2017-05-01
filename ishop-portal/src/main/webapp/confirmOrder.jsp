@@ -37,11 +37,9 @@
 				vertical-align: middle;
 				text-align: center;
 			}
-			
-			.title div:first-child {
-				background-color: red;
+			.title H3:nth-child(2){
+				background-color: #E8F1F5;
 			}
-			
 			.main {
 				width: 100%;
 				height: 500px;
@@ -54,7 +52,7 @@
 			}
 			
 			.main table thead {
-				background-color: bisque;
+				background-color: #76E2F4;
 			}
 			
 			.main table td {

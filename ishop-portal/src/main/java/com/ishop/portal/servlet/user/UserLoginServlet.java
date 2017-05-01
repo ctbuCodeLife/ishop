@@ -1,4 +1,4 @@
-package com.ishop.portal.servlet;
+package com.ishop.portal.servlet.user;
 
 import com.ishop.dao.UserDao;
 import com.ishop.dao.impl.UserDaoImpl;

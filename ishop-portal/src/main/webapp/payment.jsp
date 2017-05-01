@@ -37,9 +37,9 @@
 				vertical-align: middle;
 				text-align: center;
 			}
-			
-			.title div:first-child {
-				background-color: red;
+
+			.title H3:nth-child(3){
+				background-color: #E8F1F5;
 			}
 			
 			.main {

@@ -1,4 +1,4 @@
-﻿<div class="footer ">
+﻿<div class="footer">
 <div class="text-center">
 Develop 2017.3-4 by
 <span><a href="http://www.litao.work">李涛</a></span>
