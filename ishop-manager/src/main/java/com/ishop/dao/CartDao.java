@@ -22,8 +22,4 @@ public interface CartDao {
     public List<Cart> list();
     //查询列表
     public List<Cart> list(int start,int count);
-    //根据Id判断对象是否存在
-    public  boolean exists(Integer id);
-    //根据name判断对象是否存在
-    public boolean exists(String name);
 }

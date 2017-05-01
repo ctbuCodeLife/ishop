@@ -23,6 +23,5 @@ public interface OrderDao {
     public List<Order> list();
     //查询列表
     public List<Order> list(int start,int count);
-    //根据Id判断对象是否存在
-    public  boolean exists(Integer id);
+
 }

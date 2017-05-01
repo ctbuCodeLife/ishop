@@ -22,8 +22,4 @@ public interface CollectDao {
     public List<Collect> list();
     //查询列表
     public List<Collect> list(int start,int count);
-    //根据Id判断对象是否存在
-    public  boolean exists(Integer id);
-    //根据名字判断对象是否存在
-    public  boolean exists(String name);
 }
