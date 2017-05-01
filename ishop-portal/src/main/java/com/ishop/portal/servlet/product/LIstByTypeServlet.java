@@ -21,8 +21,8 @@ import java.util.List;
 /**
  * Created by tao on 2017/5/2 0002.
  */
-@WebServlet(name = "LIstByTypeServlet",urlPatterns = "/listProductByType")
-public class LIstByTypeServlet extends HttpServlet {
+@WebServlet(name = "ListByTypeServlet",urlPatterns = "/listProductByType")
+public class ListByTypeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             int typeId = Integer.parseInt(request.getParameter("typeId"));

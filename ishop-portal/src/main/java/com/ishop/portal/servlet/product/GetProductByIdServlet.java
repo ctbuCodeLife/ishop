@@ -30,13 +30,8 @@ public class GetProductByIdServlet extends HttpServlet {
             //JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd";
             //SerializerFeature.WriteDateUseDateFormat用来将日期格式化成yyyy-MM-dd的形式
             String json = JSON.toJSONString(product, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
-            if(product != null) {
-                out.println(json);
-                out.close();
-            }else{
-                out.println(false);
-                out.close();
-            }
+            out.println(json);
+            out.close();
         }catch (Exception e) {
             e.printStackTrace();
         }

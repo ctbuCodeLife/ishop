@@ -20,6 +20,8 @@ public interface CartDao {
     public int getTotal();
     //查询列表
     public List<Cart> list();
+    //查询用户购物车列表
+    public List<Cart> list(int userId);
     //查询列表
     public List<Cart> list(int start,int count);
 }
