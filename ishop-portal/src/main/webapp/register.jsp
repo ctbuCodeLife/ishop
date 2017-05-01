@@ -11,6 +11,7 @@
 		<meta name="Description" content=""/>
 		<!--bootstrap核心CSS文件-->
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/sweetalert2.min.css"/>
 		<link rel="stylesheet" href="css/style.css">
 		<style type="text/css">
 			.login-box{
@@ -80,6 +81,7 @@
 			<%@include file="foot.jsp"%>
 		</div>
 		<script src="js/jquery.min.js"></script>
+		<script src="js/sweetalert2.min.js"></script>
 	 	<script type="text/javascript">
 
             function  checkName() {
@@ -94,10 +96,13 @@
                         success:function (data) {
                             //这里获取到数据展示到前台
                             if(data == true){
-                                msg.innerHTML = "该用户已存在!";
-                                msg.style.display = "block";
-                                msg.style.color = "red";
-                                $("#name").focus();
+                                swal(
+                                    '用户已存在!',
+                                    '请重新输入用户名',
+                                    'error'
+                                ).then(function () {
+                                    $("#name").focus();
+                                });
                             }else{
                                 msg.innerHTML = "可以使用该用户名!";
                                 msg.style.display = "block";
