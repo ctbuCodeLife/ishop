@@ -18,7 +18,7 @@ public class ProductDaoImpl implements ProductDao{
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
-        String sql = "insert into product(type_id,`name`,sub_title,image_src,invent_number,month_sell_number,order_link,real_price,sell_price,is_recommend,created,updated) values(?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into product(type_id,`name`,sub_title,image_src,invent_number,month_sell_number,order_link,real_price,sell_price,is_recommend,created,updated) values(?,?,?,?,?,?,?,?,?,?,?,?)";
         //获取当前时间并设置
         product.setCreated(new Timestamp(System.currentTimeMillis()));
         product.setUpdated(new Timestamp(System.currentTimeMillis()));
