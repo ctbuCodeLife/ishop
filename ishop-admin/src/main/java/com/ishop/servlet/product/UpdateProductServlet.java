@@ -18,7 +18,7 @@ import static java.lang.Integer.parseInt;
 /**
  * Created by myq on 2017/4/29.
  */
-@WebServlet(name = "UpdateProductServlet")
+@WebServlet(name = "UpdateProductServlet",urlPatterns = "/updateProduct")
 public class UpdateProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -33,7 +33,9 @@ public class UpdateProductServlet extends HttpServlet {
             String salePrice = request.getParameter("salePrice");
             String realPrice = request.getParameter("realPrice");
             String isRecommend = request.getParameter("isRecommend");
+            String id = request.getParameter("id");
             Product product = new Product();
+            product.setId(parseInt(id));
             product.setName(name);
             product.setSubTitle(subTitle);
             product.setTypeId(parseInt(typeId));
@@ -54,9 +56,9 @@ public class UpdateProductServlet extends HttpServlet {
             //返回信息
             String msg = "";
             if (result == true){
-                msg = "添加成功!";
+                msg = "update success!";
             }else {
-                msg = "添加失败!";
+                msg = "update fail!";
             }
             out.println(msg);
             out.close();
