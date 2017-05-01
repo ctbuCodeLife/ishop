@@ -122,7 +122,7 @@ public class ProductDaoImpl implements ProductDao{
         //数据库工具类
         DBUtil db = new DBUtil();
         //sql statement
-        String sql = "select type_id,`name`,sub_title,image_src,invent_number,month_sell_number,order_link,real_price,sell_price,is_recommend,created,updated from product where name =?";
+        String sql = "select type_id,`name`,sub_title,image_src,invent_number,month_sell_number,order_link,real_price,sell_price,is_recommend,created,updated,id from product where name =?";
         //sql 的参数
         Object[] params = {name};
         //rs表示查询结果集,执行SQL
@@ -142,6 +142,7 @@ public class ProductDaoImpl implements ProductDao{
                 product.setIsRecommend(rs.getInt(10));
                 product.setCreated(rs.getTimestamp(11));
                 product.setUpdated(rs.getTimestamp(12));
+                product.setId(rs.getInt(13));
                 product.setName(name);
             }
         }catch (Exception e){

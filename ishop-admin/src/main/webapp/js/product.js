@@ -203,20 +203,36 @@ function listProduct() {
 //通过name查看商品
 function getProductByName() {
     var name = $("#name").val();
-    $("#queryProductTable").show();
     $.ajax({
         type:"GET",
-        url:"/ishop-product/getProductByName",
+        url:"/ishop-admin/getProductByName",
         data:{name:name},
         dataType:"json",
         success:function (data) {
             //这里获取到数据展示到前台
-            var vm = new Vue({
-                el:'#queryProductTable',
-                data:{
-                    Product:data
-                }
-            });
+            if(jQuery.isEmptyObject(data)){
+                $("#queryProductTable").hide();
+                swal(
+                    '查找失败!',
+                    '抱歉,没有查找到您要查找的商品',
+                    'error'
+                )
+            }else {
+                var vm = new Vue({
+                    el:'#queryProductTable',
+                    data:{
+                        product:data
+                    }
+                });
+                $("#queryProductTable").show();
+                $("#deleteId").text(data.id);
+                $("#showName").text(data.name);
+                $("#showTypeId").text(data.typeId);
+                $("#showImgSrc").text(data.imageSrc);
+                $("#showPrice").text(data.sellPrice);
+                $("#showInventNum").text(data.inventNumber);
+                $("#showSaleNum").text(data.monthSellNumber);
+            }
         }
     })
 }
