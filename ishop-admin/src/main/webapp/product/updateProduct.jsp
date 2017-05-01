@@ -8,10 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>updateProduct</title>
+    <title>更新商品</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
-    <!--提示框插件样式-->
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sweetalert2.min.css">
     <style type="text/css">
         .container{
             width: 500px;
@@ -37,7 +35,7 @@
         <div class="form-group">
             <label for="typeName" class="col-sm-3 control-label">类别名</label>
             <div class="col-sm-9">
-                <input id="typeName" name="typeName" type="text"  class="form-control"  placeholder="类别名">
+                <input id="typeName" name="typeName" type="password"  class="form-control"  placeholder="类别名">
             </div>
         </div>
         <div class="form-group">
@@ -85,12 +83,6 @@
                 </select>
             </div>
         </div>
-        <div class="form-group" >
-            <label for="id" class="col-sm-3 control-label">id</label>
-            <div class="col-sm-9">
-                <input id="id" class="form-control" type="text">
-            </div>
-        </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
                 <button type="button" onclick="updateProdcut()" class="btn btn-default">修改</button>
@@ -99,47 +91,6 @@
     </form>
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
-<script src="<%=request.getContextPath()%>/js/vue.js"></script>
-<!--引入弹出框插件的js-->
-<script src="<%=request.getContextPath()%>/js/sweetalert2.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/product.js"></script>
-<script>
-    $(document).ready(function(){
-        var id = location.search.split("=")[1];
-        var name = $("#productName");
-        var subTitle = $("#productSubTitle");
-        var typeId = $("#typeName");
-        var imageSrc = $("#imageSrc");
-        var inventNum =  $("#inventNum");
-        var saleNum = $("#monthSaleNum");
-        var orderLink = $("#orderLink");
-        var salePrice = $("#salePrice");
-        var realPrice = $("#realPrice");
-        var isRecommend = $("#isRecommend");
-        var productId =$("#id");
-        $.ajax({
-                type:"GET",
-                url:"/ishop-admin/getProductById",
-                data:{id:id},
-                dataType:"json",
-                success:function (data) {
-                    //这里获取到数据展示到前台
-                    name.val(data.name);
-                    subTitle.val(data.subTitle);
-                    typeId.val(data.typeId);
-                    imageSrc.val(data.imageSrc);
-                    inventNum.val(data.inventNumber);
-                    saleNum.val(data.monthSellNumber);
-                    orderLink.val(data.orderLink);
-                    salePrice.val(data.sellPrice);
-                    realPrice.val(data.realPrice);
-                    isRecommend.val(data.isRecommend);
-                    productId.val(data.id);
-                }
-
-            }
-        );
-    })
-</script>
 </body>
 </html>

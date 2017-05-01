@@ -107,7 +107,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>ishop-admin</finalName>
+    <finalName>ishop-portal</finalName>
     <plugins>
       <!-- java编译插件 -->
       <plugin>
