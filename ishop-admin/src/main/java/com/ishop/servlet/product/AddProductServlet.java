@@ -50,13 +50,7 @@ public class AddProductServlet extends HttpServlet {
             //返回信息给前台
             PrintWriter out = response.getWriter();
             //返回信息
-            String msg = "";
-            if (result == true){
-                msg = "添加成功!";
-            }else {
-                msg = "添加失败!";
-            }
-            out.println(msg);
+           out.println(result);
             out.close();
         }catch (Exception e){
             e.printStackTrace();
