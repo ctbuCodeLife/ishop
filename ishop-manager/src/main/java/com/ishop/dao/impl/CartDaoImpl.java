@@ -122,6 +122,35 @@ public class CartDaoImpl implements CartDao {
     public List<Cart> list(){
         return list(0,Short.MAX_VALUE);
     }
+    //查询用户购物车列表
+    public List<Cart> list(int userId){
+        //返回的列表
+        List<Cart> list = new ArrayList<Cart>();
+        //数据库工具类
+        DBUtil db = new DBUtil();
+        //sql statement
+        String sql = "select * from cart  where user_id = ? order by id ";
+        Object[] params = {userId};
+        //rs表示查询结果集,执行SQL
+        ResultSet rs = db.doQuery(sql,params);
+        //查询返回的对象
+        try {
+            while (rs.next()){
+                Cart cart = new Cart();
+                cart.setId(rs.getInt(1));
+                cart.setUserId(rs.getInt(2));
+                cart.setProductId(rs.getInt(3));
+                cart.setProductNum(rs.getInt(4));
+                cart.setIsBuy(rs.getInt(5));
+                cart.setCreated(rs.getTimestamp(6));
+                cart.setUpdated(rs.getTimestamp(7));
+                list.add(cart);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list ;
+    }
     /**
      * @param start 开始位置
      * @param count 数量

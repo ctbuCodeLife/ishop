@@ -108,18 +108,26 @@
 						</tr>
 					</thead>
 					<tbody id="tbody">
-						<tr v-for="commodity in allcommodity">
-							<td><input name="select" class="check" type="checkbox" value="" /><img name="commodityImg" src=''/>{{commodity.name}}</td>
+						<tr v-for="cart in mydata">
+							<td>
+                                <input id="cartId" name="cartId" type="hidden" v-model="cart.cartId">
+                                <input id="productId" name="productId" type="hidden" v-model="cart.productId">
+                                <input name="select" class="check" type="checkbox" />
+                                <a v-bind:href="cart.orderLink">
+                                    <img v-bind:src='cart.imageSrc' v-bind:alt="cart.name" width="50px" height="70px"/>
+                                </a>
+                               </td>
 							<td class="verticalMiddle">
-								<span name="price">{{commodity.price}}</span>
+								<span name="price">{{cart.realPrice}}</span>
 							</td>
 							<td class="verticalMiddle">
-								<span name="num"><input id="" type="number" onchange="sumPrice()"></span>
+
+								<span name="num"><input id="" type="number" onchange="sumPrice()" v-model="cart.productNum"></span>
 							</td>
 							<td class="verticalMiddle">
-								<span name="sumPrice"></span>
+								<span name="sumPrice">{{cart.totalPrice}}</span>
 							</td>
-							<td class="verticalMiddle"><button name="del" class="btn-default form-control">删除</button></td>
+							<td class="verticalMiddle"><a class="btn btn-default" v-bind:href="'deleteCart?id='+cart.cartId">删除</a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -143,30 +151,41 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			var vm = new Vue({
-				el:'#shopCart',
-				data:{
-					allcommodity:[{
-						img:'img/1.jpg',
-						name:'myq',
-						price:10000,
-						num:1,
-						sumprice:10000
-					},{
-						img:'img/2.jpg',
-						name:'hl',
-						price:1000.1,
-						num:1,
-						sumprice:1000.1
-					},{
-						img:'img/3.jpg',
-						name:'lt',
-						price:1,
-						num:1,
-						sumprice:1
-					}]
-				}
+			$(document).ready(function () {
+                var vm = new Vue({
+                    el:'#shopCart',
+                    data:{
+                        mydata:[]
+                    }
+                });
+                $.ajax({
+                    type:"GET",
+                    url:"/ishop-portal/listCartByUser",
+                    dataType:"json",
+                    success:function (data) {
+                        //这里获取到数据展示到前台
+                        console.log(data);
+                        vm.mydata = data;
+                    }
+                });
+                var productId = 0;
+                function findProductById(productId) {
+                    $.ajax({
+                        type:"GET",
+                        url:"/ishop-portal/getProductById",
+                        data:{id:productId},
+                        dataType:"json",
+                        success:function (data) {
+                            //这里获取到数据展示到前台
+                            console.log(data);
+//                        vm.mydata = data;
+                        }
+                    });
+                }
+                //findProductById(1);
+
 			});
+
 			function sumPrice() {
 				var arrPrice = $("#tbody>.price");
 				console.log(arrPrice.length);
