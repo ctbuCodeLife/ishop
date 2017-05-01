@@ -26,6 +26,9 @@
 			#checkCode{
 				width: 50%;
 			}
+			.footer{
+				margin-top: 100px;
+			}
 		</style>
 		<title>会员注册</title>
 	</head>
