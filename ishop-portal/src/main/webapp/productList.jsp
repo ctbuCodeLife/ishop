@@ -4,16 +4,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+        <title>商品列表页</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-		<title></title>
+        <link rel="stylesheet" href="css/style.css">
+
 		<style type="text/css">
 			ul {
 				list-style: none;
 			}
-			#nav_left {}
-			
-			#nav_right {}
-			
 			#nav_left ul {
 				vertical-align: middle;
 				list-style: none;
@@ -36,8 +34,8 @@
 			}
 			
 			.product-Template {
-				width: 80%;
-				margin-left: 10%;
+                width: 90%;
+                margin-left: 5%;
 			}
 			.product-Template .product-sort{
 				display: flex;
@@ -65,12 +63,12 @@
 				align-items: center;/*项目在交叉轴上的对齐方式，也有五个值*/
 				align-content: center;/*属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。*/
 			}
-			.product-Template .product-all div{
+			.product-Template .product-all .product{
 				width: 200px;
-				height: 330px;
+				height: 350px;
 				margin-top: 10px;
 				margin-left: 30px;
-				border: 1px solid #000;
+				border: 1px solid #999;
 				order: 1;/*属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。*/
 				flex-grow: 0;/*(是在剩余空间的基础上)属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。*/
 				flex-shrink:1 ;/*属 性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。(负值无效)*/
@@ -84,13 +82,25 @@
 				/*align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。
 				 * 默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。*/
 			}
-			.product-Template .product-all div p{
+
+			.product-Template .product-all .product p{
+                color: #000;
 				margin-bottom: 4px;
 			}
-			.product-Template .product-all div img{
+			.product-Template .product-all .product .img-box{
+                margin-left: 0;
+            }
+            .product-Template .product-all .product .img-box img{
 				width: 198px;
 				height: 230px;
+				overflow: hidden;
 			}
+            .product em{
+                font-size: 20px;
+                font-weight: 700;
+                font-family: Tahoma,Arial,Helvetica,sans-serif;
+                color: #F40;
+            }
             #ulFlex{
                 display: flex;
                 flex-direction: row;
@@ -112,83 +122,19 @@
 		</div>
 		</form>
 		<div class="product-Template">
-			<div class="product-nav">
-				<ul id="productType1" class="nav nav-tabs">
-					<li role="presentation" class="active">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
-					</li>
-					<li role="presentation">
-						<a href="#">一级类别</a>
+			<div class="product-nav" id="typeGrade">
+				<ul id="typeGrade1" class="nav nav-tabs">
+					<li role="presentation" class="" v-for="type in typeData" onclick="selectGrade2(this)">
+                        <span style="display: none;">{{type.id}}</span>
+						<a href="#" v-if="type.grade == 1">{{type.name}}</a>
 					</li>
 				</ul>
-				<ul id="productType2" class="nav nav-tabs">
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-					<li>
-						<a href="">二级类别</a>
-					</li>
-				</ul>
+                <ul  id="typeGrade2" class="nav nav-tabs" style="display: none">
+
+                </ul>
+                <ul  id="typeGrade3" class="nav nav-tabs" style="display: none">
+
+                </ul>
 			</div>
 			<div class="product-sort btn-group">
 				<div id="sortBySales">
@@ -210,98 +156,21 @@
 					</select>
 				</div>
 			</div>
-			<div class="product-all">
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
+			<div id="productList" class="product-all" >
+
+				<div name="product" class="product" v-for="product in mydata">
+                    <a v-bind:href="product.orderLink">
+					<p class="text-center">{{product.name}}</p>
+                    <%--<div class="img-box">--%>
+                        <img v-bind:src="product.imageSrc" v-bind:alt="product.name"  width="198" height="230"/>
+
+                        <p class="text-center">原价：<s>￥{{product.realPrice}}</s></p>
+                        <p class="text-center">售价：<em>￥{{product.sellPrice}}</em></p>
+                        <a v-bind:href="product.orderLink" ><p class="text-center">查看详情</p></a>
+                    </a>
+                    <%--</div>--%>
 				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
-				<div name="product" class="product">
-					<p class="text-center">商品名</p>
-					<a href=""><img src="img/4.png"/></a>
-					<p>原价：<span></span></p>
-					<p>售价：<span></span></p>
-					<a href="">查看详情</a>
-				</div>
+
 			</div>
 		</div>
 
@@ -312,6 +181,7 @@
     <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
     <script src="<%=request.getContextPath()%>/js/vue.js"></script>
     <script>
+        var typeData = [];
         $(document).ready(function () {
             var mydata=[];
             $.ajax({
@@ -320,7 +190,6 @@
                 dataType:"json",
                 success:function (data) {
                     //这里获取到数据展示到前台
-                    console.log(data);
                     var vm = new Vue({
                         el:'#productList',
                         data:{
@@ -328,7 +197,44 @@
                         }
                     });
                 }
-            })
+            });
+            $.ajax({
+                type:"GET",
+                url:"/ishop-portal/listType",
+                dataType:"json",
+                success:function (data) {
+                    //这里获取到数据展示到前台
+                    var vm = new Vue({
+                        el:'#typeGrade',
+                        data:{
+                            typeData:data
+                        }
+                    });
+                    typeData = data;
+                }
+            });
+
         });
+        function  selectGrade2(that) {
+            var obj = that.firstElementChild.innerHTML;
+            $("#typeGrade2 > li").remove();
+            for(var i = 0; i < typeData.length; i++){
+                if(obj == typeData[i].parentId){
+                    $("#typeGrade2").append('<li role="presentation"  onclick="selectGrade3(this)"><span style="display: none">'+typeData[i].id+'</span> <a href="#">'+typeData[i].name+'</a> </li>');
+                    $("#typeGrade2").css("display","block");
+                }
+            }
+        }
+        function  selectGrade3(that) {
+            var obj = that.firstElementChild.innerHTML;
+            $("#typeGrade3 > li").remove();
+            for(var i = 0; i < typeData.length; i++){
+                if(obj == typeData[i].parentId){
+                    $("#typeGrade3").append('<li role="presentation" ><span style="display: none">'+typeData[i].id+'</span> <a href="#">'+typeData[i].name+'</a> </li>');
+                    $("#typeGrade3").css("display","block");
+                }
+            }
+
+        }
     </script>
 </html>
