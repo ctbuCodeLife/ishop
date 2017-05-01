@@ -7,7 +7,6 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="Keywords" content=""/>
 		<meta name="Description" content=""/>
-		<link rel="stylesheet" type="text/css" href="css/footer.css" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<style type="text/css">
 			*{
@@ -35,8 +34,8 @@
 				vertical-align: middle;
 				text-align: center;
 			}
-			.title div:first-child{
-				background-color: red;
+			.title H3:first-child{
+				background-color: #E8F1F5;
 			}
 			.main{
 				width: 100%;
@@ -48,11 +47,14 @@
 				margin: auto;
 			}
 			.main table thead{
-				background-color: bisque;
+				background-color: #76E2F4;
 			}
 			.main table td{
 				width: 20%;
-				
+			}
+			.main table td button{
+				width: 70px;
+				margin: 0 auto;
 			}
 			.flex_bottom{
 				position: fixed;
@@ -74,7 +76,11 @@
 			.flex_bottom table td input[type='button'],input[type='submit']{
 				line-height: 30px;
 				height: 30px;
+				width:50%;
 				vertical-align: middle;
+			}
+			input[type="number"]{
+				width: 50px;
 			}
 		</style>
 		<title>购物车</title>
@@ -100,19 +106,19 @@
 							<td>操作</td>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="tbody">
 						<tr v-for="commodity in allcommodity">
 							<td><input name="select" class="check" type="checkbox" value="" /><img name="commodityImg" src=''/>{{commodity.name}}</td>
 							<td class="verticalMiddle">
-								<span>{{commodity.price}}</span>
+								<span name="price">{{commodity.price}}</span>
 							</td>
 							<td class="verticalMiddle">
-								<span>{{commodity.num}}</span>
+								<span name="num"><input id="" type="number" onchange="sumPrice()"></span>
 							</td>
 							<td class="verticalMiddle">
-								<span>{{commodity.sumprice}}</span>
+								<span name="sumPrice"></span>
 							</td>
-							<td class="verticalMiddle"><button name="del">删除</button></td>
+							<td class="verticalMiddle"><button name="del" class="btn-default form-control">删除</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -132,7 +138,6 @@
 					
 				</form>
 			</div>
-			<%@include file="foot.jsp" %>
 		</div>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
@@ -161,21 +166,29 @@
 					}]
 				}
 			});
-			
+			function sumPrice() {
+				var arrPrice = $("#tbody>.price");
+				console.log(arrPrice.length);
+				var arrNum = $("#tbody>.num");
+				var arrSunPrice = $("#tbody>.sumPrice");
+				for(var i=0;i<arrNum.length;i++){
+				    arrSunPrice[i].text(arrPrice[i].text()*arrNum[i].text());
+				    console.log( arrSunPrice[i].text());
+				}
+            }
 			$(function(){
-				
 				//全选与全不选
 				$('#selectAll').click(function(){
 					if (this.checked) {
-						$('input[name=\'select\']').attr('checked',true);
+						$('input[name=\'select\']').prop("checked",true);
 					} else{
-						$('input[name=\'select\']').attr('checked',false);
+						$('input[name=\'select\']').prop("checked",false);
 					}
 				});
 				//删除所选
 				$('#delSelect').click(function(){
 					var arrDel = $('input[name=\'select\']:checked');
-					
+
 				});
 			});
 		</script>
