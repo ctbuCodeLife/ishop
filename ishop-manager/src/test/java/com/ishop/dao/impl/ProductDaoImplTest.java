@@ -6,6 +6,9 @@ import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertNotNull;
 
 /** 
@@ -107,9 +110,18 @@ public void testGetTotal() throws Exception {
 @Test
 public void testList() throws Exception { 
 //TODO: Test goes here... 
-} 
-
-/** 
+}
+    @Test
+    public void testListByTypeID() throws Exception {
+    //测试成功
+//        ProductDao pd = new ProductDaoImpl();
+//        int typeId = 16;
+//        List<Product> list = new ArrayList<Product>();
+//        list = pd.list(typeId);
+//        System.out.println(list);
+//        assertNotNull(list);
+    }
+    /**
 * 
 * Method: list(int start, int count) 
 * 

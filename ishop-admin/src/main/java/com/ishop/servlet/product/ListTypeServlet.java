@@ -26,13 +26,8 @@ public class ListTypeServlet extends HttpServlet {
             List<Type> list = td.list();
             PrintWriter out = response.getWriter();
             String json = JSON.toJSONString(list, SerializerFeature.WriteDateUseDateFormat,SerializerFeature.PrettyFormat, SerializerFeature.DisableCircularReferenceDetect);
-            if(list != null) {
-                out.println(json);
-                out.close();
-            }else{
-                out.println("获取失败!");
-                out.close();
-            }
+            out.println(json);
+            out.close();
         }catch (Exception e) {
             e.printStackTrace();
         }
